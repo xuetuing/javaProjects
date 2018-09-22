@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>  
+<!DOCTYPE mapper PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"      
+ "http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+<mapper namespace="com.xms.dao.DeptDao">
+	<!-- 查询全部部门的映射配置 -->
+	<select id="findAll" resultType="com.xms.entity.Dept">
+		select * from dept
+	</select>
+	<!-- 根据部门名称查询 -->
+	<select id="findByDname" parameterType="java.lang.String" resultType="com.xms.entity.Dept">
+		select * from dept where dname = #{dname}
+	</select>
+	<!-- 添加员工 -->
+	<insert id="save" parameterType="com.xms.entity.Dept">
+		insert into dept values(#{deptno},#{dname},#{address})
+	</insert>
+	<!-- 修改员工信息 -->
+	<select id="update" parameterType="com.xms.entity.Dept">
+		update dept set dname=#{dname},address=#{address} where deptno=#{deptno}
+	</select>
+	<!-- 删除操作 -->
+	<select id="delete" parameterType="java.lang.Integer">
+		delete from dept where deptno = #{deptno}
+	</select>
+	
+	
+</mapper>
+	
+	
+	
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 

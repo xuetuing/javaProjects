@@ -1,0 +1,138 @@
+10.集合框架Collection：接口，是所有集合接口的超类
+
+Collection接口中定义的方法：
+int size():返回集合中的元素的数量
+boolean isEmpty()
+boolean contains(Object obj)
+void clear()
+boolean add(E e):添加元素
+boolean remove(Object obj):删除给定元素
+boolean addAll(Collection c):将给定集合中所有元素添加到当前集合
+boolean removeAll(Collection c):删除当前集合中与给定集合相同的元素
+boolean retainAll(Collection c):只保留当前集合中与给定集合相同的元素
+Iterator iterator():返回用于遍历集合的迭代器
+
+1)List集合：可重复集，有序集	List是接口
+更简单的初始方式：
+List ls = Arrays.asList("a",1,"b"); //返回固定长度列表，不能add()和remove()
+System.out.println(ls.get(0)); 
+有两个常用实现类：
+ArrayList:内部使用数组实现,查询快，效率较高
+LinkedList:内部使用链表实现，查询慢，适合频繁增删操作
+Vector:不常用（效率低），查询快，效率低
+
+ArrayList,LinkedList和Vector三者的比较：
+ArrayList 和 Vector的比较
+ArrayList在JDK1.2版本以后采用了变长数组算法实现，线程不安全，
+效率高速度快
+Vector 在JDK1.0版本出现，底层也是采用了变长数组算法实现，线程安全
+效率低，实现了List接口
+
+ArrayList 和 LinkedList的比较
+LinkedList 是采用双向链表的结构实现的，更适合频繁的增删操作
+ArrayList 是采用变长数组算法实现的，更适合查询数据
+list-->Array		Object[] toArray()	list.toArray()
+
+2）Set集合：不重复集，无序集
+所谓的不重复：指Set集合中不能出现两个元素equals()比较为true的元素
+实现类：HashSet:使用散列算法实现，基于HashMap
+	  TreeSet:使用二叉树实现(不常用)
+HashSet:存取元素时依赖元素的hashCode()方法
+hashCode()方法是Object定义的方法，所有的类都具备该方法
+通常我们重写一个类的equals()时，要求连同重写hashCode()
+
+重写hashCode()的注意事项：
+1.hashCode()在被多次调用时应返回一个稳定的值，除非参与的equals()
+比较的属性值发生变化
+2.当两个对象equals()方法比较为true时，两个对象的hashCode()方法
+返回值应当相同
+3.当两个对象equals()方法比较为false时，不要求hashCode()方法返回
+的结果不同，但不相等的两个对象使用不同的hashCode()会提高散列表的性能	
+
+11.集合的排序：Collections是集合的工具类，其中有一个静态方法sort()
+用于排序集合元素，这里的排序仅针对于List集合
+
+Comparable接口：该接口的实现类是可比较的    (默认)
+实现该接口必须实现方法：public interface Comparable{
+					public int compareTo(T t);  //比较规则的重写
+				}
+compareTo()的返回值：不关心具体值，只关心取值范围
+当返回值大于0:当前对象比给定对象大
+返回值小于0：当前对象比给定对象小
+等于0：两者相等
+
+Comparator接口：比较工具，用于临时定义比较规则
+class MyComparator implements Comparator<String>{}
+
+12.队列(支持泛型)：Queue(FIFO)  Deque(双端队列)
+双端队列Deque是Queue的扩展，既可以作为Queue(FIFO)，也可以作为堆栈(FILO)
+Queue：实现类为LinkedList,Queue<String> queue = new LinkedList<String>();
+方法：boolean offer(E e),	E poll(),E peak()
+遍历方式：for倒循环，迭代器
+
+Deque: Deque<String> deque = new LinkedList<String>();
+1)作为堆栈时:push(),pop(),peek() 等效于addFirst(),removeFirst(),peekFirst()
+2)作为队列Queue: Queue的原方法	等效于 offerFirst(),pollFirst(),peekFirst()
+
+13.Map:是一个多行两列的表格，每一行存储一项     (不是集合)    Map<String,Integer> map = new HashMap<String,Integer>();
+一项包含两个部分：key-value(键值对)	
+常见的实现类：HashMap	使用散列算法实现的Map
+1)容量：散列表中散列数组的大小  
+2)散列运算：key-->散列值的算法（散列算法）
+3)散列桶：散列值相同的元素的"线性集合"
+4)加载因子：是散列数组的加载率，一般小于75%性能就比较理想
+（元素数量/散列数组的大小）< 75%
+5)散列查找：根据key计算散列值，根据散列值的下标找value
+	
+HashMap性能调优：
+加载因子的比值超过0.75，散列数组将扩容，存在原来数组中的数据
+要重新进行散列运算之后存入新数组，并不是简单的将原来数组中的数
+据复制到新数组中，这个过程称为rehash(重新散列)，那么扩容数组，
+rehash会带来一定的性能开销。
+	
+HashMap：以键值对存储对象，关键字key是唯一的，不重复的
+1）key可以是任意对象，value可以是任意对象
+2）key-value成对放置在集合中
+3）重复的key算一个，重复添加时是替换操作
+4）根据key的散列值计算散列表，元素按照散列值排序
+5）HashMap的默认容量是16，默认的加载因子是0.75
+6）HashMap可以根据key检索查找value的值
+7）HashMap可以在构造中指定参数：初始容量和加载因子
+	
+Map常用方法：
+V put(K k,V v):将一组key-value对存入Map,因为Map要求key
+不允许重复，所以若使用相同的key出入不同的元素，是替换操作	,返回被替换的值
+
+V get(Object k):根据k获得value，若无key,返回null
+
+HashSet就是使用HashMap实现的，它利用了HashMap对于key不允许
+重复的特点以及散列算法的优点
+	
+遍历Map的三种方式：
+1.遍历所有的key:Set keySet():Set<Integer> key = map.keySet();
+2.遍历所有的键值对:Set entrySet():Set<Integer,String> entry = map.entrySet();	getKey(),getValue()
+3.遍历所有的value(很少见):Collection values():Collection<String> values = map.values();
+
+14.数组和集合的遍历方式：
+数组：传统for循环，增强for循环foreach
+集合：
+1)List:while循环(迭代器),foreach
+2)set:迭代器Iterator,foreach
+3)Queue:for倒循环，迭代器Iterator,foreach
+4)Deque:for倒循环，迭代器,foreach
+
+总体机构：
+接口			接口			       接口		  接口				实现类
+Iterable	Collection --> List ------------------->ArrayList,LinkedList,Vector
+						   Queue --> Deque--------->LinkedList
+						   Set	 --> SortedSet
+						    |---------------------->HashSet,TreeSet
+						    
+Map------------------------------------------------>HashMap
+
+
+
+
+
+
+

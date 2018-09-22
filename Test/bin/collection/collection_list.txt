@@ -1,0 +1,32 @@
+2.1 List: 接口，实现类(ArrayList,LinkedList)
+ArrayList的底层实现：
+底层是通过数组实现，增删改元素都是在操作数组，无参构造初始化数组的容量
+为10，但其实际元素数量是size,初始默认为0.在增加元素时会先判断数组容量，利用
+ensureCapacity()对数组扩容，就是经常用到的Arrays.copyOf()，删除元素时
+还会用到System.arraycopy();
+
+两个私有属性：
+private transient Object[] elementData;
+private int size;
+无参构造：
+public ArrayList() {this(10);}
+检查给定下标的函数：
+RangeCheck(index);
+扩容函数：
+ensureCapacity()
+Arrays.copyOf(elementData,Capacity);
+System.arraycopy(elementData, index+1, elementData, index,
+			     numMoved);
+
+Arrays.copyOf()和System.arrayCopy()的主要区别：
+Arrays.copyOf()不仅仅拷贝数中的元素，还创建一个新的数组，而System.arrayCopy()
+只拷贝已经存在的数组元素。Arrays.copyOf()在底层调用了System.arrayCopy()。
+
+
+transient:用来表示不是该对象串行化的一部分。不希望该部分用Serialization机制来保存它。
+串行化：Serialization,将对象存储到介质中或以二进制方式通过网络传输，是一种持久化方法。
+
+LinkedList底层实现：
+
+
+CopyOnWriteArrayList:

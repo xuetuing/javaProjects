@@ -1,0 +1,9 @@
+Class类：
+常用方法有： 
+forName(String className)： 返回与带有给定字符串名的类或接口相关联的 Class 对象
+getResource(String name): 查找带有给定名称的资源
+getResourceAsStream():查找具有给定名称的资源,返回InputStream类型
+
+
+
+

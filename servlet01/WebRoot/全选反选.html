@@ -1,0 +1,64 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
+<script type="text/javascript">
+	$(function(){
+		$("#CheckedAllB").click(function(){
+		//	$.each($("input[name='one']"),function(index,obj){
+		//		$(obj).prop("checked",true);
+		//	});
+			$.each($("input[name='one']"),function(index,obj){
+				$(obj).prop("checked",true);
+			});
+			$("[name=one]:checkbox").attr("checked",true);
+		//	$("input[name='one']").attr("checked",true);		
+			});
+		$("#CheckedNo").click(function(){
+		//	$.each($("input[name='one']"),function(index,obj){
+		//		$(obj).prop("checked",false);
+		//	});
+		//$("[name=one]:checkbox").attr("checked",false);
+			$("input[name='one']").attr("checked",false);
+		
+			});
+		$("#CheckedRev").click(function(){
+			$.each($("input[name='one']"),function(index,obj){
+				var br = $(obj).prop("checked");
+				if(br==true){
+					$(obj).attr("checked",false);
+				}else{
+					$(obj).attr("checked",true);
+				}
+			
+			});
+		});
+		
+	});
+</script>
+</head>
+<body>
+	<form method="post" action="">
+		你的爱好是:<input type="checkbox" id="CheckedAll" />全选/全不选
+		<br />
+		<input type="checkbox" name="one" value="唱歌" />唱歌
+		<input type="checkbox" name="one" value="跳舞" />跳舞
+		<input type="checkbox" name="one" value="看书" />看书
+		<input type="checkbox" name="one" value="运动" />运动
+		<br />
+		<input type="button" id="CheckedAllB" value="全 选" />
+		<input type="button" id="CheckedNo" value="全不选" />
+		<input type="button" id="CheckedRev" value="反选" />
+		<input type="button" id="send" value="提交" />
+		
+	</form>
+
+</body>
+</html>
+
+
+
+
+

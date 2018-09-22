@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>  
+<!DOCTYPE mapper PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"      
+ "http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+<mapper namespace="com.xms.dao.EmpMapper">
+	<!-- 查找全部员工 -->
+	<select id="findAll" resultType="com.xms.entity.Emp">
+		select * from emp
+	</select>
+	<!-- 根据id查找员工 -->
+	<select id="findById" parameterType="integer" resultType="com.xms.entity.Emp">
+		select * from emp where id = #{id}
+	</select>
+	<!-- 删除 -->
+	<delete id="delete" parameterType="integer">
+		delete from emp where id = #{id}
+	</delete>
+	
+</mapper>

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.1.7//EN"
+    "http://struts.apache.org/dtds/struts-2.1.7.dtd">
+
+<struts>
+	<!-- 设置接收文件size的最大值 20M-->
+	<constant name="struts.multipart.maxSize" value="20971520"></constant>
+	<!-- 上传文件时设置缓存文件的位置 -->
+	<constant name="struts.multipart.saveDir" value="/tmp"></constant>
+	<package name="product" namespace="/product" extends="json-default">
+		<action name="loadCourse" class="action.ProductAction" method="loadCourse">
+			<result name="success" type="json">
+				<param name="root">courses</param>
+			</result>
+		</action>
+		<action name="loadLore" class="action.ProductAction" method="loadLore">
+			<result name="success" type="json">
+				<param name="root">lores</param>
+			</result>
+		</action>
+		<action name="uploadFile" class="action.FileAction">
+			<result name="success" type="json">
+				<param name="includeProperties">fix,newName</param>
+			</result>
+		</action>
+		<action name="addProduct" class="action.ProductAction" method="addProduct">
+			<result name="success" type="json">
+				<param name="root">body</param>
+			</result>
+		</action>
+		<action name="list" class="action.ProductAction" method="list">
+			<result name="success" type="json">
+				<param name="root">body</param>
+			</result>
+		</action>
+		<action name="loadOneProd" class="action.ProductAction" method="loadOneProd">
+			<result name="success" type="json">
+				<param name="root">body</param>
+			</result>
+		</action>
+		<action name="updateProd" class="action.ProductAction" method="updateProd">
+			<result name="success" type="json">
+				<param name="root">body</param>
+			</result>
+		</action>
+		<action name="del" class="action.ProductAction" method="del">
+			<result name="success" type="json">
+				<param name="root">body</param>
+			</result>
+		</action>
+		
+	</package>
+
+</struts>

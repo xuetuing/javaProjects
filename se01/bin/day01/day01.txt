@@ -1,0 +1,143 @@
+Thinking in java       Java编程思想     
+
+object类
+java默认继承object类，java类都继承了Object类的属性和方法
+toString()       hashCode()      equals()
+
+1.toString()
+默认返回值为String类型        类名全称@hashCode(0x)
+
+2.equals()     ==   比较地址是否相等
+--> 比较两个对象是否相等："引用相等"      “对象相等”
+（引用相等的比较比的是对象的地址，比的是是否为同一对象）
+对象相等的比较比的是对象数据，比的是对象内容
+-->equals()在Object类中默认比较的是“引用相等”
+建议覆盖：实现对象内容的比较
+覆盖规则：1.自反性   2.对称性  3.传递性  4.一致性 
+自反性：x.equals(x)-->true
+对称性：x.equals(y)-->true    y.equals(x)-->true
+传递性：x.equals(y)-->true    y.equals(z)-->true   x.equals(z)-->true
+一致性：x.equals(y)-->true    只要内容不变，以后比较一直为true
+
+3.hashCode()       原则是不同的hashCode()值不同
+1）hashCode()要和equals()一同覆盖（sun公司规定）
+a.当两个对象equals()比较为true，应该具有相同的hashCode()值
+b.当两个对象equals()比较为false,应该具有不同的hashCode()值
+c.hashCode()值要稳定，一个对象被创建后就不应该再发生变化
+2）默认的hashCode()是当前堆对象地址转换的一个整数，这个整数不是内存地址值
+3）我们一般使用对象的OID值作为hashCode()值，OID值是对象的唯一编号，
+在项目中一般都是根据数据生成一个OID，就是数据库的主键
+
+public native int hashCode();
+此处关键字  native 表示调用非java代码接口，native Method：此方法的由非java语言实现。
+
+String类：char[]+操作
+1.char[] 本身就是一串字符，java中可以作为字符串使用
+2.concat()可以实现字符串之间的复制，底层也是使用的数组的复制
+
+String类：
+a.char 数组只有数据，没有操作
+b.一串字符就是字符串：String、char[]、StringBuilder
+c.字符串的字面量默认都是String类型
+d.字符串的常量：static final修饰的
+e.String内部就是一个char[]
+
+String API有一个原则，对象内容不变，String对象永远不变，这样
+的规定使字符串使用起来跟基本类型一样
+String字面量相同的时候，会替换为同一个String对象的引用，常量池
+会优化为同一个字符串，String的比较使用equals()
+
+字符串里的方法使用字符串有了变化就要返回一个新的String对象，不变化就返回原字符串
+
+String的常用方法：
+a.字符串覆盖了Object类的equals()、hashCode()、toString()
+b.String字符串中的所有字符都有下标
+c.常用方法：
+charAt(int index):获取指定下标的字符
+indexOf(int ch):获取字符的下标
+lastIndexOf(int ch):查看给定字符串在当前字符串中最后一次出现的位置
+toUpperCase():将当前字符串中所有小写字符转为大写
+toLowerCase():将当前字符串中所有大写字符转为小写
+trim():去除当前字符串中两边的空白
+startsWith(String prefix):判断当前字符串是否以给定的字符串起始
+startsWith(String prefix,int toffset):判断从指定索引开始的子字符串是否以给定的字符串起始
+endsWith(String suffix):判断当前字符串是否以给定的字符串结尾
+length():获取当前字符串的长度（字符数量）
+equals(Object anObject):比较两个字符串的内容是否相等
+equalsIgnoreCase(String anotherString):可以忽略英文大小写来比较字符串中国的内容是否一致
+substring(int beginIndex):截取当前字符串，从给定位置开始截取掉给定位置   //方法字母都是小写
+toCharArray():将给定的字符串转换为字符数组
+getBytes():根据给定的字符集将当前字符串转换为对应的字节序列并返回
+
+正则表达式：负责字符串的匹配处理（一般用在验证字符串格式）
+"^正则表达式$"
+
+字符集：
+[123456789]或者[1-9]或者[a-z]      其中一个
+[^12345]						除了这些数字之外
+[0-9a-fA-F]						表示一个16进制的字符
+0[xX][0-9a-fA-F]				表示整数的16进制形式
+{8，15} 							表示出现了8-15次
+
+表示8-16位数字、字母下划线组成的密码： String s = "^[0-9a-zA-Z_]{8,16}$";
+
+预定义字符集：
+\d						表示[0-9]
+\D						非数字
+.						任意字符
+\w						表示单词字符[0-9a-zA-Z_]
+\W						非单词字符
+\s						空白
+\S						非空白
+{m,n}					出现m-n次
+{n}						出现n次
+?						出现0-1次
++						出现1次以上
+*						出现0-n次
+
+邮政编码：
+String s = "^\\d{6}$";
+
+用户名：8-10位的数字，字母，下划线
+String s = "^\\w{8,10}$"
+
+手机号：
+		18556555556
+	+86 18556555556
+  0086  18556555556
+String s = "^(.{3,4}\\s)?\\d{11}$";
+String s = "^(\\+86|0086)?\\s?+\\d{11}$";
+
+System.arraycopy(arr0,startindex0,arr1,startindex1,len);
+将arr0中从startindex0开始len长度的字符复制到arr1中（从startindex1开始）
+Arrays.copyOf()数组扩容，返回新数组
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

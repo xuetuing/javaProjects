@@ -1,0 +1,94 @@
+js知识整理：用来操作DOM BOM元素
+1.数据类型
+数据类型：Number Boolean String Array RegExp Date Function
+**没有char类型
+特殊数值：NaN Infinity isNaN() isFinite()
+特殊类型：undefined null 
+表达式与布尔转换规则：
+true : 不等于0数字 非空字符串 对象 ->true
+其他false: 0 null "" undefined NaN ->false
+
+全局变量说明：在脚本片段(非方法中)中定义的变量，是全局变量。不同<script>标签中都和使用
+ 赋值和关系运算符：==:比较值是否相等		!=
+			  ===:比较类型和值都相等	!==
+
+转换函数 全局函数：直接使用
+	parseInt() - 转为整数,截取  转换包括：数值，数值型字符串，以数值开头的字符串
+			   - 不能转换的返回 NaN
+	parseFloat() - 转为小数
+	toString() - 任何类型都可转换为string类型
+	调用方式：a.toString();
+
+-->Date
+	常用方法：
+	toLocaleString();//本地时间格式	getTime();
+	getDate(); //获取日				getDay(); //获取星期
+	getFullYear();//获取年			getMonth();
+	getHours,Minutes,Seconds 时分秒
+需要获取特定时间格式需要获取时间后自行拼字符串。	
+
+
+2.JS基本用法
+	1)行内式
+		直接在页面上添加事件，事件的内容直接给定
+		如：onclick="事件需要做的内容";
+		<a href="javascript:;" onclick="document.getElementById('').src=''"></div>
+	2)嵌入式
+		-1.在script标签中写js代码
+		-2.在页面上某处调用 onclick
+		<script>function f(){}</script>
+	3)文件调用式
+		-1.写js文件
+		-2.在html中引入外部js文件 <script src="path"></script>
+		-3.调用
+		
+3.页面自动跳转
+  <script type="text/javascript">
+	var t = 5;
+	function showTime(){
+		t -= 1;
+		document.getElementById("dd").innerHTML = t;
+		if(t==0){
+			location.href = "/xmsproject/login/toLogin.do";
+		}
+		setTimeout("showTime()",1000);
+	}
+	showTime();
+  </script>
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		

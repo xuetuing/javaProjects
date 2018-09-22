@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-module
+  type="WEB"
+  name="Springvideocms"
+  id="myeclipse.1536749121167"
+  context-root="/Springvideocms"
+  j2ee-spec="5.0"
+  archive="Springvideocms.war">
+  <attributes>
+    <attribute name="webrootdir" value="WebRoot" />
+  </attributes>
+</project-module>
+

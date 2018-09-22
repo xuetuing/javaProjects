@@ -1,0 +1,22 @@
+Arrays方法：
+
+Arrays.toString(arr);
+
+Arrays.copyOf(arr,length);//可以对指定数组扩容，减容，得到新数组
+Arrays.copyOfRange(arr,from,to);//将制定数组的指定范围复制到新数组
+System.arrayCopy(src,srcpos,dest,destpos,length);  //已存在有两个数组
+
+Arrays.binarySearch(arr,value);
+Arrays.sort(arr);
+Arrays.equals(arr,arr1);
+Arrays.fill(arr,value);
+Arrays.hashCode();
+
+
+Arrays.deepEquals();
+Arrays.deepHashCode();
+Arrays.deepToString();
+
+String 转 char     String str.charAt()
+char[] 转String   Arrays.toString(ch[])
+String 转char[]   str.toCharArray()

@@ -1,0 +1,107 @@
+设计模式：
+1）创建型模式：单例模式、工厂模式等
+2）结构型模式：装饰模式、代理模式等
+3）行为型模式：模板模式、迭代器模式等
+单例模式：
+当一个类套用了单例模式，该类可以保证任何时候有且仅有一个实例
+
+模板模式：
+定义一个操作中的算法过程骨架，而将一些步骤延迟到子类实现
+
+java中的异常处理机制：
+java中异常结构定义的父类为Throwable,其派生出的两个子类别：
+Error:用于标示JRE的错误，该类错误是无法通过程序解决的
+	  OutOfmemoryError：堆内存溢出
+	  StackOverflowError:栈内存溢出
+Excepton:标示程序级别的异常，该类错误是可以通过程序解决的
+注意：
+1.异常是行为、方法、过程的意外结果
+2.一个方法如果抛出了异常，这个方法就必须声明异常的抛出
+3.异常的声明：在方法上声明方法的意外结果
+4.异常类一般都继承自Exception
+5.调用抛出异常的方法，必须处理异常，两种方案：
+	a.使用try-catch-finally捕获解决异常
+	b.throws关键字直接抛出异常
+6.如果出现异常，异常以后的代码不会再执行（除了finally）
+
+java异常捕获机制的语法：
+try{
+	//可能出现异常的代码片段
+}catch(XXXException e){
+	//解决问题的代码片段（catch块跟在try块之后，用于捕获并解决异常，
+	catch块允许出现多次）
+}finally{
+	//不管是否出现异常，总会执行的代码块通常使用finally语句块
+	作为程序的收尾工作
+}
+
+throw关键字：用于主动抛出异常
+1）当前语法片段出现了一个业务错误，这个错误是不满足业务逻辑的情况时，
+会主动抛出异常
+2）当前代码片段出现了一个异常，但是该异常的处理不应该是当前代码片
+段负责处理时，我们需要主动抛出异常
+
+throws关键字：该关键字用于在声明方法时连同声明方法可能抛出的异常种类，
+以通知使用者在调用该方法时应捕获这些异常
+丑话说在前，分清责任关系
+
+java中将异常分为检查异常和非检查异常
+非检查异常：RuntimeException及其子类
+	当程序中抛出了（throw）了一个RuntimeException，获取子类时，编译器
+会在编译时不检查该类异常是否被处理
+
+检查异常：非(RuntimeException及其子类)
+	这些异常若在程序中被抛出，编译时会检查该类异常是否有处理代码，没有则编译
+不通过
+
+RuntimeException的子类：
+NullPointerException
+StringIndexOutOfBoundsException
+ArrayIndexOutOfBoundsException
+ClassCastException
+NumberFormatException
+IOException
+......
+
+
+Java IO流
+
+File类
+该类用于文件或者目录，其实例是用于描述文件系统的一个文件或
+者目录的，通过File类在程序中操作硬盘上的文件或目录
+注意：File类只能用于表达文件信息，不能访问文件内容
+
+File文件表示文件系统对文件，目录的管理操作（增删改查）
+常用方法：
+File(String fileName):指定文件名的构造器
+long length():获取文件的长度（字节量）
+long lastModified():最后一次修改的时间
+String getName():获取文件名
+String getPath():获取相对路径
+boolean exists():判断文件是否存在
+boolean isFile():判断是否是文件
+boolean isDirectory():判断是否是目录
+boolean canRead():判读是否可读
+boolean canWrite():判读是否可写
+mkdir():创建一个目录
+mkdirs():创建多层目录
+getParentFile():获取父目录
+createNewFile():创建file对象所描述的文件
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

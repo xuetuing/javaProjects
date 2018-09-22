@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.1.7//EN"
+    "http://struts.apache.org/dtds/struts-2.1.7.dtd">
+
+<struts>
+	<!-- 上传文件时设置缓存文件的位置 -->
+	<constant name="struts.multipart.saveDir" value="/tmp"></constant>
+	<!-- 通过action 访问jsp -->
+	<package name="day03" namespace="/day03" extends="struts-default">
+		<!-- 定义拦截器 -->
+		<interceptors>
+			<interceptor name="some" class="interceptor.SomeInterceptor"></interceptor>
+		</interceptors>
+		<action name="tags" class="action.TagAction">
+			<result>/WEB-INF/tags.jsp</result>
+		</action>
+		<action name="some" class="action.SomeAction">
+			<!-- 使用拦截器 -->
+			<interceptor-ref name="some"></interceptor-ref>
+			<result name="success">/WEB-INF/some.jsp</result>
+			<result name="success2">/WEB-INF/some2.jsp</result>
+		</action>
+		<action name="uploadForm">
+			<result>/WEB-INF/uploadFile.jsp</result>
+		</action>
+		<action name="upload" class="action.UploadAction">
+			<result name="success">/WEB-INF/some.jsp</result>
+		</action>
+	</package>                                                                                                                                                                                                                                                                                                                                                                                                                                  
+</struts>

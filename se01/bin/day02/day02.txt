@@ -1,0 +1,120 @@
+boolean matches(String regex)
+使用给定的正则表达式来验证当前字符串的格式是否满足要求，满足则返回true
+
+String[] split(String regex)
+根据给定的正则表达式匹配当前字符串，使用匹配上的部分进行拆分，返回拆分后的字符串
+如果在拆分的字符串内容末尾联系出现匹配项，那么这些被拆分的项被忽略
+
+String replaceAll(String regex,String replacement)
+将当前字符串中满足正则表达式的部分替换为给定的字符串
+
+String = char[] + 操作
+其中的数组不可变
+StringBuilder = char[] + 操作
+其中的数组内容可变，如果长度不够，会利用变长数组算法来维护，自动扩容
+
+StringBuilder是用来修改字符串的类，是一个变长字符序列
+StringBuilder     Jdk1.5   	效率较高		线程不安全
+StringBuffer	  JDK1.0	效率相对较低	线程安全
+
+方法 ：append、 insert、 delete、 replace, 返回值都是StringBuilder
+对象本身的引用，如果我们的软件需要大量字符串处理，建议使用StringBuilder
+
+java中的时间与日期
+Date类		java.util.Date
+该类的每个实例用来描述时间
+内部 维护了一个long值，记录了自1970年到这一刻时间之间的毫秒差
+
+SimpleDateFormat类
+使用一个特殊的字符串来描述一个时间格式，并使用该时间格式作为桥梁在
+字符串和时间之间相互转换
+Date <-->String
+
+时间格式字符串中的特殊字符：
+y:年
+	yyyy:四位数的年
+	yy:两位数的年
+M：月
+	MM：两位数的yue
+d：日
+	dd:两位数的日期
+h:小时	12小时制
+H:小时	24小时制
+	hh/HH:两位数的小时
+m:分钟
+	mm：两位数字的分钟
+s:秒
+	ss:两位数的秒
+E:星期
+a:上下午
+
+在一个格式容器中,字符串中出现的其他字符按意愿显示
+yyyy-MM-dd HH:mm:ss
+	
+总结Date日期格式的转换:
+毫秒 与 时间的转换：
+
+字符串 与 Date型转换：
+
+日期格式SimpleDateFormat():
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

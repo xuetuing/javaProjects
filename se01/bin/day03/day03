@@ -1,0 +1,116 @@
+DateFormat		该类是SimpleDateFormat的父类
+该类可以根据给定的地区经Date转换为字符串
+不同的地区对应的时间格式字符串是预定义的
+
+Calendar类
+日历类，用于操作时间的类，是一个抽象类，不能实例化，
+使用其提供的工厂方法获取实例：getInstance()
+该方法会根据当前系统所在地区自动判定应使用哪个子类实现
+
+String、Date、Calendar三者之间的转换关系：
+String --> SimpleDateFormat.parse() --> Date
+Date --> SimpleDateFormat.format() --> String
+
+Date --> Calendar.setTime() --> Calendar
+Calendar --> Calendar.getTime() --> Date
+
+Calendar操作时间：
+1.获取某个时间单位的值
+2.给某个时间单位设置值
+3.计算时间
+
+
+包装类：
+8个基本数据不能参与面向对象的开发，因为不是Object类的子类
+所有不能以多态的角度去看待，为此，java为8个基本类型提供了包装类
+
+基本类型						包装类(java.lang)
+int							Integer
+char						Character
+byte						Byte
+short						Short
+long 						Long
+float						Float
+double						Double
+boolean						Boolean
+
+基本类型 --> 包装类			valueOf()
+包装类 --> 基本类型			xxxValue()
+
+包装类的自动拆装箱
+
+包装类支出的常量和方法：
+MAX_VALUE:获取相应基本类型的最大值
+MIN_VALUE:获取相应基本类型的最小值
+parsexxx(String str):可以将字符串转换为对应的基本类型数据（完全匹配）
+
+
+大整型，大浮点型数据：
+java.math.BigInteger
+大整型，可以保存的数字比Long大的整型
+
+java.math.BigDecimal
+可以做很精确的小数运算，并且可以保存很精确的小数
+四种运算方法：add(),subtract(),multiply(),divide()
+
+
+java中的集合框架：
+Collection接口		该接口是所有集合接口的超类
+Set集合：不重复集，无序集
+所谓的不重复：指Set集合中不能出现两个元素equals()比较为true的元素
+
+List集合：可重复集，有序集
+
+Collection接口中定义的方法：
+int size():返回集合中的元素的数量
+boolean isEmpty()
+boolean contains(Object obj)
+void clear()
+boolean add(E e):添加元素
+boolean remove(Object obj):删除给定元素
+boolean addAll(Collection c):将给定集合中所有元素添加到当前集合
+boolean removeAll(Collection c):删除当前集合中与给定集合相同的元素
+boolean retainAll(Collection c):只保留当前集合中与给定集合相同的元素
+Iterator iterator():返回用于遍历集合的迭代器
+
+List集合：可重复集，有序集		List是接口
+有两个常用实现类：
+ArrayList:内部使用数组实现
+LinkedList:内部使用链表实现
+Vector:不常用（效率低）
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

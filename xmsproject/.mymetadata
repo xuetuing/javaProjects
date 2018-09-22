@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-module
+  type="WEB"
+  name="xmsproject"
+  id="myeclipse.1536198894013"
+  context-root="/xmsproject"
+  j2ee-spec="5.0"
+  archive="xmsproject.war">
+  <attributes>
+    <attribute name="webrootdir" value="WebRoot" />
+  </attributes>
+</project-module>
+

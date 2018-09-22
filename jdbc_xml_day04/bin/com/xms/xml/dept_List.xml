@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<deptList><dept deptno="10"><danme>市场部</danme><location>广州</location></dept><dept deptno="20"><danme>销售部</danme><location>南京</location></dept><dept deptno="30"><danme>研发部</danme><location>苏州</location></dept></deptList>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>  
+<!DOCTYPE mapper PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"      
+ "http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+<mapper namespace="com.xms.dao.DeptMapper">
+	<!-- 插入一条部门数据 -->
+	<insert id="save" parameterType="com.xms.entity.Dept" useGeneratedKeys="true" keyProperty="deptno">
+		insert into dept values(null,#{dname},#{address})
+	</insert>
+	
+	
+</mapper>
+	
+	
+	
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 

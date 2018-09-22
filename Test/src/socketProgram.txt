@@ -1,0 +1,123 @@
+网络编程：
+
+网络要素
+IP地址：InetAddress
+
+端口号
+   有效端口：0~65535 ，其中0~1024系统使用或保留端口。
+1025-65535是动态端口：程序员可以使用
+
+端口注意事项
+①     在计算机（尤其是服务器）要尽可能的少开端口
+②     一个端口只能被一个程序监听
+③     netstat –an 可以查看本机哪些端口在监听
+④     netstat –anb 来查看监听端口号，再结合任务管理器关闭不安全的端口
+
+TCP和UDP传输协议：
+
+	UDP（数据报文协议）											TCP（传输控制协议）
+	基于广播的非安全传输协议										基于连接的安全性传输协议
+	将数据及源和目的封装成数据包中，不需要建立连接						建立连接，形成传输数据的通道
+	每个数据报的大小在限制在64k内									在连接中进行大量数据传输
+	因无连接，是不可靠协议										通过三次握手完成连接，是可靠协议
+	不需要建立连接，速度快										必须建立连接，效率会稍低
+
+1.IP对象：InetAddress
+方法摘要
+ 
+static InetAddress getLocalHost() :返回本地主机。
+String getHostAddress() :返回 IP 地址字符串（以文本表现形式）。
+String getHostName() :获取此 IP 地址的主机名。
+static InetAddress getByName(String host) （String 可以是IP也可以是主机名）
+在给定主机名的情况下确定主机的 IP 地址。
+static InetAddress[] getAllByName(String host) 
+在给定主机名的情况下，根据系统上配置的名称服务返回其 IP 地址所组成的数组。
+String toString() :将此 IP 地址转换为 String。
+byte[] getAddress() :返回此 InetAddress 对象的原始 IP 地址。
+ 
+2.UDP传输实现
+1)DatagramSocket类：用来发送和接收数据报包的套接字。数据报套接字是包投递服务的发送或接收点
+构造方法:DatagramSocket()
+       DatagramSocket(int port)
+常用方法:
+void receive(DatagramPacket p) :从此套接字接收数据报包。
+void send(DatagramPacket p):从此套接字发送数据报包。
+void bind(SocketAddress addr) :将此 DatagramSocket 绑定到特定的地址和端口。
+void close() :关闭此数据报套接字。
+2)DatagramPacket类:用来将数据封装到数据包中，发送和接收数据时构造方式不同
+接收：
+DatagramPacket(byte[] buf, int length) :用来接收长度为 length 的数据包。
+DatagramPacket(byte[] buf, int offset, int length) :用来接收长度为 length 的包，在缓冲区中指定了偏移量。
+ 
+发送时：
+DatagramPacket(byte[] buf, int length, InetAddress address, int port) 
+构造数据报包，用来将长度为 length 的包发送到指定主机上的指定端口号。
+
+DatagramPacket(byte[] buf, int offset, int length, InetAddress address, int port) 
+构造数据报包，用来将长度为 length 偏移量为 offset 的包发送到指定主机上的指定端口号。
+
+DatagramPacket(byte[] buf, int offset, int length, SocketAddress address) 
+构造数据报包，用来将长度为 length 偏移量为 offset 的包发送到指定主机上的指定端口号。
+
+DatagramPacket(byte[] buf, int length, SocketAddress address) 
+构造数据报包，用来将长度为 length 的包发送到指定主机上的指定端口号
+ 
+对象方法有：getAddress() getPort() getData() getLength()
+
+UDP传输实现逻辑：接收端和发送端
+发送端：
+1)建立socket套接字，
+2)使用DatagramPacket对象将要发送的数据封装到数据包中
+3)调用socket的send()方法，发送数据包
+4)关闭socket
+
+接收端：
+1)建立socket套接字，指定端口
+2)利用DatagramPacket构造数据包，用来接收数据
+3)调用socket的receive方法接收数据存储到数据包中
+4)利用数据包方法解析数据（getAddress()等方法）
+5)关闭socket
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      
+
+   
+
+   
+
+   
+
+   

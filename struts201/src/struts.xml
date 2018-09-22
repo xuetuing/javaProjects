@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.1.7//EN"
+    "http://struts.apache.org/dtds/struts-2.1.7.dtd">
+
+<struts>
+<!-- localhost:8080/struts2_01/day01/welcome.action -->
+	<package name="day01" namespace="/day01" extends="struts-default">
+		<action name="welcome" class="action.WelcomeAction" method="execute()">
+			<result>/WEB-INF/welcome.jsp</result>
+		</action>
+		<!-- 必须通过action 访问登录页面 -->
+		<action name="loginForm">
+			<result>/WEB-INF/loginForm.jsp</result>
+		</action>
+		<action name="login" class="action.LoginAction2">
+			<result name="success">/WEB-INF/welcome.jsp</result>
+			<result name="error">/WEB-INF/loginForm.jsp</result>
+		</action>
+	</package>                                                                                                                                                                                                                                                                                                                                                                                                                                  
+</struts>

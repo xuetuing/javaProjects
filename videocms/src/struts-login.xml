@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.1.7//EN"
+    "http://struts.apache.org/dtds/struts-2.1.7.dtd">
+
+<struts>
+	<!-- 登录模块 -->
+	<package name="login" namespace="/login" extends="json-default">
+		<action name="loginForm">
+			<result>/WEB-INF/login.jsp</result>
+		</action>
+		<action name="getCodeImg" class="action.LoginAction" method="getCodeImg">
+			<result name="success" type="stream">is</result>
+		</action>
+		<action name="checkUserCode" class="action.LoginAction" method="checkUserCode">
+			<result name="success" type="json">
+				<param name="root">body</param>
+			</result>
+			<result name="error" type="json">
+				<param name="root">body</param>
+			</result>
+		</action>
+		<action name="login" class="action.LoginAction" method="login">
+			<result name="success" type="json">
+				<param name="root">body</param>
+			</result>
+			<result name="success" type="redirectAction">
+				<param name="namespace">/main</param>
+				<param name="actionName">index</param>
+			</result>
+			<result name="error" type="json">
+				<param name="root">body</param>
+			</result>
+		</action>
+		
+	</package>
+</struts>
+
+
+
+
