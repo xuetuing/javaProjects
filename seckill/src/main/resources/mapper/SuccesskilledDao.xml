@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper>
+    <update id="insertSuccessKilled">
+      INSERT ignore INTO seckill(seckill_id, user_phone, state)
+      VALUES (#{seckillId},#{userPhone},0)
+    </update>
+    <select id="queryByIdWithSeckill" resultMap="successKilled">
+      SELECT
+        sk.seckill_id,
+        sk.user_phone,
+        sk.state,
+        sk.create_time,
+        sk.seckill,
+        s.seckill_id,
+        s.name,
+        s.number,
+        s.start_time,
+        s.end_time,
+        s.create_time,
+      FROM success_killed sk
+      INNER JOIN seckill s ON sk.seckill_id = s.seckill_id
+      WHERE sk.seckill_id = #{seckillId}
+      AND sk.user_phone = #{userPhone}
+    </select>
+    <resultMap id="successKilled" type="SuccessKilled">
+        <id property="seckillId" column="seckill_id"/>
+        <result property="userPhone" column="user_phone"/>
+        <result property="state" column="state"/>
+        <result property="createTime" column="create_time"/>
+        <association property="seckill" javaType="Seckill">
+            <id property="seckillId" column="seckill_id"/>
+            <result property="name" column="name"/>
+            <result property="number" column="number"/>
+            <result property="startTime" column="start_time"/>
+            <result property="endTime" column="end_time"/>
+            <result property="createTime" column="create_time"/>
+        </association>
+    </resultMap>
+    <!--
+  <select id="queryByIdWithSeckill" resultType="SuccessKilled">
+        SELECT
+        sk.seckill_id,
+        sk.user_phone,
+        sk.create_time,
+        sk.state,
+        s.seckill_id  "seckill.seckill_id",
+        s.name "seckill.name",
+        s.number  "seckill.number",
+        s.start_time "seckill.start_time",
+        s.end_time  "seckill.end_time",
+        s.create_time  "seckill.create_time"
+        FROM  success_killed sk
+        INNER JOIN seckill s on sk.seckill_id=s.seckill_id
+        WHERE sk.seckill_id=#{seckillId} AND sk.user_phone=#{userPhone}
+    </select>
+-->
+</mapper>

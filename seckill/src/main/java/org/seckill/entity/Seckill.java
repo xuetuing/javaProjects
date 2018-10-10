@@ -5,8 +5,10 @@ import java.util.Date;
 public class Seckill {
     private Long seckillId;
     private String name;
+    private Integer number;
     private Date startTime;
     private Date endTime;
+    private Date createTime;
 
     public Long getSeckillId() {
         return seckillId;
@@ -38,5 +40,21 @@ public class Seckill {
 
     public void setEndTime(Date endTime) {
         this.endTime = endTime;
+    }
+
+    public Integer getNumber() {
+        return number;
+    }
+
+    public void setNumber(Integer number) {
+        this.number = number;
+    }
+
+    public Date getCreateTime() {
+        return createTime;
+    }
+
+    public void setCreateTime(Date createTime) {
+        this.createTime = createTime;
     }
 }
