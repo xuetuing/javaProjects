@@ -2,12 +2,12 @@
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper>
+<mapper namespace="org.seckill.dao">
     <update id="insertSuccessKilled">
       INSERT ignore INTO seckill(seckill_id, user_phone, state)
       VALUES (#{seckillId},#{userPhone},0)
     </update>
-    <select id="queryByIdWithSeckill" resultMap="successKilled">
+    <select id="queryByIdWithSeckill" resultMap="org.seckill.entity.SuccessKilled">
       SELECT
         sk.seckill_id,
         sk.user_phone,
@@ -25,12 +25,12 @@
       WHERE sk.seckill_id = #{seckillId}
       AND sk.user_phone = #{userPhone}
     </select>
-    <resultMap id="successKilled" type="SuccessKilled">
+    <resultMap id="successKilled" type="org.seckill.entity.SuccessKilled">
         <id property="seckillId" column="seckill_id"/>
         <result property="userPhone" column="user_phone"/>
         <result property="state" column="state"/>
         <result property="createTime" column="create_time"/>
-        <association property="seckill" javaType="Seckill">
+        <association property="seckill" javaType="org.seckill.entity.Seckill">
             <id property="seckillId" column="seckill_id"/>
             <result property="name" column="name"/>
             <result property="number" column="number"/>

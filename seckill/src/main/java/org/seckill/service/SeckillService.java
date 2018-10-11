@@ -12,7 +12,6 @@ import javax.xml.ws.ServiceMode;
 import java.util.List;
 @Service
 public interface SeckillService {
-
     Seckill queryById(long seckillId);
     List<Seckill> querySeckillList();
     /**
