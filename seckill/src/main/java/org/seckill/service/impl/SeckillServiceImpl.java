@@ -13,6 +13,7 @@ import org.seckill.exception.SeckillRepeatException;
 import org.seckill.service.SeckillService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.DigestUtils;
 
@@ -22,7 +23,9 @@ import java.util.List;
 public class SeckillServiceImpl implements SeckillService {
     private Logger logger = LoggerFactory.getLogger(this.getClass());
     private final String salt = "gjw|3i-4rRPT&*fg@wpr";
+    @Autowired
     private SeckillDao seckillDao;
+    @Autowired
     private SuccessKilledDao successKilledDao;
 
     public Seckill queryById(long seckillId) {
