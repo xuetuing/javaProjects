@@ -33,7 +33,7 @@ public class SeckillServiceImpl implements SeckillService {
     }
 
     public List<Seckill> querySeckillList() {
-        return seckillDao.queryAll(0,4);
+        return seckillDao.queryAll(0,6);
     }
 
     public Exposer exportKillUrl(long seckillId) {
@@ -58,7 +58,7 @@ public class SeckillServiceImpl implements SeckillService {
     }
     public SeckillExecution executeSeckill(long seckillId, long userPhone, String md5)
             throws SeckillException, SeckillRepeatException, SeckillCloseException {
-        if (md5 == null || md5.equals(getMd5(seckillId))) {
+        if (md5 == null || !md5.equals(getMd5(seckillId))) {
             throw new SeckillException("seckill data rewrite.");
         }
         //执行秒杀逻辑

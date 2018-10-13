@@ -58,7 +58,6 @@ public class SeckillController {
             logger.error(e.getMessage(), e);
             result = new SeckillResult<Exposer>(false, e.getMessage());
         }
-
         return result;
     }
 
@@ -69,13 +68,14 @@ public class SeckillController {
     public SeckillResult<SeckillExecution> execute(@PathVariable("seckillId") Long seckillId,
                                                    @PathVariable("md5") String md5,
                                                    @CookieValue(name = "killPhone", required = false) Long phone) {
+//        System.out.println(phone);  //TODO
         if (phone == null) {
             return new SeckillResult<SeckillExecution>(false, "未注册");
         }
         SeckillResult<SeckillExecution> result;
         try {
-            SeckillExecution seckillExecution = seckillService.executeSeckill(seckillId, phone, md5);
-            return new SeckillResult<SeckillExecution>(true, seckillExecution);
+            SeckillExecution execution = seckillService.executeSeckill(seckillId, phone, md5);
+            return new SeckillResult<SeckillExecution>(true, execution);
         } catch (SeckillRepeatException e1) {
             SeckillExecution execution = new SeckillExecution(seckillId, SeckillStateEnum.REPEAT_KILL);
             return new SeckillResult<SeckillExecution>(false, execution);
