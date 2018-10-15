@@ -206,14 +206,14 @@
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="java" value="361" />
-          <entry key="properties" value="84" />
+          <entry key="properties" value="122" />
           <entry key="xml" value="59" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="JAVA" value="361" />
-          <entry key="Properties" value="84" />
+          <entry key="Properties" value="122" />
           <entry key="XML" value="59" />
         </counts>
       </usages-collector>
@@ -234,17 +234,7 @@
     </session>
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/../../项目配置文件/db.properties">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="162">
-              <caret line="6" column="45" selection-start-line="6" selection-start-column="45" selection-end-line="6" selection-end-column="45" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -362,9 +352,9 @@
       <select />
     </treeState>
   </component>
-  <component name="ProjectFrameBounds">
-    <option name="x" value="46" />
-    <option name="y" value="4" />
+  <component name="ProjectFrameBounds" extendedState="1">
+    <option name="x" value="64" />
+    <option name="y" value="8" />
     <option name="width" value="1346" />
     <option name="height" value="772" />
   </component>
@@ -443,7 +433,7 @@
     <property name="Repository.Attach.Sources" value="false" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1539569735967" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1539569774272" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="Arquillian JUnit4" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.Arquillian JUnit4" value="" />
     <property name="database.console.LAST_STATE" value="false" />
@@ -684,7 +674,7 @@
       <workItem from="1539432783972" duration="99000" />
       <workItem from="1539434042806" duration="14938000" />
       <workItem from="1539485127128" duration="11995000" />
-      <workItem from="1539564143981" duration="5275000" />
+      <workItem from="1539564143981" duration="6040000" />
     </task>
     <servers />
   </component>
@@ -706,7 +696,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="130663000" />
+    <option name="totallyTimeSpent" value="131428000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -718,8 +708,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="46" y="4" width="1346" height="772" extended-state="0" />
-    <editor active="true" />
+    <frame x="64" y="8" width="1346" height="772" extended-state="1" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49671054" visible="true" weight="0.19362363" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -1041,8 +1030,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/../../项目配置文件/db.properties">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="162">
-          <caret line="6" column="45" selection-start-line="6" selection-start-column="45" selection-end-line="6" selection-end-column="45" />
+        <state relative-caret-position="54">
+          <caret line="2" selection-start-line="2" selection-end-line="2" />
         </state>
       </provider>
     </entry>
