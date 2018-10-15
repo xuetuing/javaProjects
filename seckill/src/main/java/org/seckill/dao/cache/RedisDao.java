@@ -20,6 +20,7 @@ public class RedisDao {
         try {
             //获取jedis对象
             Jedis jedis = jedisPool.getResource();
+            jedis.auth("123");
             try {
                 String key = "seckill:" + seckillId;
                 //获取seckill对象的序列化形式
@@ -47,6 +48,7 @@ public class RedisDao {
         //set Seckill(Object)-->序列化-->byte[]
         try {
             Jedis jedis = jedisPool.getResource();
+            jedis.auth("123");
             try {
                 String key = "seckill:" + seckill.getSeckillId();
                 byte[] bytes = ProtostuffIOUtil.toByteArray(seckill, schema,

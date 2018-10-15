@@ -16,6 +16,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.DigestUtils;
 
 import java.util.Date;
@@ -60,11 +61,13 @@ public class SeckillServiceImpl implements SeckillService {
         String md5 = getMd5(seckillId);
         return new Exposer(true, md5, seckillId);
     }
-    private String getMd5(long seckillId){
+
+    private String getMd5(long seckillId) {
         String base = seckillId + '/' + salt;
         String md5 = DigestUtils.md5DigestAsHex(base.getBytes());
-        return  md5;
+        return md5;
     }
+    @Transactional
     public SeckillExecution executeSeckill(long seckillId, long userPhone, String md5)
             throws SeckillException, SeckillRepeatException, SeckillCloseException {
         if (md5 == null || !md5.equals(getMd5(seckillId))) {
@@ -73,16 +76,16 @@ public class SeckillServiceImpl implements SeckillService {
         //执行秒杀逻辑
         Date nowTime = new Date();
         try {
-
+            //先插入秒杀明细
             int insertCount = successKilledDao.insertSuccessKilled(seckillId, userPhone);
             if (insertCount <= 0) {
-                throw new SeckillCloseException("seckill repeat.");
+                throw new SeckillRepeatException("seckill repeat.");
             } else {
                 //第一步：减库存返回
                 int updateCount = seckillDao.reduceNumber(seckillId, nowTime);
                 //判断是否重复秒杀
                 if (updateCount <= 0) {
-                    throw new SeckillRepeatException("seckill is closed.");
+                    throw new SeckillCloseException("seckill is closed.");
                 } else {
                     //秒杀成功
                     SuccessKilled successKilled = successKilledDao.queryByIdWithSeckill(seckillId, userPhone);
