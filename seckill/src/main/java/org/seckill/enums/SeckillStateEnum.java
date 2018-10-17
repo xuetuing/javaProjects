@@ -1,7 +1,5 @@
 package org.seckill.enums;
 
-import org.seckill.service.SeckillService;
-
 public enum SeckillStateEnum {
     SUCCESS(1, "秒杀成功"),
     END(0,"秒杀结束"),

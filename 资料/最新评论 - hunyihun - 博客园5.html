@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<!-- saved from url=(0061)https://www.cnblogs.com/chenyankai/recentcomments.html?page=5 -->
+<html lang="zh-cn"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="referrer" content="origin">
+<title>最新评论 - hunyihun - 博客园</title>
+<link type="text/css" rel="stylesheet" href="./最新评论 - hunyihun - 博客园5_files/blog-common.css">
+<link id="MainCss" type="text/css" rel="stylesheet" href="./最新评论 - hunyihun - 博客园5_files/bundle-classic.css">
+<link id="mobile-style" media="only screen and (max-width: 767px)" type="text/css" rel="stylesheet" href="./最新评论 - hunyihun - 博客园5_files/bundle-classic-mobile.css">
+<link title="RSS" type="application/rss+xml" rel="alternate" href="https://www.cnblogs.com/chenyankai/rss">
+<link title="RSD" type="application/rsd+xml" rel="EditURI" href="https://www.cnblogs.com/chenyankai/rsd.xml">
+<link type="application/wlwmanifest+xml" rel="wlwmanifest" href="https://www.cnblogs.com/chenyankai/wlwmanifest.xml">
+<script async="" src="./最新评论 - hunyihun - 博客园5_files/analytics.js.下载"></script><script src="./最新评论 - hunyihun - 博客园5_files/jquery-2.2.0.min.js.下载"></script>
+<script type="text/javascript">var currentBlogApp = 'chenyankai', cb_enable_mathjax=false;var isLogined=false;</script>
+<script src="./最新评论 - hunyihun - 博客园5_files/blog-common.js.下载" type="text/javascript"></script>
+</head>
+<body>
+<a name="top"></a>
+
+<table align="center" width="98%" cellspacing="0" cellpadding="0" border="0" style="margin-top:10px">
+<tbody><tr>
+	<td valign="top" width="70%" style="padding:0">
+		<table align="center" width="100%" height="90" cellspacing="0" cellpadding="5" border="0" bgcolor="white">
+		<tbody><tr>
+			<td class="banner">
+			
+<div id="header">
+	<span>
+		<a id="Header1_HeaderTitle" href="https://www.cnblogs.com/chenyankai/">hunyihun</a><br>
+		<div class="sub"></div>
+	</span>
+</div>
+			</td>
+		</tr>
+		</tbody></table>
+		<table align="center" width="100%" height="90" cellspacing="0" cellpadding="5" border="0" bgcolor="white" class="index">
+		<tbody><tr>
+			<td class="main">
+			
+
+<div id="myposts">
+<h3 class="myposts_title">最新评论</h3>
+<div class="pager"><div class="Pager">
+	共8页:&nbsp;<a href="https://www.cnblogs.com/chenyankai/recentcomments.html?page=4">上一页</a>&nbsp;<a href="https://www.cnblogs.com/chenyankai/recentcomments.html?page=1">1</a>&nbsp;<a href="https://www.cnblogs.com/chenyankai/recentcomments.html?page=2">2</a>&nbsp;<a href="https://www.cnblogs.com/chenyankai/recentcomments.html?page=3">3</a>&nbsp;<a href="https://www.cnblogs.com/chenyankai/recentcomments.html?page=4">4</a>&nbsp;5&nbsp;<a href="https://www.cnblogs.com/chenyankai/recentcomments.html?page=6">6</a>&nbsp;<a href="https://www.cnblogs.com/chenyankai/recentcomments.html?page=7">7</a>&nbsp;<a href="https://www.cnblogs.com/chenyankai/recentcomments.html?page=8">8</a>&nbsp;<a href="https://www.cnblogs.com/chenyankai/recentcomments.html?page=6">下一页</a>&nbsp;
+</div></div>
+
+		<div class="PostList">
+			<div class="postTitl2"><a id="PostsList1_rpPosts_TitleUrl_0" href="https://www.cnblogs.com/chenyankai/p/3951606.html#3086348">Re:源码安装Apache，报错：Cannot use an external APR with the bundled APR-util和httpd: Could not reliably determine the server's fully qualified domain name</a> <span class="postDesc2">hunyihun 2014-12-15 15:18</span>&nbsp;&nbsp;</div>
+			<div class="postText2">4	包、类和接口<br>原则10	类和接口的设计应遵循面向对象SOLID设计原则<br>1、单一职责原则（Single Responsibility Principle）<br>说明：就一个类而言，应该仅有一个引起它变化的原因。如果你能够想到多于一个的动机去改变一个类，那么这个类就具有多于一个的职责。<br>示例：<br>	职责不单一的类，有多于一个的变化原因：“SuperDashboard类提供了对最后拥有焦点的组件的访问能力，我们还能通过它跟踪版本号和构建序列号”<br>public class SuperDashboard extends JFrame implements MetaDataUser {<br>    public Component getLastFocusedComponent()<br>    public void setLastFocused(Component lastFocused)<br>    public int getMajorVersionNumber()<br>    public int getMinorVersionNumber()<br>    public int getBuildNumber()<br>}<br>职责单一的类<br>public class Version {<br>    public int getMajorVersionNumber()<br>    public int getMinorVersionNumber()<br>    public int getBuildNumber()<br>}<br>开放封闭原则（Open Closed Principle）<br>说明：开放封闭原则，指的是，新增功能时可以不修改原有的代码。也就是对扩展开放，对修改封闭。比如，可以通过实现一个已有的接口，或者继承一个已有的类，来扩展新功能，而不修改原有的代码。<br><br>3、里氏替换原则（Liskov Substitution Principle）<br>说明：里氏替换原则是指，子类的实例应该能够替换任何其超类的实例。违反此原则的经典例子是，从长方形中派生一个正方形。因为，正方形要求长宽一起变化，而长方形无此限制，则在长方形出现的地方，无法用正方形来替换。假设rectangle.setWidth(4); rectangle.setLength(5); rectangle.getArea(); 应该等于20，而如果用正方形来替换长方形的话，结果为25。<br><br>4、接口分离原则（Interface Segregation Principle）<br>说明：使用多个专门的接口比使用单一的总接口要好。不要强迫用户使用他们不用的方法。一个类对另外一个类的依赖性应当是建立在最小的接口上的。一个接口代表一个角色，不应当将不同的角色都交给一个接口。没有关系的接口合并在一起，形成一个臃肿的大接口，这是对角色和接口的污染。<br><br>5、依赖倒置原则（Dependency Inversion Principle）<br>说明：面向过程的开发中，高层直接调用底层，造成高层依赖于底层的具体实现。依赖倒置原则认为，高层应该调用抽象的接口，底层则应实现这个接口，两者都依赖于接口。这样解除了高层和底层的耦合。</div>				
+		</div>
+	<div class="line"></div>
+		<div class="PostList">
+			<div class="postTitl2"><a id="PostsList1_rpPosts_TitleUrl_1" href="https://www.cnblogs.com/chenyankai/p/3951606.html#3086345">Re:源码安装Apache，报错：Cannot use an external APR with the bundled APR-util和httpd: Could not reliably determine the server's fully qualified domain name</a> <span class="postDesc2">hunyihun 2014-12-15 15:17</span>&nbsp;&nbsp;</div>
+			<div class="postText2">建议7	方法的参数个数一般不要超过3个<br>说明：最理想的参数数量是零个，其次是一个，再次是二，有足够理由才能使用三个以上参数。如果多个参数同时多次出现在多个方法中，说明这些参数紧密相关，可以将它们封装到一个类中。<br>示例1：产品中的真实代码，参数过多<br>private void insertHistory(String workfSeq, String workfType, String recSeq, int sortOrder, String orderSeq, String workfID, int region, String subSys, String orderID, String procSystem, String platType, String neID, String telnum, String imsi, int orderPri, java.util.Date createTime, String preStatus, int maxProcnum, int procNum, String rspCode, String rspDesc, int maxOvertime, String operType, String curStatus,  String neRetn, String neDesc, int procInterval, String transid, String oprid, String prepayType, String feedback_cmd){<br>...<br>}<br>示例2：把参数抽象为 某日志类SpWorkfLog<br>private void insertHistory(SpWorkfLog spWorkfLog){<br>    ...<br>}<br>建议8	谨慎使用可变数量参数的方法<br>说明：在JDK 1.5版本中初次引入Varargs（variable number of arguments）可变数量参数，可以接受指定类型的零个到多个参数。不建议使用varargs重写使用一个固定长度数组作为参数的方法，而应该在确实需要操作可变长度的值的序列时使用。</div>				
+		</div>
+	<div class="line"></div>
+		<div class="PostList">
+			<div class="postTitl2"><a id="PostsList1_rpPosts_TitleUrl_2" href="https://www.cnblogs.com/chenyankai/p/3951606.html#3086344">Re:源码安装Apache，报错：Cannot use an external APR with the bundled APR-util和httpd: Could not reliably determine the server's fully qualified domain name</a> <span class="postDesc2">hunyihun 2014-12-15 15:17</span>&nbsp;&nbsp;</div>
+			<div class="postText2">规则24	不要把方法的入参当做工作变量/临时变量<br>说明：1、每个变量/参数都有自己独特的功用，让一个变量承担多个职责，变量名无法清晰表达其功能，会使程序难以理解；2、如果参数是传引用方式的，则方法内对参数的更改，会传递到方法外，造成意外的错误<br>示例：入参作为工作变量，程序难理解<br>int sample (int inputVal) {<br>    inputVal = inputVal * CurrentMuiniplier(inputVal);<br>    inputVal = inputVal * CurrentAdder(inputVal);<br>return inputVal;<br>}<br>规则25	使用类名调用静态方法，而不要使用实例或表达式来调用<br>说明：明确的使用类名调用静态方法不容易造成混淆。使用实例调用静态方法时，调用的静态方法是声明类型的静态方法，与实例的实际类型无关，可能会导致与预期的结果不一致。当父类和子类有同名静态方法时，声明父类变量引用子类实例，调用该静态方法时调用的是父类的静态方法，而非子类的静态方法。因此，也不要在子类中重写父类的静态同名方法。<br>示例：<br>不好，两次调用的都是Dog.bark()方法，输出2行woof<br>class Dog {<br>	public static void bark() {<br>		System.out.println("woof");<br>	}<br>}<br><br>class Basenji extends Dog {<br>	public static void bark() {<br>		System.out.println("miao");<br>	}<br>}<br><br>public class Bark {<br>	public static void main(string args[]) {<br>		Dog woofer = new Dog();<br>		Dog nipper = new Basenji();<br>		woofer.bark();<br>		nipper.bark();<br>	}<br>推荐，用类名来调用静态方法<br>class Dog {<br>	public static void bark() {<br>		System.out.print("woof");<br>	}<br>}<br><br>public class Bark {<br>	public static void main(string args[]) {<br>		Dog.bark();<br>	}<br>}</div>				
+		</div>
+	<div class="line"></div>
+		<div class="PostList">
+			<div class="postTitl2"><a id="PostsList1_rpPosts_TitleUrl_3" href="https://www.cnblogs.com/chenyankai/p/3951606.html#3086342">Re:源码安装Apache，报错：Cannot use an external APR with the bundled APR-util和httpd: Could not reliably determine the server's fully qualified domain name</a> <span class="postDesc2">hunyihun 2014-12-15 15:16</span>&nbsp;&nbsp;</div>
+			<div class="postText2">原则7	方法设计应遵循单一抽象层次原则（SLAP）<br>说明：SLAP原则，是指让一个方法中所有的操作处于相同的抽象层。否则跳跃的代码的抽象层次破坏了代码的流畅性，如下所示。<br>示例1：方法的操作不在同一个抽象层次，前后是抽象，中间是细节。<br>void compute(){<br>    input();<br>    flags = 0x0080;<br>    output();<br>}<br>示例2：方法的操作在同一个抽象层次上<br>void compute(){<br>    input();<br>    process();<br>    output();<br>}<br>原则8	方法设计应遵循命令与查询职责分离原则（CQRS）<br>说明：方法应该修改某对象的状态，或者返回该对象的有关信息，但二者不可兼得。也就是说：如果我们要问一个问题，那么就不应该影响到它的答案。实际应用，要视具体情况而定，语义的清晰性和使用的简单性之间需要权衡。将Command和Query功能合并入一个方法，方便了客户的使用，但是，降低了清晰性，而且，可能不便于基于断言的程序设计并且需要一个变量来保存查询结果。<br>示例：<br>不好：方法设定指定属性的值，如果成功返回true，如果指定属性不存在，则返回false。这样导致了if语句理解存在歧义，可能会被理解为“username是否已被设置为michael”，而不是“设置username为michael，看看是否可行，然后.....”<br>public boolean set(String attribute, String value);<br><br>if(set(“username”,“michael")){<br>    ...<br>}<br>推荐：将命令和查询的职责分离为2个方法，先查询，再命令，就很清晰无歧义了。<br>if(attributeExist("username")){<br>    setAttribute("username", "michael");<br>    ...<br>}<br>原则9	应明确规定对接口方法参数的合法性检查由调用者负责还是由接口方法本身负责<br>说明：接口（public）方法调用时，应对参数做合法性检查，以保证程序的健壮性和正确性。对于预计不太可能发生的情况，使用断言检查，对于预计有可能发生情况，采用错误处理检查。参数检查可由调用者负责，也可由方法本身负责，但应有明确的规定。同时应避免出现调用者和方法本身都检查的情况，造成过度防御，降低程序性能，并降低代码可读性增大维护成本。</div>				
+		</div>
+	<div class="line"></div>
+		<div class="PostList">
+			<div class="postTitl2"><a id="PostsList1_rpPosts_TitleUrl_4" href="https://www.cnblogs.com/chenyankai/p/3951606.html#3086330">Re:源码安装Apache，报错：Cannot use an external APR with the bundled APR-util和httpd: Could not reliably determine the server's fully qualified domain name</a> <span class="postDesc2">hunyihun 2014-12-15 15:11</span>&nbsp;&nbsp;</div>
+			<div class="postText2">3	方法<br>原则5	方法设计的第一原则是要短小<br>说明：方法设计的第一原则，是短小，第二原则是还要短小。过长的方法，难以理解和维护。短方法易理解、易维护、易扩展、易测试。根据业界经验，方法的长度建议不超过50行。<br><br>原则6	方法设计应遵循单一职责原则（SRP），一个方法仅完成一个功能<br>说明：方法应该做一件事，做好这件事，只做这件事。有以下2种情况，违反单一职责：1、多段代码重复做同一件事情，那么在方法的划分上可能存在问题，应将重复部分提取为一个方法。2、一个方法完成了多种功能，应将其拆分为多个步骤的子功能。<br>示例1：代码重复<br>ublic boolean save() throws IOException {<br>    if(outputFile == null) {<br>        return false;<br>    }<br>    FileWriter writer = new FileWriter(outputFile);<br>    movies.writeTo(writer);<br>    writer.close();<br>    return true;<br>}<br><br>public boolean saveAs() throws IOException {<br>    outputFile = view.getFile();<br>    if(outputFile == null) {<br>        return false;<br>    }<br>    FileWriter writer = new FileWriter(outputFile);<br>    movies.writeTo(writer);<br>    writer.close();<br>    return true;<br>}<br>示例2：下面的方法，不仅判断了用户名和密码，同时也设置了错误信息。可以将设置错误信息独立出来，根据本方法的返回值，在外面设置。<br>public class UserManager {<br>			......<br>	public boolean checkpassword(String username, String password) {<br>		String foundPassword = find(username);<br>		if (foundPassword == null || !foundPassword.equals(password)) {<br>			errorMessage = "Incorect username or password. Please try again.";<br>			return false;<br>		}<br><br>		errorMessage = "成功登录";<br>		return true;<br>	}<br>}</div>				
+		</div>
+	<div class="line"></div>
+		<div class="PostList">
+			<div class="postTitl2"><a id="PostsList1_rpPosts_TitleUrl_5" href="https://www.cnblogs.com/chenyankai/p/3951606.html#3086323">Re:源码安装Apache，报错：Cannot use an external APR with the bundled APR-util和httpd: Could not reliably determine the server's fully qualified domain name</a> <span class="postDesc2">hunyihun 2014-12-15 15:06</span>&nbsp;&nbsp;</div>
+			<div class="postText2">规则22	避免同一个局部变量在前后表达不同的含义<br>说明：同一个局部变量在前后表达不同的含义，会使代码理解起来比较困难，不利于维护。一个局部变量只应该表达一种含义。<br>示例：<br>	不好：<br>public void foo(){<br>Entity entity;<br>    if(CollectionUtils.isNotEmpty(entityList)){<br>    	   entity  =  findFirst(entityList);<br>        //some  code<br><br>        entity  =  findLast(entityList);<br>        //some  other  code<br>    }<br>}<br>推荐：<br>public void foo(){<br>Entity firstEntity;<br>Entity lastEntity;<br><br>    if(CollectionUtils.isNotEmpty(entityList)){<br>        firstEntity  =  findFirst(entityList);<br>        //some  code<br><br>        lastEntity  =  findLast(entityList);<br>        //some  other  code<br>    }<br>}<br>规则23	不要在单个的表达式中对相同的变量赋值超过一次<br>说明：对相同的变量进行多次赋值的表达式会产生混淆，并且很少能够产生你希望的行为。清晰的变量赋值会使代码更易懂，程序也会产生我们预期的行为。<br>示例：<br>不好：输出为0，不符合预期<br>public class Increment {<br>    public static void main(string[] args){<br>        int j = 0;<br>        for(int i = 0; i &lt; 100; i++) {<br>            j = j++;<br>}<br>        system.out.println(j);<br>    }<br>推荐：输出为100<br>public class Increment {<br>    public static void main(string[] args){<br>        int j = 0;<br>        for(int i = 0; i &lt; 100; i++){<br>            j++;<br>        }<br>        system.out.println(j);<br>    }<br>建议6	基本类型优于装箱基本类型，注意合理使用装箱基本类型<br>说明：Java有两种类型，基本类型（Primitive type）和引用类型（Reference type）。基本类型如boolean,int, double，引用类型如String,List。每一种基本类型都有其对应的包装类型，可以称为基本类型的装箱（Boxed primitive），如对应int的是Integer。<br>很多情况下基本类型优于装箱基本类型，因为：<br>1、在JDK 1.5以及之后的版本中增加了自动装箱和拆箱的特性。但是，不恰当的并行使用基本类型和装箱基本类型，可能带来大量隐含的装箱和拆箱的操作。如下面的for语句中，由于循环变量是基本类型，而sum是装箱基本类型，会导致频繁的自动装箱和拆箱操作，导致性能下降。<br>Long sum = 0L;<br>	for(long i = 0; i &lt; Integer.MAX_VALUE; i++) {<br>		sum += i;		<br>	}<br>	System.out.println(sum);<br>2、对于装箱类型，使用“==”比较可能无法得到预期的结果。如：new Integer(42) ==new Integer(42) 将返回false。应该使用equals方法做装箱类型的比较。<br><br>使用装箱类型合理的场景有：<br>1、作为集合中的元素、键和值<br>2、参数化类型，必须使用装箱基本类型，如ThreadLocal&lt;Integer&gt;<br>3、进行反射的方法调用时</div>				
+		</div>
+	<div class="line"></div>
+		<div class="PostList">
+			<div class="postTitl2"><a id="PostsList1_rpPosts_TitleUrl_6" href="https://www.cnblogs.com/chenyankai/p/3951606.html#3086319">Re:源码安装Apache，报错：Cannot use an external APR with the bundled APR-util和httpd: Could not reliably determine the server's fully qualified domain name</a> <span class="postDesc2">hunyihun 2014-12-15 15:04</span>&nbsp;&nbsp;</div>
+			<div class="postText2">规则19	需要精确计算时不要使用float和double<br>说明：浮点数在一个范围很广的值域上提供了很好的近似，但是它不能产生精确的结果。二进制浮点对于精确计算是非常不适合的，因为它不可能将0.1，或者10的其它任何负次幂表示为一个长度有限的二进制小数。涉及精确的数值计算（货币、金融等），建议使用int, long, BigDecimal等<br>示例：<br>	不好：以下输出结果是0.6100000000000001<br>System.out.println(1.03 - 0.42);<br>推荐：需要精确计算时<br>BigDecimal income = new BigDecimal("1.03");<br>BigDecimal expense = new BigDecimal("0.42");<br>System.out.println(income.subtract(expense));<br>规则20	不能用浮点数作为循环变量<br>说明：浮点数不能为循环因子，精度问题会导致 (float)2000000000 == 2000000050为true，所以如下的循环不会执行。<br>for (float f = (float) 2000000000; f &lt; 2000000050; f++)<br>{<br>    ...<br>}<br>规则21	浮点型数据判断相等不能直接使用==<br> 说明：由于浮点数在计算机表示中存在精度的问题，因此，判断2个浮点数相等不能直接使用等号应采用如下方式：<br>float a =...;<br>    float b =...;<br>    if(Math.abs(a-b)&lt;1E-6f)<br>    {<br>      ...<br>    } <br> 其中1E-6f为一个float极小值，实际使用时请根据情况判断精度，并且提取常量。  如果是double,请使用1E-6。</div>				
+		</div>
+	<div class="line"></div>
+		<div class="PostList">
+			<div class="postTitl2"><a id="PostsList1_rpPosts_TitleUrl_7" href="https://www.cnblogs.com/chenyankai/p/3951606.html#3086316">Re:源码安装Apache，报错：Cannot use an external APR with the bundled APR-util和httpd: Could not reliably determine the server's fully qualified domain name</a> <span class="postDesc2">hunyihun 2014-12-15 14:59</span>&nbsp;&nbsp;</div>
+			<div class="postText2">规则18	避免随意进行类型强制转换，应改善设计，或在转换前用instanceof进行判断<br>说明：没有判断直接进行类型转换，可能会导致运行期异常java.lang.ClassCastException。一般有2种情况，一是将父类实例强制转换成子类引用，二是在没有父子关系类型之间强制转换。第一种情况，说明代码违反了设计原则中的里氏替换原则，而根据里氏替换原则，子类应当可以替换父类并出现在父类能够出现的任何地方，无需强制转换。应对措施就是对代码进行重构。对于第二种情况，可能出现的场景是，在使用集合时没有使用泛型，导致集合中有多种类型，见示例。<br>简单的修改方法即是在强制转换之前使用instanceof进行判断，确认转换操作可行，但可能带来的问题是修改点过多，工作量巨大，同时维护的工作量也会倍增。最好的方式还是改善设计，使集合中只有同一种类型的对象。<br>示例：<br>	不好：<br>List datas = new ArrayList();<br>datas.add("abc");<br>datas.add("def");<br>datas.add(1);<br>datas.add(3);<br><br>for (Object o : datas){<br>    System.out.println((String)o);<br>}<br>推荐：分为2个方法<br>方法1：<br>List&lt;String&gt; datas = new ArrayList&lt;String&gt;(INIT_SIZE);<br>datas.add("abc");<br>datas.add("def");<br><br>for (String o : datas){<br>    system.out.println(o);<br>}<br>方法2：<br>List&lt;Integer&gt; numbers = new ArrayList&lt;Integer&gt;(INIT_SIZE);<br>numbers.add(1);<br>numbers.add(3);<br><br>for (Integer i : numbers){<br>system.out.println(i);<br>}</div>				
+		</div>
+	<div class="line"></div>
+		<div class="PostList">
+			<div class="postTitl2"><a id="PostsList1_rpPosts_TitleUrl_8" href="https://www.cnblogs.com/chenyankai/p/3951606.html#3086313">Re:源码安装Apache，报错：Cannot use an external APR with the bundled APR-util和httpd: Could not reliably determine the server's fully qualified domain name</a> <span class="postDesc2">hunyihun 2014-12-15 14:57</span>&nbsp;&nbsp;</div>
+			<div class="postText2">推荐在以下场景中，合理使用静态变量：<br>1、类的所有实例必须共享同一个变量时，比如，为实现某个任务，该类的所有实例共用的变量，如计数器等；<br>2、工具类提供的常量，如配置文件中的参数 "映射"到类的变量时，基本上第一次赋值后，数据不再被修改；<br>3、单例模式中应用。</div>				
+		</div>
+	<div class="line"></div>
+		<div class="PostList">
+			<div class="postTitl2"><a id="PostsList1_rpPosts_TitleUrl_9" href="https://www.cnblogs.com/chenyankai/p/3951606.html#3086312">Re:源码安装Apache，报错：Cannot use an external APR with the bundled APR-util和httpd: Could not reliably determine the server's fully qualified domain name</a> <span class="postDesc2">hunyihun 2014-12-15 14:57</span>&nbsp;&nbsp;</div>
+			<div class="postText2">2	变量和类型<br>原则4	谨慎使用静态成员变量<br>说明：要谨记，静态成员变量是属于类级别的变量，而不是属于某个对象实例。<br>错误使用静态成员变量可能有以下场景：<br>	1、认为静态变量是属于某个实例，而实际是多个实例操作同一个变量，造成值与预期不一致。<br>	2、没有注意静态变量的初始化顺序，读取还未初始化的静态变量值。例如下面代码的执行顺序是，A、第一行的INSTANCE被main方法触发，创建一个新的实例; B、类构造方法被触发，beltSize被计算，此时CURRENT_YEAR还是未初始化状态，默认值为0，导致beltSize被计算为-1930。<br>public class Elvis {<br>	public static final Elvis INSTANCE = new Elvis();<br>	private final int beltSize;<br>	private static final int CURRENT_YEAR =	Calendar.getInstance().get(Calendar.YEAR);<br>	<br>	private Elvis() {<br>		beltSize = CURRENT_YEAR - 1930;<br>	}<br>	<br>	public int beltSize() {<br>		return beltSize;<br>	}<br>	<br>	public static void main(String[] args) {<br>		System.out.println("Elvis wears a size " + INSTANCE.beltSize() + " belt.");<br>	}<br>}</div>				
+		</div>
+	<div class="line"></div>
+		<div class="PostList">
+			<div class="postTitl2"><a id="PostsList1_rpPosts_TitleUrl_10" href="https://www.cnblogs.com/chenyankai/p/3951606.html#3086311">Re:源码安装Apache，报错：Cannot use an external APR with the bundled APR-util和httpd: Could not reliably determine the server's fully qualified domain name</a> <span class="postDesc2">hunyihun 2014-12-15 14:56</span>&nbsp;&nbsp;</div>
+			<div class="postText2">规则17	采用缩进来区分不同层次的概念<br>说明：没有缩进的代码几乎不可阅读。我们采用缩进，来区分不同层次，展现代码的层次关系结构，让代码更容易阅读。具体要求，每加一层大括号，就要加一层缩进。<br>示例：<br>	没有缩进的代码很难阅读<br>public class FitNesseServer implements SocketServer { <br>private FitNesseContext context; <br>public FitNesseServer(FitNesseContext context) { <br>this.context = context; <br>} <br>public void serve(Socket s) { <br>serve(s, 10000); <br>} <br>public void serve(Socket s, long requestTimeout) { <br>try { FitNesseExpediter sender = new FitNesseExpediter(s, context);<br>sender.setRequestParsingTimeLimit(requestTimeout); <br>sender.start(); <br>}<br>catch(Exception e) { <br>e.printStackTrace(); <br>} <br>} <br>}<br>改成下面就容易阅读多了<br>public class FitNesseServer implements SocketServer {<br>	private FitNesseContext context;<br>		<br>	public FitNesseServer(FitNesseContext context) {<br>		this.context = context;<br>	}<br>		<br>	public void serve(Socket s) {<br>		serve(s, 10000);<br>	}<br>		<br>	public void serve(Socket s, long requestTimeout) {<br>		try {<br>			FitNesseExpediter sender = new FitNesseExpediter(s, context);<br>			sender.setRequestParsingTimeLimit(requestTimeout);<br>			sender.start();<br>		}<br>		catch (Exception e) {<br>			e.printStackTrace();<br>		}<br>	}<br>}<br>建议4	给if、for、do、while、switch等语句的执行体加大括号{} <br>说明：即使执行语句只有一条语句，也应该加括号。执行体只有一条语句时，常诱惑我们在一行内写完，但这并不容易阅读，因为大多数程序员习惯了执行体应该有括号，当执行体无括号，需要大脑做不必要的转换。而且这样做，在修改代码时，如果增加执行体语句，也不容易因忘了增加大括号而搞错。<br>示例：<br>	不好<br>if (someCondition) doStart();<br>推荐<br>if (someCondition) {<br>doStart();<br>}<br>建议5	控制文件的长度，最好不要超过500行<br>说明：很多开源项目都表明，文件长度越短，越容易理解和维护。<br>示例：下图是几个开源项目的代码文件长度分布情况，平均值不超过500行，绝大多数不超过200行。</div>				
+		</div>
+	<div class="line"></div>
+		<div class="PostList">
+			<div class="postTitl2"><a id="PostsList1_rpPosts_TitleUrl_11" href="https://www.cnblogs.com/chenyankai/p/3951606.html#3086309">Re:源码安装Apache，报错：Cannot use an external APR with the bundled APR-util和httpd: Could not reliably determine the server's fully qualified domain name</a> <span class="postDesc2">hunyihun 2014-12-15 14:54</span>&nbsp;&nbsp;</div>
+			<div class="postText2">private void measureLine(String line) {<br>	lineCount++;<br>	int lineSize = line.length();<br>	totalChars += lineSize;<br>	lineWidthHistogram.addLine(lineSize, lineCount);<br>	recordWidestLine(lineSize);<br>}</div>				
+		</div>
+	<div class="line"></div>
+		<div class="PostList">
+			<div class="postTitl2"><a id="PostsList1_rpPosts_TitleUrl_12" href="https://www.cnblogs.com/chenyankai/p/3951606.html#3086308">Re:源码安装Apache，报错：Cannot use an external APR with the bundled APR-util和httpd: Could not reliably determine the server's fully qualified domain name</a> <span class="postDesc2">hunyihun 2014-12-15 14:54</span>&nbsp;&nbsp;</div>
+			<div class="postText2">规则16	在不同的概念间（关键字、变量、操作符等）增加空格，以便清楚区分概念<br>说明：增加空格，其本质是区分概念，将逻辑相关紧密的部分凸现出来。具体来说在关键字、变量、常量进行对等操作时，它们之间的操作符之前、之后或者前后要加空格；进行非对等操作时，如果是关系密切的立即操作符（如.）和括号，前后不加空格<br>示例：	<br>	在“=”、“+=”、“,”的2边加空格，“++”、“.”和“(”前后不加空格。</div>				
+		</div>
+	<div class="line"></div>
+		<div class="PostList">
+			<div class="postTitl2"><a id="PostsList1_rpPosts_TitleUrl_13" href="https://www.cnblogs.com/chenyankai/p/3951606.html#3086307">Re:源码安装Apache，报错：Cannot use an external APR with the bundled APR-util和httpd: Could not reliably determine the server's fully qualified domain name</a> <span class="postDesc2">hunyihun 2014-12-15 14:54</span>&nbsp;&nbsp;</div>
+			<div class="postText2">规则15	控制一行的宽度，不要超过120个字符<br>说明：代码行长度越短，越容易理解。如果代码行长到需要滚屏才能阅读完，是很影响效率和可读性的。因此，我们推荐写短的代码行，且一行只写一条语句。在经典时代，由于显示器的限制，代码行长度定为每行不超过80个字符。随着现代显示器技术的发展，显示屏尺寸和分辨率变大，显示的内容也变多，但仍建议一行最长不超过120个字符。如果代码行太长，需要折行。折行时应注意语意流畅性，在低优先级操作符处划分新行，操作符放在新行之首，划分出的新行要进行适当的缩进，使排版整齐（详见示例）。<br>示例：<br>不好：<br>一行多个语句：<br>String xmlName = "", nodeVal = "";<br>过长，超过120字符，需要滚屏<br>不必要的折行<br>String commandID = Configs.findItemValue(ItemCodes.BIZDEF_HARDCFG,<br>            bizDef);<br>混乱没有规则的折行<br>isLogRecode = "".equals(logisticRecodeLog) || null ==  logisticRecodeLog ||<br>    "true".equals(logisticRecodeLog) || "TRUE".<br>    	equals(logisticRecodeLog) ||<br>    		"YES".equals(logisticRecodeLog)  <br>    		|| "yes".equals(logisticRecodeLog) ;<br>推荐：<br>一行一个语句<br>tring xmlName = "";<br>String nodeVal = "";<br>过长语句合理折行<br>isLogRecode = "".equals(logisticRecodeLog) || null == logisticRecodeLog<br>	   || "true".equals(logisticRecodeLog) || "TRUE".equals(logisticRecodeLog)<br>	   || "YES".equals(logisticRecodeLog) || "yes".equals(logisticRecodeLog);</div>				
+		</div>
+	<div class="line"></div>
+		<div class="PostList">
+			<div class="postTitl2"><a id="PostsList1_rpPosts_TitleUrl_14" href="https://www.cnblogs.com/chenyankai/p/3951606.html#3086306">Re:源码安装Apache，报错：Cannot use an external APR with the bundled APR-util和httpd: Could not reliably determine the server's fully qualified domain name</a> <span class="postDesc2">hunyihun 2014-12-15 14:51</span>&nbsp;&nbsp;</div>
+			<div class="postText2">规则14	将局部变量的作用域最小化<br>说明：变量的声明应该尽可能靠近使用变量的位置。循环变量的定义，应在循环体内部，不应该定义在循环体外。<br>示例：<br>	在靠近使用变量处声明变量<br>public  void  addChild(String  parentId,  String  value)<br>{<br>        entity  entity  =  new  entity();<br>        entity.setId(genEntityId());<br>        entity.setValue(value);<br><br>	   ...<br>        Relation  relation  =  new  Relation();<br>        relation.setParentId(parentId);<br>        relation.setChildEntityId(entity.getId());<br><br>        saveChild(entity,  relation);<br>循环变量在循环体内定义<br>public int countTestCases() {<br>		int count= 0;<br>		for (Test each : tests) {<br>			count += each.countTestCases();<br>		}<br>		return count;</div>				
+		</div>
+	<div class="line"></div>
+		<div class="PostList">
+			<div class="postTitl2"><a id="PostsList1_rpPosts_TitleUrl_15" href="https://www.cnblogs.com/chenyankai/p/3951606.html#3086305">Re:源码安装Apache，报错：Cannot use an external APR with the bundled APR-util和httpd: Could not reliably determine the server's fully qualified domain name</a> <span class="postDesc2">hunyihun 2014-12-15 14:50</span>&nbsp;&nbsp;</div>
+			<div class="postText2">规则13	将逻辑紧密相关的代码放在一起<br>说明：将相关的代码，放在一起，阅读代码时能一眼获取相关信息，避免概念的频繁切换。其他还比如，将常量的定义都放在一起，将有调用关系的方法尽量放在一起。<br>示例：<br>不好： <br>public  void  addChild(String  parentId,  String  value)<br>{<br>        Entity entity = new Entity();<br>        Relation relation = new Relation();<br>        entity.setId(genEntityId());<br>        relation.setChildEntityId(entity.getId());<br>        entity.setValue(value);<br>        relation.setParentId(parentId);<br>        saveChild(entity,  relation);<br>}<br>推荐：<br>public  void  addChild(String  parentId,  String  value)<br>{<br>        Entity entity = new Entity();<br>        entity.setId(genEntityId());<br>        entity.setValue(value);<br><br>        Relation relation = new Relation();<br>        relation.setParentId(parentId);<br>        relation.setChildEntityId(entity.getId());<br><br>        saveChild(entity,  relation);<br>}</div>				
+		</div>
+	<div class="line"></div>
+		<div class="PostList">
+			<div class="postTitl2"><a id="PostsList1_rpPosts_TitleUrl_16" href="https://www.cnblogs.com/chenyankai/p/3951606.html#3086303">Re:源码安装Apache，报错：Cannot use an external APR with the bundled APR-util和httpd: Could not reliably determine the server's fully qualified domain name</a> <span class="postDesc2">hunyihun 2014-12-15 14:48</span>&nbsp;&nbsp;</div>
+			<div class="postText2">1.3	排版<br>原则3	团队应遵守一致的排版风格<br>说明：代码排版在细微处，像审美一样是一个较主观的事情，比如大括号是写在右边，还是独立成行，不同的人有不同的倾向，并无优劣之分。但不统一的排版风格对代码的可阅读性影响很大，因此考虑到团队整体的阅读效率，应把个人喜好放一边，而讨论制定出共同遵守的排版风格。<br><br>规则11	将排版风格固化到IDE的代码格式化配置文件中，并让整个团队使用<br>说明：让团队内遵守一致的排版风格，最切实可行和有效率的方式就是大家使用同一个代码格式化配置，让大家在编写代码的同时，用IDE工具自动对代码进行排版。主流的JAVA IDE，如Eclipse, NetBeans, IntelliJ IDEA都支持代码格式化功能。<br><br>规则12	在不同的概念之间，增加空行<br>说明：比如方法与方法、类名与import、import与包名之间、相对独立的程序块之间、变量说明后需增加空行，来提升可读性。<br>示例：<br>不好：不同概念间没有空行<br>package fitnesse.wikitext.widgets;<br>import java.util.regex.*;<br>public class BoldWidget extends ParentWidget {<br>	public static final String REGEXP = "'''.+?'''";<br>	private static final Pattern pattern = Pattern.compile(REGEXP,<br>			Pattern.MULTILINE + Pattern.DOTALL);<br>	public BoldWidget(ParentWidget parent, String text) throws Exception {<br>		super(parent);<br>		Matcher match = pattern.matcher(text);<br>		match.find();<br>		addChildWidgets(match.group(1));}	<br>	public String render() throws Exception {<br>		StringBuffer html = new StringBuffer("&lt;b&gt;");<br>		html.append(childHtml()).append("&lt;/b&gt;");<br>		return html.toString();<br>	}<br>}<br>推荐：<br>package fitnesse.wikitext.widgets;<br><br>import java.util.regex.*;<br><br>public class BoldWidget extends ParentWidget {<br>public static final String REGEXP = "'''.+?'''";<br><br>	private static final Pattern pattern = Pattern.compile(REGEXP,<br>			Pattern.MULTILINE + Pattern.DOTALL<br>	);<br><br>	public BoldWidget(ParentWidget parent, String text) throws Exception {<br>		super(parent);<br>		Matcher match = pattern.matcher(text);<br>		match.find();<br>		addChildWidgets(match.group(1));<br>	}<br>	<br>	public String render() throws Exception {<br>		StringBuffer html = new StringBuffer("&lt;b&gt;");<br>		html.append(childHtml()).append("&lt;/b&gt;");<br>		return html.toString();</div>				
+		</div>
+	<div class="line"></div>
+		<div class="PostList">
+			<div class="postTitl2"><a id="PostsList1_rpPosts_TitleUrl_17" href="https://www.cnblogs.com/chenyankai/p/3951606.html#3086301">Re:源码安装Apache，报错：Cannot use an external APR with the bundled APR-util和httpd: Could not reliably determine the server's fully qualified domain name</a> <span class="postDesc2">hunyihun 2014-12-15 14:47</span>&nbsp;&nbsp;</div>
+			<div class="postText2">规则10	注释应与其描述的代码位置相邻，放在所注释代码上方或右方，并与代码采用同样缩进<br>示例：<br>//This is our best attempt to get a race condition<br>//by creating large number of threads.<br>for (int i = 0; i &lt; 25000; i++) {<br>	WidgetBuilderThread widgetBuilderThread =<br>		new WidgetBuilderThread(widgetBuilder, text, parent, failFlag);<br>	Thread thread = new Thread(widgetBuilderThread);<br>	thread.setName("Widget Builder thread");<br>	thread.start();<br>}<br>建议2	不要用注释记录修改日志<br>说明：代码中充斥着大量修改历史信息，使代码难以阅读。现代的配置管理工具能记录每次修改的日志，因此不必将修改日志写在代码中。<br>示例：<br>不好：<br>/*&lt; DTS20120521072aa xxxxxx begin*/<br>private boolean mAlreadyShowFinish = false;<br>private boolean mIsClickEmptySpace = false;<br>/*DTS20120521072aa xxxxxx end &gt;*/<br>/*&lt; DTS20120521060aa xxxxxx begin*/<br>public View itemUnderLongClick  ;<br>/* DTS20120521060aa xxxxxx end&gt;*/<br>/*&lt; DTS20120519023aa xxxxxx begin*/<br>public int DOCK_SIZE_DRAG_BEFORE = 4  ;<br>/* DTS20120519023aa xxxxxx end &gt;*/<br>/*&lt; DTS20120611039aa xxxxxx begin */<br>public int mWindowWidth;<br>public int mWindowHeigth;<br>/* DTS20120611039aa xxxxxx end &gt;*/<br>/*&lt; DTS20120620052aa xxxxxx begin */<br>建议3	单行注释用//，块注释用/* */，JavaDoc注释用/**  */<br>说明：单行注释用//，比较方便。块注释一般采用/* */，在IDE支持的情况下，如Eclipse可以用ctrl-/快捷键为块增加注释，这种情况下，建议选择//为块增加注释，更方便快捷。JavaDoc对注释格式要求采用/**  */<br>示例：<br>/**<br> * This is the comment for the example interface.<br> */<br>interface Example {<br>	// This is a long comment with whitespace that should be split in multiple<br>	// line comments in case the line comment formatting is enabled<br>	int foo3();<br>	<br>	/*<br>	 * These possibilities include: &lt;ul&gt;&lt;li&gt;Formatting of header<br>	 * comments.&lt;/li&gt;&lt;li&gt;Formatting of Javadoc tags&lt;/li&gt;&lt;/ul&gt;<br>	 */<br>	int bar2(); // This is a short comment</div>				
+		</div>
+	<div class="line"></div>
+		<div class="PostList">
+			<div class="postTitl2"><a id="PostsList1_rpPosts_TitleUrl_18" href="https://www.cnblogs.com/chenyankai/p/3951606.html#3086299">Re:源码安装Apache，报错：Cannot use an external APR with the bundled APR-util和httpd: Could not reliably determine the server's fully qualified domain name</a> <span class="postDesc2">hunyihun 2014-12-15 14:46</span>&nbsp;&nbsp;</div>
+			<div class="postText2">规则8	保证注释与代码一致，避免产生误导<br>说明：注释造成误导，危害性很大，还不如不写。很多误导的产生，并不是有意为之，而是在代码修改的同时没有修改对应的注释造成的。因此，如果写了注释，就要保证注释与代码一致，避免产生误导。如果注释不再有用，必须删除。<br><br>规则9	不要用注释保留废弃代码<br>说明：用注释保留大量废弃的代码，对阅读是一种干扰。现代的配置管理工具能恢复任意历史时刻的代码，因此不必担心无法恢复。<br>示例：<br>不好：<br>mModel.reloadIcons();<br>/* DTS2012052208439 xxxxx end &gt; */<br>/* &lt; DTS2012052605293 xxxxx begin */<br>//if (!mModel.isAllAppsLoaded()) {<br>//ViewGroup appsCustomizeContentParent = (ViewGroup) mAppsCustomizeContent.getParent();<br>//mInflater.inflate(R.layout.apps_customize_progressbar, appsCustomizeContentParent);<br>//}<br>/* DTS2012052605293 xxxxx end &gt; */<br><br>// For handling default keys<br>mDefaultKeySsb = new SpannableStringBuilder();</div>				
+		</div>
+	<div class="line"></div>
+		<div class="PostList">
+			<div class="postTitl2"><a id="PostsList1_rpPosts_TitleUrl_19" href="https://www.cnblogs.com/chenyankai/p/3951606.html#3086298">Re:源码安装Apache，报错：Cannot use an external APR with the bundled APR-util和httpd: Could not reliably determine the server's fully qualified domain name</a> <span class="postDesc2">hunyihun 2014-12-15 14:45</span>&nbsp;&nbsp;</div>
+			<div class="postText2">1.2	注释<br>原则2	尽量少写注释，用代码来解释自己<br>说明：我们必须认识到，写注释从某种意义上来说是一种“失败”，是我们无法用代码来解释意图，而必须借助于注释。且很有可能在代码修改时，没有同步更新注释而造成误解。另外，代码中充斥着很多无用的注释信息（比如什么人什么时间修改的），反而对阅读代码是一种干扰。因此在写注释前，要慎重思考，看能否通过改善代码可读性来避免写注释。<br>示例：<br>不好：<br>// Check to see if the employee is eligible for full benefits<br>if ((employee.flags &amp; HOURLY_FLAG) &amp;&amp;<br> (employee.age &gt; 65))<br>推荐：<br>if (employee.isEligibleForFullBenefits())<br>规则7	注释应解释代码的意图，而不是描述代码怎么做的<br>说明：如果不得不写注释，那么就要写出好的注释。好的注释能提供有用、额外的信息，能解释代码的意图，而不是描述代码的动作。<br>示例：<br>不好：下面的注释只是将代码所做的事又描述了一遍，没有提供额外有用的信息 <br>//Utility method that returns when this.closed is true. Throws an exception<br>//if the timeout is reached.<br>public synchronized void waitForClose(final long timeoutMillis)	<br>	throws Exception {<br>	if(!closed) {<br>		wait(timeoutMillis);<br>		if(!closed)throw new Exception("MockResponseSender could not be closed");<br>	}<br>}</div>				
+		</div>
+	<div class="line"></div>
+<div class="pager"><div class="Pager">
+	共8页:&nbsp;<a href="https://www.cnblogs.com/chenyankai/recentcomments.html?page=4">上一页</a>&nbsp;<a href="https://www.cnblogs.com/chenyankai/recentcomments.html?page=1">1</a>&nbsp;<a href="https://www.cnblogs.com/chenyankai/recentcomments.html?page=2">2</a>&nbsp;<a href="https://www.cnblogs.com/chenyankai/recentcomments.html?page=3">3</a>&nbsp;<a href="https://www.cnblogs.com/chenyankai/recentcomments.html?page=4">4</a>&nbsp;5&nbsp;<a href="https://www.cnblogs.com/chenyankai/recentcomments.html?page=6">6</a>&nbsp;<a href="https://www.cnblogs.com/chenyankai/recentcomments.html?page=7">7</a>&nbsp;<a href="https://www.cnblogs.com/chenyankai/recentcomments.html?page=8">8</a>&nbsp;<a href="https://www.cnblogs.com/chenyankai/recentcomments.html?page=6">下一页</a>&nbsp;
+</div></div>
+</div>
+
+
+			</td>
+		</tr>
+		</tbody></table>
+	</td>
+	<td width="10">&nbsp;</td>
+	<td valign="top">
+		<table align="center" width="100%" height="90" cellspacing="0" cellpadding="5" border="0" bgcolor="white">
+		<tbody><tr>
+			<td class="banner">
+			
+			<table width="100%" height="200">
+			<tbody><tr>
+				<td><div id="blog-calendar" style=""><table id="blogCalendar" class="Cal" cellspacing="0" cellpadding="0" title="Calendar">
+	<tbody><tr><td colspan="7"><table class="CalTitle" cellspacing="0">
+		<tbody><tr><td class="CalNextPrev"><a href="javascript:void(0);" onclick="loadBlogCalendar(&#39;2018/09/01&#39;);return false;">&lt;</a></td><td align="center">2018年10月</td><td class="CalNextPrev" align="right"><a href="javascript:void(0);" onclick="loadBlogCalendar(&#39;2018/11/01&#39;);return false;">&gt;</a></td></tr>
+	</tbody></table></td></tr><tr><th class="CalDayHeader" align="center" abbr="日" scope="col">日</th><th class="CalDayHeader" align="center" abbr="一" scope="col">一</th><th class="CalDayHeader" align="center" abbr="二" scope="col">二</th><th class="CalDayHeader" align="center" abbr="三" scope="col">三</th><th class="CalDayHeader" align="center" abbr="四" scope="col">四</th><th class="CalDayHeader" align="center" abbr="五" scope="col">五</th><th class="CalDayHeader" align="center" abbr="六" scope="col">六</th></tr><tr><td class="CalOtherMonthDay" align="center">30</td><td align="center">1</td><td align="center">2</td><td align="center">3</td><td align="center">4</td><td align="center">5</td><td class="CalWeekendDay" align="center">6</td></tr><tr><td class="CalWeekendDay" align="center">7</td><td align="center">8</td><td align="center">9</td><td align="center">10</td><td class="CalTodayDay" align="center">11</td><td align="center">12</td><td class="CalWeekendDay" align="center">13</td></tr><tr><td class="CalWeekendDay" align="center">14</td><td align="center">15</td><td align="center">16</td><td align="center">17</td><td align="center">18</td><td align="center">19</td><td class="CalWeekendDay" align="center">20</td></tr><tr><td class="CalWeekendDay" align="center">21</td><td align="center">22</td><td align="center">23</td><td align="center">24</td><td align="center">25</td><td align="center">26</td><td class="CalWeekendDay" align="center">27</td></tr><tr><td class="CalWeekendDay" align="center">28</td><td align="center">29</td><td align="center">30</td><td align="center">31</td><td class="CalOtherMonthDay" align="center">1</td><td class="CalOtherMonthDay" align="center">2</td><td class="CalOtherMonthDay" align="center">3</td></tr><tr><td class="CalOtherMonthDay" align="center">4</td><td class="CalOtherMonthDay" align="center">5</td><td class="CalOtherMonthDay" align="center">6</td><td class="CalOtherMonthDay" align="center">7</td><td class="CalOtherMonthDay" align="center">8</td><td class="CalOtherMonthDay" align="center">9</td><td class="CalOtherMonthDay" align="center">10</td></tr>
+</tbody></table></div><script type="text/javascript">loadBlogDefaultCalendar();</script></td>
+			</tr>
+			</tbody></table>
+				
+<h1>&nbsp;公告</h1><br>
+<div id="blog-news"><div id="profile_block">昵称：<a href="https://home.cnblogs.com/u/chenyankai/">hunyihun</a><br>园龄：<a href="https://home.cnblogs.com/u/chenyankai/" title="入园时间：2013-11-13">4年10个月</a><br>粉丝：<a href="https://home.cnblogs.com/u/chenyankai/followers/">0</a><br>关注：<a href="https://home.cnblogs.com/u/chenyankai/followees/">0</a><div id="p_b_follow"><a href="javascript:void(0);" onclick="follow(&#39;bb2fa9a6-374c-e311-8d02-90b11c0b17d6&#39;)">+加关注</a></div><script>getFollowStatus('bb2fa9a6-374c-e311-8d02-90b11c0b17d6')</script></div></div><script type="text/javascript">loadBlogNews();</script>
+	
+				
+<h1>&nbsp;导航</h1>
+<ul class="list" type="square">
+	<li class="listitem"><a id="blog_nav_sitehome" class="listitem" href="https://www.cnblogs.com/">博客园</a></li>
+	<li class="listitem"><a id="blog_nav_myhome" class="listitem" href="https://www.cnblogs.com/chenyankai/">首页</a></li>
+	<li class="listitem"><a id="blog_nav_newpost" class="listitem" rel="nofollow" href="https://i.cnblogs.com/EditPosts.aspx?opt=1">发新随笔</a></li>
+	<li class="listitem"><a id="MyLinks1_NewArticleLink" class="listitem" href="https://www.cnblogs.com/EnterMyBlog.aspx?NewArticle=1">发新文章</a></li>
+	<li class="listitem"><a id="blog_nav_contact" accesskey="9" class="listitem" rel="nofollow" href="https://msg.cnblogs.com/send/hunyihun">联系</a></li>
+	<li class="listitem"><a id="blog_nav_rss" class="listitem" href="https://www.cnblogs.com/chenyankai/rss">订阅</a><a id="blog_nav_rss_image" href="https://www.cnblogs.com/chenyankai/rss"><img src="./最新评论 - hunyihun - 博客园5_files/xml.gif" alt="订阅"></a>
+	</li><li class="listitem"><a id="blog_nav_admin" class="listitem" rel="nofollow" href="https://i.cnblogs.com/">管理</a></li>
+</ul>
+
+				<div id="blog_stats">
+<h1>&nbsp;统计</h1>
+	<ul class="list" type="square">
+		<li class="listitem">随笔： 2
+		</li><li class="listitem">文章： 0
+		</li><li class="listitem">评论： 155
+		</li><li class="listitem">引用： 0
+	</li>
+</ul></div>
+				<div id="blog-sidecolumn"><div id="sidebar_search" class="sidebar-block">
+<div id="sidebar_search" class="mySearch">
+<h3 class="catListTitle">搜索</h3>
+<div id="sidebar_search_box">
+<div id="widget_my_zzk" class="div_my_zzk"><input type="text" id="q" onkeydown="return zzk_go_enter(event);" class="input_my_zzk">&nbsp;<input onclick="zzk_go()" type="button" value="找找看" id="btnZzk" class="btn_my_zzk"></div>
+<div id="widget_my_google" class="div_my_zzk"><input type="text" name="google_q" id="google_q" onkeydown="return google_go_enter(event)" class="input_my_zzk">&nbsp;<input onclick="google_go()" type="button" value="谷歌搜索" class="btn_my_zzk"></div>
+</div>
+</div>
+
+</div><div id="sidebar_shortcut" class="sidebar-block">
+<h3 class="catListTitle">常用链接</h3>
+<ul>
+<li><a href="https://www.cnblogs.com/chenyankai/p/" title="我的博客的随笔列表">我的随笔</a></li><li><a href="https://www.cnblogs.com/chenyankai/MyComments.html" title="我发表过的评论列表">我的评论</a></li><li><a href="https://www.cnblogs.com/chenyankai/OtherPosts.html" title="我评论过的随笔列表">我的参与</a></li><li><a href="https://www.cnblogs.com/chenyankai/RecentComments.html" title="我的博客的评论列表">最新评论</a></li><li><a href="https://www.cnblogs.com/chenyankai/tag/" title="我的博客的标签列表">我的标签</a></li>
+</ul>
+<div id="itemListLin_con" style="display:none;">
+
+</div></div><div id="sidebar_toptags" class="sidebar-block"></div><div id="sidebar_categories">
+		<h1 class="listtitle">随笔档案</h1>
+		
+				<ul class="list" type="square">
+			
+				<li class="listitem"><a id="CatList_LinkList_0_Link_0" class="listitem" href="https://www.cnblogs.com/chenyankai/archive/2014/09.html">2014年9月 (2)</a> </li>
+			
+				</ul>
+			
+	
+</div><div id="sidebar_recentcomments" class="sidebar-block"><div id="recent_comments_wrap">
+<h3 class="catListTitle">最新评论</h3>
+<div class="RecentComment" id="RecentComments">
+	<div id="RecentCommentsBlock"><ul>
+        <li class="recent_comment_title"><a href="https://www.cnblogs.com/chenyankai/p/3951622.html#3097337">1. Re:Linux实用命令整理</a></li>
+        <li class="recent_comment_body">使用强随机数说明：安全敏感的代码块（如SessionID的生成、挑战算法中的随机数生成等），必须采用强随机数，禁止使用伪随机数。Java API 提供了伪随机数生成器（PRNG）——java.util......</li>
+        <li class="recent_comment_author">--hunyihun</li>
+        <li class="recent_comment_title"><a href="https://www.cnblogs.com/chenyankai/p/3951622.html#3097329">2. Re:Linux实用命令整理</a></li>
+        <li class="recent_comment_body">原则7.3 基于哈希算法的口令安全存储必须加入盐值（salt）说明：单向哈希是在一个方向上工作的哈希函数，从预映射的值很容易计算其哈希值，但要根据特定哈希值产生一个预映射的值却是非常困难的。单向哈希主......</li>
+        <li class="recent_comment_author">--hunyihun</li>
+        <li class="recent_comment_title"><a href="https://www.cnblogs.com/chenyankai/p/3951622.html#3097327">3. Re:Linux实用命令整理</a></li>
+        <li class="recent_comment_body">7.	其它原则7.1 禁止在日志中保存口令、密钥说明： 在日志中不能保存口令和密钥，其中的口令包括明文口令和密文口令。对于敏感信息建议采取以下方法，1）不打印在日志中；2）若因为特殊原因必须要打印日志......</li>
+        <li class="recent_comment_author">--hunyihun</li>
+        <li class="recent_comment_title"><a href="https://www.cnblogs.com/chenyankai/p/3951622.html#3097326">4. Re:Linux实用命令整理</a></li>
+        <li class="recent_comment_body">避免依赖和信任环境变量说明：使用环境变量会带来可以移植性问题，在不同的操作系统中其语义可能有所不同。因此要尽量避免使用环境变量。对于一个值如果有定义的系统属性(System properties)可用......</li>
+        <li class="recent_comment_author">--hunyihun</li>
+        <li class="recent_comment_title"><a href="https://www.cnblogs.com/chenyankai/p/3951622.html#3097325">5. Re:Linux实用命令整理</a></li>
+        <li class="recent_comment_body">所有安全相关的敏感代码都放在一个jar包中，并签名再加密说明：若安全相关的敏感代码（例如进行权限控制或者用户名密码校验的代码）没有放到同一个受信任的jar包中，攻击者可以通过先加载恶意代码（使用相同的......</li>
+        <li class="recent_comment_author">--hunyihun</li>
+</ul>
+</div>
+</div>
+</div></div><div id="sidebar_topviewedposts" class="sidebar-block"><div id="topview_posts_wrap">
+<h3 class="catListTitle">阅读排行榜</h3>
+<div class="RecentComment" id="TopViewPosts"> 
+	<div id="TopViewPostsBlock"><ul><li><a href="https://www.cnblogs.com/chenyankai/p/3951606.html">1. 源码安装Apache，报错：Cannot use an external APR with the bundled APR-util和httpd: Could not reliably determine the server's fully qualified domain name(67)</a></li><li><a href="https://www.cnblogs.com/chenyankai/p/3951622.html">2. Linux实用命令整理(15)</a></li></ul></div>
+</div>
+</div></div><div id="sidebar_topcommentedposts" class="sidebar-block"><div id="topfeedback_posts_wrap">
+<h3 class="catListTitle">评论排行榜</h3>
+<div class="RecentComment" id="TopCommentsPosts">
+	<div id="TopFeedbackPostsBlock"><ul><li><a href="https://www.cnblogs.com/chenyankai/p/3951606.html">1. 源码安装Apache，报错：Cannot use an external APR with the bundled APR-util和httpd: Could not reliably determine the server's fully qualified domain name(97)</a></li><li><a href="https://www.cnblogs.com/chenyankai/p/3951622.html">2. Linux实用命令整理(58)</a></li></ul></div>
+</div></div></div><div id="sidebar_topdiggedposts" class="sidebar-block"><div id="topdigg_posts_wrap" style="display: none;">
+<h3 class="catListTitle">推荐排行榜</h3>
+<div class="RecentComment">
+	<div id="TopDiggPostsBlock"></div>
+</div></div></div></div><script type="text/javascript">loadBlogSideColumn();</script>
+			<br>
+			
+<div class="footer">
+	Powered by: <a href="http://www.cnblogs.com/">博客园</a><br>模板提供：<a href="http://blog.hjenglish.com/">沪江博客</a><br>
+	Copyright ©2018 hunyihun
+</div>
+			</td>
+		</tr>
+		</tbody></table>
+	</td>
+</tr>
+</tbody></table>
+<br>
+
+
+
+</body></html>

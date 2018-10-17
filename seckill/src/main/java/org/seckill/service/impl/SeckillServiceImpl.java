@@ -69,7 +69,7 @@ public class SeckillServiceImpl implements SeckillService {
     }
     @Transactional
     public SeckillExecution executeSeckill(long seckillId, long userPhone, String md5)
-            throws SeckillException, SeckillRepeatException, SeckillCloseException {
+            throws SeckillException, SeckillCloseException, SeckillRepeatException {
         if (md5 == null || !md5.equals(getMd5(seckillId))) {
             throw new SeckillException("seckill data rewrite.");
         }

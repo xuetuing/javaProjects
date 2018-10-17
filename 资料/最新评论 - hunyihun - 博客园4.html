@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<!-- saved from url=(0061)https://www.cnblogs.com/chenyankai/recentcomments.html?page=4 -->
+<html lang="zh-cn"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="referrer" content="origin">
+<title>最新评论 - hunyihun - 博客园</title>
+<link type="text/css" rel="stylesheet" href="./最新评论 - hunyihun - 博客园4_files/blog-common.css">
+<link id="MainCss" type="text/css" rel="stylesheet" href="./最新评论 - hunyihun - 博客园4_files/bundle-classic.css">
+<link id="mobile-style" media="only screen and (max-width: 767px)" type="text/css" rel="stylesheet" href="./最新评论 - hunyihun - 博客园4_files/bundle-classic-mobile.css">
+<link title="RSS" type="application/rss+xml" rel="alternate" href="https://www.cnblogs.com/chenyankai/rss">
+<link title="RSD" type="application/rsd+xml" rel="EditURI" href="https://www.cnblogs.com/chenyankai/rsd.xml">
+<link type="application/wlwmanifest+xml" rel="wlwmanifest" href="https://www.cnblogs.com/chenyankai/wlwmanifest.xml">
+<script async="" src="./最新评论 - hunyihun - 博客园4_files/analytics.js.下载"></script><script src="./最新评论 - hunyihun - 博客园4_files/jquery-2.2.0.min.js.下载"></script>
+<script type="text/javascript">var currentBlogApp = 'chenyankai', cb_enable_mathjax=false;var isLogined=false;</script>
+<script src="./最新评论 - hunyihun - 博客园4_files/blog-common.js.下载" type="text/javascript"></script>
+</head>
+<body>
+<a name="top"></a>
+
+<table align="center" width="98%" cellspacing="0" cellpadding="0" border="0" style="margin-top:10px">
+<tbody><tr>
+	<td valign="top" width="70%" style="padding:0">
+		<table align="center" width="100%" height="90" cellspacing="0" cellpadding="5" border="0" bgcolor="white">
+		<tbody><tr>
+			<td class="banner">
+			
+<div id="header">
+	<span>
+		<a id="Header1_HeaderTitle" href="https://www.cnblogs.com/chenyankai/">hunyihun</a><br>
+		<div class="sub"></div>
+	</span>
+</div>
+			</td>
+		</tr>
+		</tbody></table>
+		<table align="center" width="100%" height="90" cellspacing="0" cellpadding="5" border="0" bgcolor="white" class="index">
+		<tbody><tr>
+			<td class="main">
+			
+
+<div id="myposts">
+<h3 class="myposts_title">最新评论</h3>
+<div class="pager"><div class="Pager">
+	共8页:&nbsp;<a href="https://www.cnblogs.com/chenyankai/recentcomments.html?page=3">上一页</a>&nbsp;<a href="https://www.cnblogs.com/chenyankai/recentcomments.html?page=1">1</a>&nbsp;<a href="https://www.cnblogs.com/chenyankai/recentcomments.html?page=2">2</a>&nbsp;<a href="https://www.cnblogs.com/chenyankai/recentcomments.html?page=3">3</a>&nbsp;4&nbsp;<a href="https://www.cnblogs.com/chenyankai/recentcomments.html?page=5">5</a>&nbsp;<a href="https://www.cnblogs.com/chenyankai/recentcomments.html?page=6">6</a>&nbsp;<a href="https://www.cnblogs.com/chenyankai/recentcomments.html?page=7">7</a>&nbsp;<a href="https://www.cnblogs.com/chenyankai/recentcomments.html?page=8">8</a>&nbsp;<a href="https://www.cnblogs.com/chenyankai/recentcomments.html?page=5">下一页</a>&nbsp;
+</div></div>
+
+		<div class="PostList">
+			<div class="postTitl2"><a id="PostsList1_rpPosts_TitleUrl_0" href="https://www.cnblogs.com/chenyankai/p/3951606.html#3086403">Re:源码安装Apache，报错：Cannot use an external APR with the bundled APR-util和httpd: Could not reliably determine the server's fully qualified domain name</a> <span class="postDesc2">hunyihun 2014-12-15 15:49</span>&nbsp;&nbsp;</div>
+			<div class="postText2">规则55	在switch语句的每一个case中都放置一条break语句<br>说明：遗漏break，可能导致程序误进入下一个case分支，执行了预期之外的代码，导致异常。而且，不推荐做出有意不写break的设计。<br>示例：<br>	case ‘-‘ 遗漏break，导致计算结果与预期不一致<br>switch (c) {<br>    	case '+':<br>    		result = add(a, b);<br>    		break;<br>    	case '-':<br>    		result = minus(a, b);<br>    	case '*':<br>    		result = multiply(a, b);<br>    		break;<br>    	case '/':<br>    		result = devide(a, b);<br>    		break;<br>    	default:<br>    		...    		<br>    }<br>7.3	序列化<br>规则56	序列化对象中的HashMap、HashSet或HashTable等集合不能包含对象自身的引用<br>说明：如果一个被序列化的对象中，包含有HashMap、HashSet或HashTable集合，则这些集合中不允许保存当前被序列化对象的直接或间接引用。因为，这些集合类型在反序列化的时候，会调用到当前序列化对象的hashCode方法，而此时（序列化对象还未完全加载）计算出的hashCode有可能不正确，从而导致对象放置位置错误，破坏反序列化的实例。<br>示例：<br>class Super implements Serializable {<br>	final Set&lt;Super&gt; set = new HashSet&lt;Super&gt;();<br>}<br><br>final class Sub extends Super {<br>	private int id;<br><br>	public Sub(int id) {<br>		this.id = id;<br>		set.add(this); // 集合中引用了当前对象<br>	}<br><br>	public void checkInvariant() {<br>		if (!set.contains(this))<br>			throw new AssertionError("invariant violated");<br>	}<br><br>	public int hashCode() {<br>		return id;<br>	}<br><br>	public boolean equals(Object o) {<br>		return (o instanceof Sub) &amp;&amp; (id == ((Sub) o).id);<br>	}<br>}<br>这个例子中，将当前对象（Sub对象）放入了对象中的HashSet中，在反序列化set时，因为id属性还未完成初始化，导致hashCode的结果为0，从而导致Sub对象在set中的位置放置错误，对象被破坏。</div>				
+		</div>
+	<div class="line"></div>
+		<div class="PostList">
+			<div class="postTitl2"><a id="PostsList1_rpPosts_TitleUrl_1" href="https://www.cnblogs.com/chenyankai/p/3951606.html#3086396">Re:源码安装Apache，报错：Cannot use an external APR with the bundled APR-util和httpd: Could not reliably determine the server's fully qualified domain name</a> <span class="postDesc2">hunyihun 2014-12-15 15:43</span>&nbsp;&nbsp;</div>
+			<div class="postText2">建议17	采用括号明确运算的优先级<br>说明：注意运算符的优先级。在普遍不易理解的复杂表达式中，使用括号说明优先级，以方便阅读和理解。即使代码优先级正确，也应该考虑到后续阅读或者修改这段代码的其他人员的方便，最好加上括号。<br>例子：<br>不建议： <br>if (a == b  &amp;&amp;  c == d)<br>推荐：<br>if ((a == b)  &amp;&amp; (c == d))<br>7.2	控制语句<br>规则54	采用for-each代替传统的for循环（v1.5+）<br>说明：在Java 1.5之前，遍历一个集合的首选方法是：<br>or(Iterator i = c.iterator(); i.hasNext();) {<br>    	doSomething((Element)i.next()); <br>}    	<br>遍历数组的首选做法是<br>for(int i = 0; i &lt; a.length; i++) {<br>    	doSomething(a[i]);<br>}<br>由于需要手工获取数据和递增到下一个元素，在书写时更容易出错，尤其是多层循环嵌套的时候。在Java1.5中，引入了for-each循环，隐藏了获取数据和递增的操作，避免了混乱和出错的可能。使用for-each循环的例子：<br>for (String item : list) {<br>        System.out.print(item);<br>}</div>				
+		</div>
+	<div class="line"></div>
+		<div class="PostList">
+			<div class="postTitl2"><a id="PostsList1_rpPosts_TitleUrl_2" href="https://www.cnblogs.com/chenyankai/p/3951606.html#3086394">Re:源码安装Apache，报错：Cannot use an external APR with the bundled APR-util和httpd: Could not reliably determine the server's fully qualified domain name</a> <span class="postDesc2">hunyihun 2014-12-15 15:42</span>&nbsp;&nbsp;</div>
+			<div class="postText2">规则53	运算时应避免产生溢出<br>说明：<br>1、如下列两个int型变量a,b的运算   int c=a+b;//或c=a-b; 当结果为很大的正数(&gt;2147483647)，或为很小的负数时(&lt;-2147483648)，可能会导致溢出，则c不是正确的结果，建议使用long型保存结果。 如果是long型进行上述计算，则建议使用BigInteger。<br> 2、计算一年的毫秒<br>错误示例：<br>int millisOfYear=1000*60*60*24*365;或 long millisOfYear=1000*60*60*24*365;<br>正确示例：<br>long millisOfYear=1000L*60*60*24*365;<br>使用基于减法的比较器时，需要确认相减的结果不会超出类型的表示范围，如下，假设T.num为整形<br>错误示例：<br>new Comparator()<br>    {<br>    	@Override<br>    	public int compare(T o1, T o2)<br>    	{<br>    		return o1.num - o2.num ;<br>    	}<br>    }<br>正确示例：<br>new Comparator()<br>    {<br>    	@Override<br>    	public int compare(T o1, T o2)<br>    	{<br>    		if (o1.num &gt; o2.num)<br>    		{<br>    			return 1;<br>    		}<br>    		return o1.num &lt; o2.num ? -1 : 0;<br>    	}<br>    }</div>				
+		</div>
+	<div class="line"></div>
+		<div class="PostList">
+			<div class="postTitl2"><a id="PostsList1_rpPosts_TitleUrl_3" href="https://www.cnblogs.com/chenyankai/p/3951606.html#3086389">Re:源码安装Apache，报错：Cannot use an external APR with the bundled APR-util和httpd: Could not reliably determine the server's fully qualified domain name</a> <span class="postDesc2">hunyihun 2014-12-15 15:41</span>&nbsp;&nbsp;</div>
+			<div class="postText2">7	语言特性<br>7.1	运算和表达式<br>规则52	不要写复杂的表达式<br>说明：复杂的表达式难以理解，会增加软件维护的成本和出错的几率。建议将难懂的语句封装到某个方法里，通过方法名来概括该语句的含义。<br>示例：<br>	不好<br>if((employee.flags &amp; HOURLEY_FLAG)&amp;&amp;(employee.age &gt; 65))<br>    {<br>        …………<br>    }<br>推荐<br>if(employee.isEligibleForFullBenefits())<br>    {<br>          ……<br>    }<br>     <br>    private boolean isEligibleForFullBenefits()<br>    {<br>        return (employee.flags &amp; HOURLEY_FLAG) &amp;&amp; (employee.age &gt; 65) ;<br>    }</div>				
+		</div>
+	<div class="line"></div>
+		<div class="PostList">
+			<div class="postTitl2"><a id="PostsList1_rpPosts_TitleUrl_4" href="https://www.cnblogs.com/chenyankai/p/3951606.html#3086384">Re:源码安装Apache，报错：Cannot use an external APR with the bundled APR-util和httpd: Could not reliably determine the server's fully qualified domain name</a> <span class="postDesc2">hunyihun 2014-12-15 15:39</span>&nbsp;&nbsp;</div>
+			<div class="postText2">规则49	不要依赖线程调度器（Thread Scheduler）<br>说明：Java中的线程调度，是基于操作系统以及JVM的实现，在不同的操作系统中，或者不同厂商的JVM（如Sun、IBM、Microsoft等），即使是同一套代码，其多线程的运行也是不一样的，因此，在多线程的程序中，不要依赖于系统的线程调度器来决定程序的逻辑运作。任何依赖于线程调度器来达到正确性或者性能要求的程序，很有可能都是不可移植的。同理，也不要使用Thread.yield()或者线程优先级来处理多线程的工作。<br><br>规则50	采用Java1.5提供新并发工具代替wait和notify（v1.5+）<br>说明：自从Java1.5发行版本开始，Java平台就提供了更高级的并发工具，它们可以完成以前必须在wait和notify上手写代码来完成的各项工作。java.util.concurrent更高级的并发工具分成三类：Executor Framework、并发集合（Concurrent Collection）以及同步器（Synchronizer）。<br><br>规则51	在多线程的程序中应使用线程安全的集合<br>说明：Java提供的集合有两类，一类是线程安全的，如Vector、TableMap；一类是非线程安全的，如ArrayList、HashMap，在多线程的程序中，如果使用了非线程安全的集合类，容易导致不可预知的问题。因此，在多线程的程序中建议使用线程安全的集合，如Vector、TableMap，以保证线程安全。Java1.5后，建议使用java.util.concurrent提供的新的并发集合，如ConcurrentHashMap、ConcurrentSet等。<br><br>建议14	多线程场景下的字符串相加，应采用StringBuffer<br>说明：StringBuffer相对于StringBuilder来说，是线程安全的。<br><br>建议15	在多线程的程序中不要修改全局静态变量<br>说明：多线程程序中修改全局静态数据，会影响其他线程中执行的其他类的行为，是线程不安全的。<br><br>建议16	针对线程安全性，需要进行文档（javadoc）说明<br>说明：当一个类的实例或者静态方法被并发使用的时候，这个类的行为如何，是该类与其客户端程序建立的约定的重要组成部分。如果你没有在一个类的文档中描述其行为的并发性情况，使用这个类的程序员将不得不做出某些假设。如果这些假设是错误的，这样得到的程序就可能缺少足够的同步，或者过度同步。</div>				
+		</div>
+	<div class="line"></div>
+		<div class="PostList">
+			<div class="postTitl2"><a id="PostsList1_rpPosts_TitleUrl_5" href="https://www.cnblogs.com/chenyankai/p/3951606.html#3086383">Re:源码安装Apache，报错：Cannot use an external APR with the bundled APR-util和httpd: Could not reliably determine the server's fully qualified domain name</a> <span class="postDesc2">hunyihun 2014-12-15 15:38</span>&nbsp;&nbsp;</div>
+			<div class="postText2">规则48	不要使用Thread.stop方法，因为该方法本质是不安全的，使用它可能会导致数据遭到破坏<br>说明： 用Thread.stop停止一个线程会导致其解锁其上被锁定的所有监视器（监视器以在栈顶产生ThreadDeath异常的方式被解锁）。如果之前被这些监视器保护的任何对象处于不一致状态，其它线程看到的这些对象就会处于不一致状态。这种对象被称为受损的 （damaged）。当线程在受损的对象上进行操作时，会导致任意行为。这种行为可能微妙且难以检测，也可能会比较明显。不像其他未受检的（unchecked）异常， ThreadDeath 会悄无声息的杀死线程。因此，用户得不到程序可能会崩溃的警告。崩溃会在真正破坏发生后的任意时刻显现，甚至在数小时或数天之后。<br>大多数stop的使用，应当被替换为简单修改某些变量来指示其目标线程将停止运行的代码。目标线程应当有规律的检查这些变量。并且，如果这些变量指示其将停止运行，目标线程应当以某种有序的方式从它的run方法返回（这正是Java Tutorial一贯建议的方式）。为了确保停止请求的及时传达，变量必须是 volatile 的（或者变量的访问被同步）。<br><br>示例：<br>不好：不安全做法<br> private Thread blinker;<br><br>    public void start() {<br>        blinker = new Thread(this);<br>        blinker.start();<br>    }<br><br>    public void stop() {<br>        blinker.stop();  // UNSAFE!<br>    }<br><br>    public void run() {<br>        Thread thisThread = Thread.currentThread();<br>        while (true) {<br>            try {<br>                thisThread.sleep(interval);<br>            } catch (InterruptedException e){<br>            }<br>            repaint();<br>        }<br>    }<br>推荐做法<br>private volatile Thread blinker;<br><br>    public void stop() {<br>        blinker = null;<br>    }<br><br>    public void run() {<br>        Thread thisThread = Thread.currentThread();<br>        while (blinker == thisThread) {<br>            try {<br>                thisThread.sleep(interval);<br>            } catch (InterruptedException e){<br>            }<br>            repaint();<br>        }<br>    }</div>				
+		</div>
+	<div class="line"></div>
+		<div class="PostList">
+			<div class="postTitl2"><a id="PostsList1_rpPosts_TitleUrl_6" href="https://www.cnblogs.com/chenyankai/p/3951606.html#3086377">Re:源码安装Apache，报错：Cannot use an external APR with the bundled APR-util和httpd: Could not reliably determine the server's fully qualified domain name</a> <span class="postDesc2">hunyihun 2014-12-15 15:35</span>&nbsp;&nbsp;</div>
+			<div class="postText2">规则47	使用Thread对象的setUncaughtExceptionHandler方法注册Runtime异常的处理者(v1.5+)<br>说明：Java多线程程序中，所有线程都不允许抛出未捕获的checked exception，也就是说各个线程需要自己把自己的checked exception处理掉。但是无法避免的是unchecked exception，也就是RuntimeException，当抛出异常时子线程会结束，但主线程不会知道，因为主线程通过try catch是无法捕获子线程异常的。Thread对象提供了setUncaughtExceptionHandler方法用来获取线程中产生的异常。而且建议使用Thread.setDefaultUncaughtExceptionHandler，为所有线程设置默认异常捕获方法。<br>示例：<br>public class TestUncaughtException {<br>	public static void main(String[] args) {<br>		TestThread thread = new TestThread();<br>		thread.setUncaughtExceptionHandler(new UncaughtExceptionHandler() {<br>			public void uncaughtException(Thread t, Throwable e) {<br>				System.out.println(t.getName() + " : " + e.getMessage());<br>			}<br>		});<br>		<br>		thread.start();<br>	}<br><br>	public static class TestThread extends Thread {<br>		public TestThread() {<br>		}<br><br>		public void run() {<br>			throw new RuntimeException("just a test");<br>		}<br>	}<br>}</div>				
+		</div>
+	<div class="line"></div>
+		<div class="PostList">
+			<div class="postTitl2"><a id="PostsList1_rpPosts_TitleUrl_7" href="https://www.cnblogs.com/chenyankai/p/3951606.html#3086373">Re:源码安装Apache，报错：Cannot use an external APR with the bundled APR-util和httpd: Could not reliably determine the server's fully qualified domain name</a> <span class="postDesc2">hunyihun 2014-12-15 15:33</span>&nbsp;&nbsp;</div>
+			<div class="postText2">规则45	禁止不加控制的创建新线程<br>说明：Java虚拟机能够管理的线程数量有限，不加控制的创建新线程可能会导致Java虚拟机崩溃。建议用Java 1.5之后提供的线程池ThreadPoolExecutor来管理线程资源。<br> 示例：<br>	不好<br>public void processEntity1(List&lt;Entity&gt; entityList) {<br>		for (Entity entity : entityList) {<br>			new Thread(new EntityProcessor(entity)).start();<br>		}<br>	}<br>推荐，由线程池来管理线程资源<br>private ThreadPoolExecutor threadPool = ...; // init thread pool<br><br>	public void processEntity2(List&lt;Entity&gt; entityList) {<br>		for (Entity entity : entityList) {<br>			threadPool.execute(new EntityProcessor(entity));<br>		}<br>	}<br>规则46	每新起一个线程，都须设置线程名<br>说明：这样在打印日志的时候就会把线程名称打印出来，在分析线程DUMP时，定位故障非常有用。如果不设置，线程名称默认为Thread-1这样类型的，区分不出来哪个线程。</div>				
+		</div>
+	<div class="line"></div>
+		<div class="PostList">
+			<div class="postTitl2"><a id="PostsList1_rpPosts_TitleUrl_8" href="https://www.cnblogs.com/chenyankai/p/3951606.html#3086371">Re:源码安装Apache，报错：Cannot use an external APR with the bundled APR-util和httpd: Could not reliably determine the server's fully qualified domain name</a> <span class="postDesc2">hunyihun 2014-12-15 15:32</span>&nbsp;&nbsp;</div>
+			<div class="postText2">6	多线程并发<br>规则44	多线程访问同一个可变变量，需增加同步机制<br>说明：根据Java Language Specification中对Java内存模型的定义, JVM中存在一个主内存(Java Heap Memory)，Java中所有变量都储存在主存中，对于所有线程都是共享的。每个线程都有自己的工作内存(Working Memory)，工作内存中保存的是主存中某些变量的拷贝，线程对所有变量的操作都是在工作内存中进行，线程之间无法相互直接访问，变量传递均需要通过主存完成。根据上述内存模型的定义，要在多个线程间安全的同步共享数据就必须使用锁机制，将某线程中更新的数据从其工作内存中刷新至主内存，并确保其他线程从主内存获取此数据更新后的值再使用。<br>示例：<br>	不好：下面的代码中，没有对可变数据stopRequested的访问做同步。程序期望在一秒钟后线程能停止。但在用java 1.6的server模式运行此程序（Java –server StopThread）时，程序陷入死循环，不能结束。<br>public class StopThread {<br>	private static boolean stopRequested;<br><br>	public static void main(String[] args) throws InterruptedException {<br>		Thread backgroundThread = new Thread(new Runnable() {<br>			public void run() {<br>				int i = 0;<br>				while (!stopRequested){<br>					i++;<br>                     }<br>			}<br>		});<br><br>		backgroundThread.start();<br><br>		TimeUnit.SECONDS.sleep(1);<br>		stopRequested = true;<br>	}<br>JAVA虚拟机将<br>while (!stopRequested){<br>			i++;<br>}<br>	优化为<br>		if(!stopRequested) {<br>			while (true) {<br>				i++<br>                }<br>           }<br><br>	增加了synchronized同步机制后，程序就能正确地在1秒后终止。另一个方案是在变量前增加	volatile关键字。<br>public class StopThread {<br>	private static boolean stopRequested;<br>	<br>	private static synchronized void requestStop() {<br>		stopRequested = true;<br>	}<br>	<br>	private static synchronized boolean stopRequested() {<br>		return stopRequested;<br>	}<br><br>	public static void main(String[] args) throws InterruptedException {<br>		Thread backgroundThread = new Thread(new Runnable() {<br>			public void run() {<br>				int i = 0;<br>				while (!stopRequested()) {<br>					i++;<br>                     }<br>			}<br>		});<br><br>		backgroundThread.start();<br><br>		TimeUnit.SECONDS.sleep(1);<br>		requestStop();<br>	}</div>				
+		</div>
+	<div class="line"></div>
+		<div class="PostList">
+			<div class="postTitl2"><a id="PostsList1_rpPosts_TitleUrl_9" href="https://www.cnblogs.com/chenyankai/p/3951606.html#3086369">Re:源码安装Apache，报错：Cannot use an external APR with the bundled APR-util和httpd: Could not reliably determine the server's fully qualified domain name</a> <span class="postDesc2">hunyihun 2014-12-15 15:31</span>&nbsp;&nbsp;</div>
+			<div class="postText2">规则42	并发业务时，重要日志放置在同一个日志块里 <br>说明：这样避免大并发时，关联的日志信息被其他线程的日志打散，无法快速定位。<br>示例：<br>	不好：在并发情况，下面的日志并不是连贯出现。这样导致查找同一笔业务相关信息时，日志上下文看到的不是同一笔业务日志。<br>public void buziProcess() {<br>    logger.info("____START___"+sBizID);<br>    logger.info("[* RequestXml :]"+inXml);<br>    …………………// 其他业务处理代码…<br>    logger.info("[* ResponseXml :]"+responseMessage);<br>    logger.info("_____END_____"+sBizID);<br>}<br>推荐：日志包含完整的信息，并一次性记录<br>public void buziProcess() {<br>	    …………………// 其他业务处理代码…<br>	    logger.info(new StringBuffer("____START___"+sBizID)<br>	                    .append("\n[* RequestXml :]\n").append(inXml)<br>	                    .append("\n[* ResponseXml :]\n").append(responseMessage)<br>	                    .append("_____END_____"+sBizID));<br>	}<br>规则43	日志中不要记录敏感信息<br>说明：根据安全编程规范的要求，日志中不应出现敏感信息，如用户的密码、银行卡号等。详见《安全编程规范-JAVA篇》</div>				
+		</div>
+	<div class="line"></div>
+		<div class="PostList">
+			<div class="postTitl2"><a id="PostsList1_rpPosts_TitleUrl_10" href="https://www.cnblogs.com/chenyankai/p/3951606.html#3086368">Re:源码安装Apache，报错：Cannot use an external APR with the bundled APR-util和httpd: Could not reliably determine the server's fully qualified domain name</a> <span class="postDesc2">hunyihun 2014-12-15 15:30</span>&nbsp;&nbsp;</div>
+			<div class="postText2">规则39	日志的记录，不要使用 System.out 与 System.err 进行控制台打印，应该使用专用的日志工具(比如：log4j)进行处理<br>说明：专用日志工具比控制台打印提供了更丰富的日志记录功能，且使用更加简单<br>示例：<br>不好：使用控制台打印<br>start = System.currentTimeMillis();<br>……………………//其他加载数据的代码<br>System.out.println ("items loaded,use " + (System.currentTimeMillis() - start) + "ms.");<br>推荐：采用日志工具<br>start = System.currentTimeMillis();<br>……………………//其他加载数据的代码<br>logger.info("items loaded,use " + (System.currentTimeMillis() - start) + "ms.");<br>规则40	日志工具对象logger应声明为private static final<br>说明：1、声明为private是出于安全性考虑，防止logger对象被其他类非法使用<br>2、声明为static是为了防止重复new出logger对象，造成资源的浪费，同时防止logger被序列化，造成安全风险<br>3、声明为final是因为在类的生命周期内无需变更logger;<br>示例：<br>private static final Logger logger = Logger.getLogger(MyApp.class);<br>规则41	日志应分等级<br>说明：如果日志不分等级，则定位问题时，无法快速有效屏蔽大量低级别信息，给快速定位带来难度。日志可分为以下级别：debug、info、warn、error、fatal。推荐一般的业务处理日志用info级，而记录异常的日志应为error或fatal级。<br>示例：<br>catch (XXXException e){  <br>	logger.error("#211#Error when insertNoCCNCMessage!e=" + e.toString(), e); <br>}</div>				
+		</div>
+	<div class="line"></div>
+		<div class="PostList">
+			<div class="postTitl2"><a id="PostsList1_rpPosts_TitleUrl_11" href="https://www.cnblogs.com/chenyankai/p/3951606.html#3086366">Re:源码安装Apache，报错：Cannot use an external APR with the bundled APR-util和httpd: Could not reliably determine the server's fully qualified domain name</a> <span class="postDesc2">hunyihun 2014-12-15 15:29</span>&nbsp;&nbsp;</div>
+			<div class="postText2">规则38	在finally块中不要使用return、break或continue使finally块非正常结束 <br>说明：在finally中使用return、break或continue会使finally块非正常结束，造成的影响是，即使在try块或catch中抛出了异常，也会因为finally非正常结束而导致无法抛出。finally块非正常结束会有编译告警。<br>如下所示：<br>	下列代码的main方法中不会捕获到异常，输出是aa:0<br>public static void main(String[] args) {<br>		try {<br>			System.out.println("aa:" + aa());<br>		} catch (Exception e) {<br>			e.printStackTrace();<br>		}<br>	}<br><br>	public static int aa() throws Exception {<br>		int a = 1;<br>		for (int i = 1; i &lt; 2; i++) {<br>			try {<br>				throw new Exception("bb");<br>			} catch (Exception ex) {<br>				throw ex;<br>			} finally {				<br>				continue;<br>			}			<br>		}<br>		return 0;<br>	}<br>建议11	不要直接捕获受检异常的基类Exception<br>说明：捕获受检异常的目的是为了进行恢复，而如果不加区分的捕获所有受检异常，则无法进行对应异常的恢复处理。 因此，应该区分并捕获具体的异常。<br><br>建议12	一个方法不应抛出太多类型的异常<br>说明：方法抛出过多的异常，会增加客户端异常处理的工作，同时也表明方法承担了过多的职责。<br><br>建议13	充分利用断言<br>说明：在Java 1.4中增加了assert关键字，用来测试指定的条件是否满足，当断言被违反时将抛出AssertionError。断言是用来检查正常执行时永不该发生的情况，用于检查代码中的bug。契约式程序设计中，每个方法都有前条件和后条件，可采用断言来验证前条件和后条件是否满足。断言的执行是可配置的，在开发阶段，我们使用断言来充分发现程序bug，而在正式发布后，出于性能和可靠性的考虑，应关闭断言。<br>5.2	日志<br>原则16	日志信息准确、繁简得当，满足快速定位的需要<br>说明：日志的目的，就是当问题发生时，帮助程序员快速定位发生问题的原因，因此日志信息应满足以下要求， 首先是要提供准确的信息，其次是信息不要太多也不要太少，太多则无法在海量日志中定位出问题，太少则没有足够信息定位，要繁简得当刚好能满足快速定位的需要。</div>				
+		</div>
+	<div class="line"></div>
+		<div class="PostList">
+			<div class="postTitl2"><a id="PostsList1_rpPosts_TitleUrl_12" href="https://www.cnblogs.com/chenyankai/p/3951606.html#3086364">Re:源码安装Apache，报错：Cannot use an external APR with the bundled APR-util和httpd: Could not reliably determine the server's fully qualified domain name</a> <span class="postDesc2">hunyihun 2014-12-15 15:28</span>&nbsp;&nbsp;</div>
+			<div class="postText2">规则37	方法抛出的异常，应该与本身的抽象层次相对应<br>说明：当方法把一个异常传给调用方时，请确保异常的抽象层次与方法的抽象层次是一致的。<br>示例：<br>不好：getTaxId把更低层的IOException返回给调用方，暴露了实现细节，而且使调用方代码与底层耦合起来。<br>public class Employee {<br>	...<br>	public TaxId getTaxId() throws IOException {<br>		...<br>	}<br>	...<br>}<br>推荐：抛出EmployeeDataNotAvailable异常，抽象层次与方法一致<br>public class Employee {<br>	...<br>	public TaxId getTaxId() throws EmployeeDataNotAvailable {<br>		...<br>	}<br>	...<br>}<br>建议10	使用异常来做错误处理，而非错误码<br>说明：使用判断返回错误码来进行错误处理，易导致正常业务流和异常处理流交织在一起，可读性比较差。而且返回错误码，一般要求调用者立刻处理错误，易导致更深层次的嵌套。如下所示：<br>示例：<br>	不好：使用错误码<br>if (deletePage(page) == E_OK) {<br>	    if (registry.deleteReference(page.name) == E_OK) {<br>	        if (configKeys.deleteKey(page.name.makeKey()) == E_OK) {<br>	            logger.log("page deleted");<br>	        } else {<br>	            logger.log("configKey not deleted");<br>	        }<br>	    } else {<br>	        logger.log("deleteReference from registry failed");<br>	    }<br>	} else {<br>	    logger.log("delete failed");<br>	    return false;<br>	}<br>推荐：使用异常<br> <br>try {<br>	    deletePage(page);<br>	    registry.deleteReference(page.name);<br>	    configKeys.deleteKey(page.name.makeKey());<br>         logger.log("page deleted");<br>	}<br>	catch (Exception e) {<br>	    logger.log(e);<br>	}</div>				
+		</div>
+	<div class="line"></div>
+		<div class="PostList">
+			<div class="postTitl2"><a id="PostsList1_rpPosts_TitleUrl_13" href="https://www.cnblogs.com/chenyankai/p/3951606.html#3086359">Re:源码安装Apache，报错：Cannot use an external APR with the bundled APR-util和httpd: Could not reliably determine the server's fully qualified domain name</a> <span class="postDesc2">hunyihun 2014-12-15 15:25</span>&nbsp;&nbsp;</div>
+			<div class="postText2">规则34	不要忽略异常<br>说明：通过一个空的catch块可以很方便的忽略异常，如下所示：<br>try {<br>	    …<br>	} catch (SomeException e) {<br>	}<br>空的catch块会使异常达不到应有的目的。忽略异常就如同忽略火警信号一样，若把火警信号器关掉了，当真正火灾发生时，就没有人能看到火警信号了。至少，在一个空catch块中也应该添加注释，解释为什么可以忽略这个异常，对于那些不应该频繁发生的异常，还应该将异常信息记录到日志中。例如关闭FileInputStream时，可以忽略异常，因为此时还没有改变文件状态，不必执行任何恢复动作，但是将异常信息记录到日志中，当异常频繁发生时就可以调查异常的原因。。<br><br>规则35	方法注释和文档中要包含所抛出异常的说明<br>说明：要正确使用方法，必须对方法所抛出异常有所了解。因此，为保证方法的调用者清楚了解方法所抛出的异常，应该在方法的注释和文档中包含所抛出异常的说明。<br><br>规则36	对第三方API抛出大量各类异常进行封装<br>说明：为了避免与第三方API产生太过紧密的耦合，避免因第三方修改了异常之后而导致自身代码的变更，需要利用adapter模式，对第三方抛出的异常进行封装。</div>				
+		</div>
+	<div class="line"></div>
+		<div class="PostList">
+			<div class="postTitl2"><a id="PostsList1_rpPosts_TitleUrl_14" href="https://www.cnblogs.com/chenyankai/p/3951606.html#3086357">Re:源码安装Apache，报错：Cannot use an external APR with the bundled APR-util和httpd: Could not reliably determine the server's fully qualified domain name</a> <span class="postDesc2">hunyihun 2014-12-15 15:25</span>&nbsp;&nbsp;</div>
+			<div class="postText2">原则15	在抛出异常的细节信息中，应包含能捕获失败的信息<br>说明：在抛出异常的时候，应该同时提供足够多对分析“异常是如何产生的”有帮助的信息，比如“对该异常有贡献”的参数和变量的值。这样能方便程序员知道应该去查找哪些错误，可以极大地加速诊断过程。但是需要注意符合公司安全红线和法律法规的要求，不要返回敏感信息或者个人信息。<br>  <br>规则33	对可恢复的情况使用受检异常（checked exception），对编程错误使用运行时异常（runtime exception）<br>说明：Java存在三种可抛出结构（throwable）：受检异常（checked exception）、运行时异常（runtime exception）和错误（error）。使用原则是：<br>1、如果期望调用者能够恢复，则应该使用受检异常。抛出受检异常，可以强迫调用者在一个catch子句中处理该异常，或者继续传播到外面。<br>2、运行时异常是指程序错误，并且难以恢复或者不可恢复的场景。大多数运行时异常都是表明前提违例（precondition violation指API的调用方没有遵循调用约定）。<br>3、错误（error）被JVM保留用于指示资源不足、约束失败或者其他程序无法继续执行的条件。最好不要实现新的Error子类。所有抛出的未受检异常都应该是RuntimeException的子类。</div>				
+		</div>
+	<div class="line"></div>
+		<div class="PostList">
+			<div class="postTitl2"><a id="PostsList1_rpPosts_TitleUrl_15" href="https://www.cnblogs.com/chenyankai/p/3951606.html#3086356">Re:源码安装Apache，报错：Cannot use an external APR with the bundled APR-util和httpd: Could not reliably determine the server's fully qualified domain name</a> <span class="postDesc2">hunyihun 2014-12-15 15:25</span>&nbsp;&nbsp;</div>
+			<div class="postText2">5	异常和日志<br>5.1	异常<br>原则14	只针对异常的情况才使用异常<br>说明：不要用异常来做流程控制，只为异常情况使用异常。异常只应该用于处理罕见的、意料之外的、导致正常流程无法继续执行的行为，而不是取代正常的业务逻辑判断。<br>示例：<br>	不好：下列代码企图利用异常来模拟正常的循环操作，是不可取的<br>try {<br>	int i = 0;<br>	while(true) {<br>		range[i++].climb();<br>     }<br>} catch(ArrayIndexOutOfBoundsException e) {			<br>}</div>				
+		</div>
+	<div class="line"></div>
+		<div class="PostList">
+			<div class="postTitl2"><a id="PostsList1_rpPosts_TitleUrl_16" href="https://www.cnblogs.com/chenyankai/p/3951606.html#3086355">Re:源码安装Apache，报错：Cannot use an external APR with the bundled APR-util和httpd: Could not reliably determine the server's fully qualified domain name</a> <span class="postDesc2">hunyihun 2014-12-15 15:24</span>&nbsp;&nbsp;</div>
+			<div class="postText2">规则29	覆写equals方法时，应同时覆写hashCode方法<br>说明：因为Java对象在存放到基于Hash的集合（如HashMap、HashTable等）时，会使用其Hash码进行索引，如果只覆写了equals方法，而没有正确覆写hashCode方法，则会导致效率低下甚至出错；Java对象的hashCode方法有如下约定：<br>1.	在运行时环境中，对同一个对象多次调用hashCode方法，必须返回相同的值；<br>2.	如果两个对象调用equals方法时相等，则这两个对象的hashCode方法，也必须返回相同的值；<br>3.	如果两个对象调用equals方法时不相等，则这两个对象的hashCode方法，不要求其返回值不同； <br> 示例：<br>	不好：覆写equals的时候，没有同时覆写hashCode方法<br>public class Entity{<br>    private string id;<br>    private string value;<br><br>    @Override<br>    public boolean equals(object obj) {<br>        if (obj instanceof entity) {<br>            entity that = (entity)obj;<br>            return StringUtils.equals(this.id, that.id) <br>            	&amp;&amp; StringUtils.equals(this.value, that.value);<br>        }<br>        return  false;<br>    }<br>}<br>规则30	子类覆写父类方法时应加上@Override注解<br>说明：加上@Override注解的好处是，如果覆写时因为疏忽，导致子类方法的参数同父类不一致，编译时IDE会报错，使问题在编译期就被发现。如果父类修改了方法定义造成子类不再覆写父类方法，也能使问题在编译期尽早被发现。<br> <br>规则31	接口定义中去掉多余的修饰词<br>说明：在接口定义中，属性已缺省具有public static final修饰词，方法已缺省具有public abstract修饰词。因此在代码中不要再次提供这些修饰词。<br><br>规则32	根据设计的访问权限，给类添加合适的修饰词<br>说明：对于包内用的类，使用包访问权限，即不加任何修饰词。对于包外需要用的类，使用包外访问权限，即添加public修饰词。<br><br>建议9	设计时，考虑类的可变性最小化<br>说明：不可变类是指其实例一旦创建后就不能被修改，如Java平台类库的String、BigInteger和BigDecimal。不可变类比可变类更加易于设计、实现和使用。<br>要使类成为不可变类，遵循以下5条规则：<br>1、	不要提供任何会修改类状态的方法；<br>2、	保证类不会被继承；<br>3、	使所有值域都为final；<br>4、	使所有值域都成为私有；<br>5、	如果类具有指向可变对象的域，则必须确保该类的客户端无法获得指向这些对象的引用。</div>				
+		</div>
+	<div class="line"></div>
+		<div class="PostList">
+			<div class="postTitl2"><a id="PostsList1_rpPosts_TitleUrl_17" href="https://www.cnblogs.com/chenyankai/p/3951606.html#3086353">Re:源码安装Apache，报错：Cannot use an external APR with the bundled APR-util和httpd: Could not reliably determine the server's fully qualified domain name</a> <span class="postDesc2">hunyihun 2014-12-15 15:24</span>&nbsp;&nbsp;</div>
+			<div class="postText2">遮蔽（shadow）——类内部<br>一个变量、方法或类可以分别遮蔽（shadow）在类内部具有相同名字的变量、方法或类。如果一个实体被遮蔽了，那么你用简单的名称是无法引用到它：<br>示例：<br>	方法的局部变量遮蔽了类的静态变量<br>class WhoKnows {<br>	static String sentence = "I don't know.";<br><br>	public static void main(String[] args) {<br>		String sentence = "I know!"; // 遮蔽了类的静态成员sentence<br>		System.out.println(sentence); // 打印的是I know！<br>	}<br>}<br>遮掩（obscure）——类内部<br>一个变量可以遮掩具有相同名字的一个类，只要它们都在同一个范围内：如果这个名字被用于变量与类都被许可的范围，那么它将引用到变量上。相似地，一个变量或一个类型可<br>以遮掩一个包。遮掩是唯一一种两个名字位于不同的名字空间的名字重用形式，这些名字空<br>间包括：变量、包、方法或类型。如果一个类或一个包被遮掩了，那么你不能通过其简单<br>名引用到它，除非是在这样一个上下文环境中，即语法只允许在其名字空间中出现一种名字。<br>遵守命名习惯就可以极大地消除产生遮掩的可能性<br>public class Obscure {<br>	static String System; // Obscures type java.lang.System<br><br>	public static void main(String[ ] args) {<br>		//Next line won't compile: System refers to static field<br>		System.out.println("hello, obscure world!");<br>	}<br>}<br>规则28	不要在构造方法中调用可覆写的方法<br>说明：当在构造方法中调用可被覆写的方法时，构造方法的表现是不可预知的，很可能会导致异常。而问题出现后，又往往难以快速定位。这个问题是由于在Java中，当子类初始化的时候，会调用父类的构造方法，当构造方法调用了被子类覆写的方法，往往会由于子类的初始化未完成而导致异常。<br>示例：<br>public class SeniorClass{<br>    public SeniorClass(){<br>        toString();  //如果被覆写了，可能会导致异常<br>}<br><br>@Override<br>    public String toString(){<br>        return "IAmSeniorClass";<br>    }<br>}<br><br>public class JuniorClass extends SeniorClass{<br>    private String name;<br>    public JuniorClass(){<br>        super();  //调用父类的构造方法，导致NullPointerException异常<br>        name = "JuniorClass";<br>}<br><br>@Override<br>    public String toString(){<br>        return name.toUpperCase();<br>    }<br>}</div>				
+		</div>
+	<div class="line"></div>
+		<div class="PostList">
+			<div class="postTitl2"><a id="PostsList1_rpPosts_TitleUrl_18" href="https://www.cnblogs.com/chenyankai/p/3951606.html#3086350">Re:源码安装Apache，报错：Cannot use an external APR with the bundled APR-util和httpd: Could not reliably determine the server's fully qualified domain name</a> <span class="postDesc2">hunyihun 2014-12-15 15:23</span>&nbsp;&nbsp;</div>
+			<div class="postText2">覆写（override）——子类与父类间<br>一个实例方法可以覆写（override）在其超类中可访问到（非private）的具有相同签名的所有实例方法（非static），从而使能了动态分派（dynamic dispatch）；换句话说，VM 将基于实例的运行期类型来选择要调用的覆写方法。<br>class Base {     <br>	public void f() {}<br>}<br><br>class Derived extends Base {<br>	@Override<br>	public void f() {} // overrides Base.f()<br>重载（overload）——类内部<br>在某个类中的方法可以重载（overload）另一个方法，只要它们具有相同的名字和不同的签<br>名。由调用所指定的重载方法是在编译期选定的<br>class CircuitBreaker {<br>	public void f(int i) {} // int overloading<br><br>	public void f(String s) {} // String overloading<br>}<br>隐藏（hide）——子类与父类间<br>一个属性、静态方法或内部类可以分别隐藏（hide）在其超类中可访问到的具有相同名字（对方法而言就是相同的方法签名）的所有属性、方法或内部类。上述成员被隐藏后，将阻止其被继承：<br>class Swan {<br>	public static void fly() {<br>		System.out.println("swan can fly ...");<br>	}<br>}<br><br>class UglyDuck extends Swan {<br>	public static void fly() { //hide Swan.fly<br>		System.out.println("ugly duck can't fly ...");<br>	}<br>}<br><br>public class TestFly {<br>	public static void main(String[] args) {<br>		Swan swan = new Swan();<br>		Swan uglyDuck = new UglyDuck();<br>		swan.fly();     //打印swan can fly ...<br>		uglyDuck.fly(); //还是打印swan can fly ...，hide让人以为是重载了，其实不是<br>	}<br>}</div>				
+		</div>
+	<div class="line"></div>
+		<div class="PostList">
+			<div class="postTitl2"><a id="PostsList1_rpPosts_TitleUrl_19" href="https://www.cnblogs.com/chenyankai/p/3951606.html#3086349">Re:源码安装Apache，报错：Cannot use an external APR with the bundled APR-util和httpd: Could not reliably determine the server's fully qualified domain name</a> <span class="postDesc2">hunyihun 2014-12-15 15:19</span>&nbsp;&nbsp;</div>
+			<div class="postText2">原则11	类的设计应遵循迪米特法则<br>说明：迪米特法则（Law of Demeter）又叫最少知识原则（Least Knowledge Principle），初衷在于降低类之间的耦合。<br>类C的方法f只应该调用以下对象的方法：<br>1.	类C本身（this对象）<br>2.	类C实体变量持有的对象（成员）<br>3.	在方法f中创建的对象<br>4.	作为参数传递给f的对象<br>示例：<br>	违反迪米特法则<br>final String outputDir = ctxt.getOptions().getScratchDir().getAbsolutePath();<br>原则12	类的设计应遵循“Tell，Don’t ask”原则<br>说明：你应该尽量告诉对象你希望它们去做的事情；而不要询问它们的状态之后做出决定，最后才告诉它们做什么事情<br>示例：<br>	违反“Tell，Don’t ask”原则，询问对象状态再做判断<br>...<br>if (person.getAddress().getCountry() == “Australia”) <br>...<br>遵循“Tell，Don’t Ask”原则的代码，告诉对象去判断<br>...<br>if (person.livesIn(“Australia”))<br>...<br>原则13	类设计时优选组合而不是继承<br>说明：只有当子类真正是超类的子类型时，即两者确实是“IS-A”关系时，才适合用继承。即便如此，如果超类不是为了继承而设计的，则继承会导致脆弱性（详见Effective JAVA第二版第16条），为避免这种脆弱性，可以用组合来代替继承。<br><br>规则26	除提供给外部使用的全局常量外，应尽量避免类成员被外部直接访问<br>说明：将变量设置为私有（private）的理由是：我们不想其他人依赖这个变量，依赖类内部的实现细节。这样，当内部实现需要变更时，影响面就比较小，变更的成本就比较低。<br><br>规则27	避免在无关的变量或无关的概念之间重用名字，避免隐藏（hide）、遮蔽（shadow）和遮掩（obscure）<br>说明：在声明子类的字段、方法或嵌套类型时，除了覆写（override）、重载（overload）之外，要尽量避免重名导致的隐藏（hide）、遮蔽（shadow）和遮掩（obscure）。<br>我们先来了解这些名字重用的术语列表。</div>				
+		</div>
+	<div class="line"></div>
+<div class="pager"><div class="Pager">
+	共8页:&nbsp;<a href="https://www.cnblogs.com/chenyankai/recentcomments.html?page=3">上一页</a>&nbsp;<a href="https://www.cnblogs.com/chenyankai/recentcomments.html?page=1">1</a>&nbsp;<a href="https://www.cnblogs.com/chenyankai/recentcomments.html?page=2">2</a>&nbsp;<a href="https://www.cnblogs.com/chenyankai/recentcomments.html?page=3">3</a>&nbsp;4&nbsp;<a href="https://www.cnblogs.com/chenyankai/recentcomments.html?page=5">5</a>&nbsp;<a href="https://www.cnblogs.com/chenyankai/recentcomments.html?page=6">6</a>&nbsp;<a href="https://www.cnblogs.com/chenyankai/recentcomments.html?page=7">7</a>&nbsp;<a href="https://www.cnblogs.com/chenyankai/recentcomments.html?page=8">8</a>&nbsp;<a href="https://www.cnblogs.com/chenyankai/recentcomments.html?page=5">下一页</a>&nbsp;
+</div></div>
+</div>
+
+
+			</td>
+		</tr>
+		</tbody></table>
+	</td>
+	<td width="10">&nbsp;</td>
+	<td valign="top">
+		<table align="center" width="100%" height="90" cellspacing="0" cellpadding="5" border="0" bgcolor="white">
+		<tbody><tr>
+			<td class="banner">
+			
+			<table width="100%" height="200">
+			<tbody><tr>
+				<td><div id="blog-calendar" style=""><table id="blogCalendar" class="Cal" cellspacing="0" cellpadding="0" title="Calendar">
+	<tbody><tr><td colspan="7"><table class="CalTitle" cellspacing="0">
+		<tbody><tr><td class="CalNextPrev"><a href="javascript:void(0);" onclick="loadBlogCalendar(&#39;2018/09/01&#39;);return false;">&lt;</a></td><td align="center">2018年10月</td><td class="CalNextPrev" align="right"><a href="javascript:void(0);" onclick="loadBlogCalendar(&#39;2018/11/01&#39;);return false;">&gt;</a></td></tr>
+	</tbody></table></td></tr><tr><th class="CalDayHeader" align="center" abbr="日" scope="col">日</th><th class="CalDayHeader" align="center" abbr="一" scope="col">一</th><th class="CalDayHeader" align="center" abbr="二" scope="col">二</th><th class="CalDayHeader" align="center" abbr="三" scope="col">三</th><th class="CalDayHeader" align="center" abbr="四" scope="col">四</th><th class="CalDayHeader" align="center" abbr="五" scope="col">五</th><th class="CalDayHeader" align="center" abbr="六" scope="col">六</th></tr><tr><td class="CalOtherMonthDay" align="center">30</td><td align="center">1</td><td align="center">2</td><td align="center">3</td><td align="center">4</td><td align="center">5</td><td class="CalWeekendDay" align="center">6</td></tr><tr><td class="CalWeekendDay" align="center">7</td><td align="center">8</td><td align="center">9</td><td align="center">10</td><td class="CalTodayDay" align="center">11</td><td align="center">12</td><td class="CalWeekendDay" align="center">13</td></tr><tr><td class="CalWeekendDay" align="center">14</td><td align="center">15</td><td align="center">16</td><td align="center">17</td><td align="center">18</td><td align="center">19</td><td class="CalWeekendDay" align="center">20</td></tr><tr><td class="CalWeekendDay" align="center">21</td><td align="center">22</td><td align="center">23</td><td align="center">24</td><td align="center">25</td><td align="center">26</td><td class="CalWeekendDay" align="center">27</td></tr><tr><td class="CalWeekendDay" align="center">28</td><td align="center">29</td><td align="center">30</td><td align="center">31</td><td class="CalOtherMonthDay" align="center">1</td><td class="CalOtherMonthDay" align="center">2</td><td class="CalOtherMonthDay" align="center">3</td></tr><tr><td class="CalOtherMonthDay" align="center">4</td><td class="CalOtherMonthDay" align="center">5</td><td class="CalOtherMonthDay" align="center">6</td><td class="CalOtherMonthDay" align="center">7</td><td class="CalOtherMonthDay" align="center">8</td><td class="CalOtherMonthDay" align="center">9</td><td class="CalOtherMonthDay" align="center">10</td></tr>
+</tbody></table></div><script type="text/javascript">loadBlogDefaultCalendar();</script></td>
+			</tr>
+			</tbody></table>
+				
+<h1>&nbsp;公告</h1><br>
+<div id="blog-news"><div id="profile_block">昵称：<a href="https://home.cnblogs.com/u/chenyankai/">hunyihun</a><br>园龄：<a href="https://home.cnblogs.com/u/chenyankai/" title="入园时间：2013-11-13">4年10个月</a><br>粉丝：<a href="https://home.cnblogs.com/u/chenyankai/followers/">0</a><br>关注：<a href="https://home.cnblogs.com/u/chenyankai/followees/">0</a><div id="p_b_follow"><a href="javascript:void(0);" onclick="follow(&#39;bb2fa9a6-374c-e311-8d02-90b11c0b17d6&#39;)">+加关注</a></div><script>getFollowStatus('bb2fa9a6-374c-e311-8d02-90b11c0b17d6')</script></div></div><script type="text/javascript">loadBlogNews();</script>
+	
+				
+<h1>&nbsp;导航</h1>
+<ul class="list" type="square">
+	<li class="listitem"><a id="blog_nav_sitehome" class="listitem" href="https://www.cnblogs.com/">博客园</a></li>
+	<li class="listitem"><a id="blog_nav_myhome" class="listitem" href="https://www.cnblogs.com/chenyankai/">首页</a></li>
+	<li class="listitem"><a id="blog_nav_newpost" class="listitem" rel="nofollow" href="https://i.cnblogs.com/EditPosts.aspx?opt=1">发新随笔</a></li>
+	<li class="listitem"><a id="MyLinks1_NewArticleLink" class="listitem" href="https://www.cnblogs.com/EnterMyBlog.aspx?NewArticle=1">发新文章</a></li>
+	<li class="listitem"><a id="blog_nav_contact" accesskey="9" class="listitem" rel="nofollow" href="https://msg.cnblogs.com/send/hunyihun">联系</a></li>
+	<li class="listitem"><a id="blog_nav_rss" class="listitem" href="https://www.cnblogs.com/chenyankai/rss">订阅</a><a id="blog_nav_rss_image" href="https://www.cnblogs.com/chenyankai/rss"><img src="./最新评论 - hunyihun - 博客园4_files/xml.gif" alt="订阅"></a>
+	</li><li class="listitem"><a id="blog_nav_admin" class="listitem" rel="nofollow" href="https://i.cnblogs.com/">管理</a></li>
+</ul>
+
+				<div id="blog_stats">
+<h1>&nbsp;统计</h1>
+	<ul class="list" type="square">
+		<li class="listitem">随笔： 2
+		</li><li class="listitem">文章： 0
+		</li><li class="listitem">评论： 155
+		</li><li class="listitem">引用： 0
+	</li>
+</ul></div>
+				<div id="blog-sidecolumn"><div id="sidebar_search" class="sidebar-block">
+<div id="sidebar_search" class="mySearch">
+<h3 class="catListTitle">搜索</h3>
+<div id="sidebar_search_box">
+<div id="widget_my_zzk" class="div_my_zzk"><input type="text" id="q" onkeydown="return zzk_go_enter(event);" class="input_my_zzk">&nbsp;<input onclick="zzk_go()" type="button" value="找找看" id="btnZzk" class="btn_my_zzk"></div>
+<div id="widget_my_google" class="div_my_zzk"><input type="text" name="google_q" id="google_q" onkeydown="return google_go_enter(event)" class="input_my_zzk">&nbsp;<input onclick="google_go()" type="button" value="谷歌搜索" class="btn_my_zzk"></div>
+</div>
+</div>
+
+</div><div id="sidebar_shortcut" class="sidebar-block">
+<h3 class="catListTitle">常用链接</h3>
+<ul>
+<li><a href="https://www.cnblogs.com/chenyankai/p/" title="我的博客的随笔列表">我的随笔</a></li><li><a href="https://www.cnblogs.com/chenyankai/MyComments.html" title="我发表过的评论列表">我的评论</a></li><li><a href="https://www.cnblogs.com/chenyankai/OtherPosts.html" title="我评论过的随笔列表">我的参与</a></li><li><a href="https://www.cnblogs.com/chenyankai/RecentComments.html" title="我的博客的评论列表">最新评论</a></li><li><a href="https://www.cnblogs.com/chenyankai/tag/" title="我的博客的标签列表">我的标签</a></li>
+</ul>
+<div id="itemListLin_con" style="display:none;">
+
+</div></div><div id="sidebar_toptags" class="sidebar-block"></div><div id="sidebar_categories">
+		<h1 class="listtitle">随笔档案</h1>
+		
+				<ul class="list" type="square">
+			
+				<li class="listitem"><a id="CatList_LinkList_0_Link_0" class="listitem" href="https://www.cnblogs.com/chenyankai/archive/2014/09.html">2014年9月 (2)</a> </li>
+			
+				</ul>
+			
+	
+</div><div id="sidebar_recentcomments" class="sidebar-block"><div id="recent_comments_wrap">
+<h3 class="catListTitle">最新评论</h3>
+<div class="RecentComment" id="RecentComments">
+	<div id="RecentCommentsBlock"><ul>
+        <li class="recent_comment_title"><a href="https://www.cnblogs.com/chenyankai/p/3951622.html#3097337">1. Re:Linux实用命令整理</a></li>
+        <li class="recent_comment_body">使用强随机数说明：安全敏感的代码块（如SessionID的生成、挑战算法中的随机数生成等），必须采用强随机数，禁止使用伪随机数。Java API 提供了伪随机数生成器（PRNG）——java.util......</li>
+        <li class="recent_comment_author">--hunyihun</li>
+        <li class="recent_comment_title"><a href="https://www.cnblogs.com/chenyankai/p/3951622.html#3097329">2. Re:Linux实用命令整理</a></li>
+        <li class="recent_comment_body">原则7.3 基于哈希算法的口令安全存储必须加入盐值（salt）说明：单向哈希是在一个方向上工作的哈希函数，从预映射的值很容易计算其哈希值，但要根据特定哈希值产生一个预映射的值却是非常困难的。单向哈希主......</li>
+        <li class="recent_comment_author">--hunyihun</li>
+        <li class="recent_comment_title"><a href="https://www.cnblogs.com/chenyankai/p/3951622.html#3097327">3. Re:Linux实用命令整理</a></li>
+        <li class="recent_comment_body">7.	其它原则7.1 禁止在日志中保存口令、密钥说明： 在日志中不能保存口令和密钥，其中的口令包括明文口令和密文口令。对于敏感信息建议采取以下方法，1）不打印在日志中；2）若因为特殊原因必须要打印日志......</li>
+        <li class="recent_comment_author">--hunyihun</li>
+        <li class="recent_comment_title"><a href="https://www.cnblogs.com/chenyankai/p/3951622.html#3097326">4. Re:Linux实用命令整理</a></li>
+        <li class="recent_comment_body">避免依赖和信任环境变量说明：使用环境变量会带来可以移植性问题，在不同的操作系统中其语义可能有所不同。因此要尽量避免使用环境变量。对于一个值如果有定义的系统属性(System properties)可用......</li>
+        <li class="recent_comment_author">--hunyihun</li>
+        <li class="recent_comment_title"><a href="https://www.cnblogs.com/chenyankai/p/3951622.html#3097325">5. Re:Linux实用命令整理</a></li>
+        <li class="recent_comment_body">所有安全相关的敏感代码都放在一个jar包中，并签名再加密说明：若安全相关的敏感代码（例如进行权限控制或者用户名密码校验的代码）没有放到同一个受信任的jar包中，攻击者可以通过先加载恶意代码（使用相同的......</li>
+        <li class="recent_comment_author">--hunyihun</li>
+</ul>
+</div>
+</div>
+</div></div><div id="sidebar_topviewedposts" class="sidebar-block"><div id="topview_posts_wrap">
+<h3 class="catListTitle">阅读排行榜</h3>
+<div class="RecentComment" id="TopViewPosts"> 
+	<div id="TopViewPostsBlock"><ul><li><a href="https://www.cnblogs.com/chenyankai/p/3951606.html">1. 源码安装Apache，报错：Cannot use an external APR with the bundled APR-util和httpd: Could not reliably determine the server's fully qualified domain name(67)</a></li><li><a href="https://www.cnblogs.com/chenyankai/p/3951622.html">2. Linux实用命令整理(15)</a></li></ul></div>
+</div>
+</div></div><div id="sidebar_topcommentedposts" class="sidebar-block"><div id="topfeedback_posts_wrap">
+<h3 class="catListTitle">评论排行榜</h3>
+<div class="RecentComment" id="TopCommentsPosts">
+	<div id="TopFeedbackPostsBlock"><ul><li><a href="https://www.cnblogs.com/chenyankai/p/3951606.html">1. 源码安装Apache，报错：Cannot use an external APR with the bundled APR-util和httpd: Could not reliably determine the server's fully qualified domain name(97)</a></li><li><a href="https://www.cnblogs.com/chenyankai/p/3951622.html">2. Linux实用命令整理(58)</a></li></ul></div>
+</div></div></div><div id="sidebar_topdiggedposts" class="sidebar-block"><div id="topdigg_posts_wrap" style="display: none;">
+<h3 class="catListTitle">推荐排行榜</h3>
+<div class="RecentComment">
+	<div id="TopDiggPostsBlock"></div>
+</div></div></div></div><script type="text/javascript">loadBlogSideColumn();</script>
+			<br>
+			
+<div class="footer">
+	Powered by: <a href="http://www.cnblogs.com/">博客园</a><br>模板提供：<a href="http://blog.hjenglish.com/">沪江博客</a><br>
+	Copyright ©2018 hunyihun
+</div>
+			</td>
+		</tr>
+		</tbody></table>
+	</td>
+</tr>
+</tbody></table>
+<br>
+
+
+
+</body></html>
