@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<!-- saved from url=(0052)https://www.cnblogs.com/tianlifitting/p/8005327.html -->
+<html lang="zh-cn"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="referrer" content="never">
+<title>java用户角色权限设计 - 沫菲 - 博客园</title>
+<meta property="og:description" content="原博客地址http://www.cnblogs.com/a7345678/archive/2008/09/25/1298838.html java用户角色权限设计 实现业务系统中的用户权限管理 B/S">
+<link type="text/css" rel="stylesheet" href="./java用户角色权限设计 - 沫菲 - 博客园_files/blog-common.css">
+<link id="MainCss" type="text/css" rel="stylesheet" href="./java用户角色权限设计 - 沫菲 - 博客园_files/bundle-ClearGertrude.css">
+<link id="mobile-style" media="only screen and (max-width: 767px)" type="text/css" rel="stylesheet" href="./java用户角色权限设计 - 沫菲 - 博客园_files/bundle-ClearGertrude-mobile.css">
+<link title="RSS" type="application/rss+xml" rel="alternate" href="https://www.cnblogs.com/tianlifitting/rss">
+<link title="RSD" type="application/rsd+xml" rel="EditURI" href="https://www.cnblogs.com/tianlifitting/rsd.xml">
+<link type="application/wlwmanifest+xml" rel="wlwmanifest" href="https://www.cnblogs.com/tianlifitting/wlwmanifest.xml">
+<script async="" src="./java用户角色权限设计 - 沫菲 - 博客园_files/analytics.js"></script><script src="./java用户角色权限设计 - 沫菲 - 博客园_files/jquery-2.2.0.min.js"></script>
+<script type="text/javascript">var currentBlogApp = 'tianlifitting', cb_enable_mathjax=false;var isLogined=false;</script>
+<script src="./java用户角色权限设计 - 沫菲 - 博客园_files/blog-common.js" type="text/javascript"></script>
+</head>
+<body>
+<a name="top"></a>
+
+<div id="header">
+<h1><a id="Header1_HeaderTitle" class="headermaintitle" href="https://www.cnblogs.com/tianlifitting/">沫菲</a></h1>
+<p id="tagline"></p></div>
+<div id="main">
+	
+<div id="post_detail">
+	<div class="post">
+		<h2>
+			<a id="cb_post_title_url" href="./java用户角色权限设计 - 沫菲 - 博客园_files/java用户角色权限设计 - 沫菲 - 博客园.html">java用户角色权限设计</a>
+		</h2>
+		<div class="postText"><div id="cnblogs_post_body" class="blogpost-body"><h1 class="postTitle"><span style="font-size: 15px">原博客地址<a href="http://www.cnblogs.com/a7345678/archive/2008/09/25/1298838.html" target="_blank">http://www.cnblogs.com/a7345678/archive/2008/09/25/1298838.html</a></span></h1>
+<h1 class="postTitle"><a id="cb_post_title_url" class="postTitle2" href="http://www.cnblogs.com/a7345678/archive/2008/09/25/1298838.html">java用户角色权限设计</a></h1>
+<div class="clear">&nbsp;</div>
+<div class="postBody">
+<div id="cnblogs_post_body">
+<p><strong>实现业务系统中的用户权限管理</strong></p>
+　B/S系统中的权限比C/S中的更显的重要，C/S系统因为具有特殊的客户端，所以访问用户的权限检测可以通过客户端实现或通过客户端+服务器检测实现，而B/S中，浏览器是每一台计算机都已具备的，如果不建立一个完整的权限检测，那么一个“非法用户”很可能就能通过浏览器轻易访问到B/S系统中的所有功能。因此B/S业务系统都需要有一个或多个权限系统来实现访问权限检测，让经过授权的用户可以正常合法的使用已授权功能，而对那些未经授权的“非法用户”将会将他们彻底的“拒之门外”。下面就让我们一起了解一下如何设计可以满足大部分B/S系统中对用户功能权限控制的权限系统。
+<p>&nbsp;</p>
+<p align="left"><strong>需求陈述</strong></p>
+<ul>
+<li>
+<div align="left"><strong>不同职责的人员，对于系统操作的权限应该是不同的。</strong>优秀的业务系统，这是最基本的功能。</div>
+<p>&nbsp;</p>
+</li>
+<li>
+<div align="left"><strong>可以对“组”进行权限分配</strong>。对于一个大企业的业务系统来说，如果要求管理员为其下员工逐一分配系统操作权限的话，是件耗时且不够方便的事情。所以，系统中就提出了对“组”进行操作的概念，将权限一致的人员编入同一组，然后对该组进行权限分配。</div>
+<p>&nbsp;</p>
+</li>
+<li>
+<div align="left"><strong>权限管理系统应该是可扩展的</strong>。它应该可以加入到任何带有权限管理功能的系统中。就像是组件一样的可以被不断的重用，而不是每开发一套管理系统，就要针对权限管理部分进行重新开发。</div>
+<p>&nbsp;</p>
+</li>
+<li>
+<div align="left"><strong>满足业务系统中的功能权限。</strong>传统业务系统中，存在着两种权限管理，其一是功能权限的管理，而另外一种则是资源权限的管理，在不同系统之间，功能权限是可以重用的，而资源权限则不能。</div>
+</li>
+</ul>
+<p align="left"><strong>关于设计</strong></p>
+<p align="left"><span style="font-size: small"><strong>　　</strong></span>借助NoahWeb的动作编程理念，在设计阶段，系统设计人员无须考虑程序结构的设计，而是从程序流程以及数据库结构开始入手。为了实现需求，数据库的设计可谓及其重要，无论是“组”操作的概念，还是整套权限管理系统的重用性，都在于数据库的设计。</p>
+<p align="left">我们先来分析一下数据库结构：</p>
+<p align="left"><span style="font-size: small"><strong>　　</strong></span>首先，action表（<strong>以下简称为“权限表”</strong>），gorupmanager表（<strong>以下简称为“管理组表”</strong>），以及master表（<strong>以下简称为“人员表”</strong>），是三张实体表，它们依次记录着“权限”的信息，“管理组”的信息和“人员”的信息。如下图：</p>
+<p align="center"><img src="./java用户角色权限设计 - 沫菲 - 博客园_files/16.gif" alt="" width="460" height="328"></p>
+<p align="left"><span style="font-size: small"><strong>　　</strong></span>这三个表之间的关系是多对多的，一个权限可能同时属于多个管理组，一个管理组中也可能同时包含多个权限。同样的道理，一个人员可能同时属于多个管理组，而一个管理组中也可能同时包含多个人员。如下图：</p>
+<p align="center"><img src="./java用户角色权限设计 - 沫菲 - 博客园_files/1.gif" alt="" width="456" height="321"></p>
+<p align="left"><span style="font-size: small"><strong>　　</strong></span>由于这三张表之间存在着多对多的关系，那么它们之间的交互，最好使用另外两张表来完成。而这两张表起着映射的作用，分别是“actiongroup”表<strong>（以下简称“权限映射表”）</strong>和“mastergroup”表<strong>（以下简称“人员映射表”）</strong>，前者映射了权限表与管理组表之间的交互。后者映射了人员表与管理组表之间的交互。如下图：</p>
+<p align="center"><img src="./java用户角色权限设计 - 沫菲 - 博客园_files/15.gif" alt="" width="637" height="318"></p>
+<p align="left"><span style="font-size: small"><strong>　　</strong></span>另外，还需要一张表来控制系统运行时左侧菜单中的权限分栏，也就是“权限分栏表”，如下图：</p>
+<p align="center"><img src="./java用户角色权限设计 - 沫菲 - 博客园_files/17.gif" alt="" width="637" height="318"></p>
+<p align="left"><span style="font-size: small"><strong>　　</strong></span>根据上面的分析，我们进行数据库结构设计，如下图：</p>
+<p align="left">　　<a href="http://www.noahweb.net/mail/2/Project.htm#biao" target="_blank">点击这里查看权限管理系统数据表字段设计</a></p>
+<p align="center"><img src="./java用户角色权限设计 - 沫菲 - 博客园_files/datebase.gif" alt="" width="624" height="320"></p>
+<p align="left">&nbsp;</p>
+<p align="left"><span style="font-size: small"><strong>　　</strong></span>为了能够进行良好的分析，我们将数据库结构图拆分开来，三张实体表的作用已经很清晰，现在我们来看一下两张映射表的作用。</p>
+<p align="left"><strong>一 权限映射表</strong>&nbsp;如下图：</p>
+<p align="left"><span style="font-size: small"><strong>　　</strong></span>首先，我们来了解一下<strong>权限映射表</strong>与<strong>管理组表</strong>以及<strong>权限表</strong>之间的字段关联。</p>
+<p align="center"><img src="./java用户角色权限设计 - 沫菲 - 博客园_files/6.gif" alt="" width="457" height="159"></p>
+<p align="left"><span style="font-size: small"><strong>　　</strong></span>看图中的红圈，先看gorupid字段相关联，这种关联方式在实际数据库中的表现如下图：</p>
+<p align="center"><img src="./java用户角色权限设计 - 沫菲 - 博客园_files/3.gif" alt="" width="534" height="152"></p>
+<p align="left"><span style="font-size: small"><strong>　　</strong></span>如图中所示，<strong>管理组表</strong>中“超级管理员”的groupid为1，那么<strong>权限映射表</strong>中groupid为1的权限也就是“超级管理员”所拥有的权限。</p>
+<p align="left"><span style="font-size: small"><strong>　　</strong></span>使用groupid字段关联，是为了查到一个管理组能够执行的权限有哪些。但这些权限的详细信息却是action字段关联所查询到的。</p>
+<p align="left"><span style="font-size: small"><strong>　　</strong></span>action字段相关联在数据库中的表现如下图：</p>
+<p align="center"><img src="./java用户角色权限设计 - 沫菲 - 博客园_files/5.gif" alt="" width="540" height="154"></p>
+<p align="left"><span style="font-size: small"><strong>　　</strong></span>通过这种关联，才查询到<strong>权限映射表</strong>之中那些权限的详细信息。综合起来，我们就知道了一个管理组可以执行的权限有哪些，以及这些权限的详细信息是什么。</p>
+<p align="left"><span style="font-size: small"><strong>　　</strong></span>或许你会问，为什么不使用actionid字段相关联呢？因为：</p>
+<ul>
+<li>
+<div align="left"><strong>权限表</strong>中的id字段在经过多次的数据库操作之后可能会发生更改。</div>
+</li>
+<li>
+<div align="left"><strong>权限映射表</strong>中仅仅记录着一个管理组可以执行的权限。</div>
+</li>
+<li>
+<div align="left">一旦<strong>权限表</strong>中的id更改，那么<strong>权限映射表</strong>中的记录也就更改了。</div>
+</li>
+<li>
+<div align="left">一个管理组可以执行的权限势必将出错，这是非常不希望的。</div>
+</li>
+</ul>
+<p align="left"><span style="font-size: small"><strong>　　</strong></span>考虑到上面的情况，所以应该使用action字段相关联，因为：</p>
+<ul>
+<li>
+<div align="left">在<strong>权限表</strong>中，id可能发生变化，而action字段却是在任何情况下也不可能发生变化的。</div>
+</li>
+<li>
+<div align="left"><strong>权限映射表</strong>中记录的action字段也就不会变。</div>
+</li>
+<li>
+<div align="left">一个管理组可以执行的权限就不会出错了。</div>
+</li>
+</ul>
+<p align="left"><strong>二 人员映射表</strong>&nbsp;如下图：</p>
+<p align="left"><span style="font-size: small"><strong>　　</strong></span>我们来了解一下<strong>人员映射表</strong>与<strong>管理组表</strong>以及<strong>人员表</strong>之间的字段关联，如下图：</p>
+<p align="center"><img src="./java用户角色权限设计 - 沫菲 - 博客园_files/13.gif" alt="" width="442" height="324"></p>
+<p align="left">&nbsp;</p>
+<p align="left"><span style="font-size: small"><strong>　　</strong></span>看图中的红圈部分，先看groupid字段关联，这种关联方式在数据库中的表现如下图：</p>
+<p align="center"><img src="./java用户角色权限设计 - 沫菲 - 博客园_files/10.gif" alt="" width="437" height="109"></p>
+<p align="left"><span style="font-size: small"><strong>　　</strong></span>如图，“超级管理员”组的groupid为1，我们再看<strong>人员映射表</strong>，admin属于超级管理员组，而administrator属于超级管理员组，同时也属于管理员组。</p>
+<p align="left"><span style="font-size: small"><strong>　　</strong></span>使用这种关联方式，是为了查到一个管理组中的人员有谁。和上面一样，人员的详细信息是靠id字段（<strong>人员映射表</strong>中是masterid字段）关联查询到的。</p>
+<p align="left"><span style="font-size: small"><strong>　　</strong></span>id字段（<strong>人员映射表</strong>中是masterid字段）关联表现在数据库中的形式如下图：</p>
+<p align="center"><img src="./java用户角色权限设计 - 沫菲 - 博客园_files/12.gif" alt="" width="526" height="108"></p>
+<p align="left"><span style="font-size: small"><strong>　　</strong></span>一个人员可能同时属于多个“管理组”，如图中，administrator就同时属于两个“管理组”。所以，在<strong>人员映射表</strong>中关于administrator的记录就会是两条。</p>
+<p align="left"><span style="font-size: small"><strong>　　</strong></span>这种关联方式才查询到管理组中人员的详细信息有哪些。综合起来，才可以知道一个管理组中的人员有谁，以及这个人员的详细信息。</p>
+<p align="left"><span style="font-size: small"><strong>　　</strong></span>再结合上面谈到的<strong>权限表</strong>和<strong>权限映射表</strong>，就实现了需求中的“组”操作，如下图：</p>
+<p align="center"><img src="./java用户角色权限设计 - 沫菲 - 博客园_files/14.gif" alt="" width="636" height="323"></p>
+<p align="left"><span style="font-size: small"><strong>　　</strong></span>其实，<strong>管理组表</strong>中仅仅记录着组的基本信息，如名称，组id等等。至于一个组中人员的详细信息，以及该组能够执行的权限的详细信息，都记录在<strong>人员表</strong>和<strong>权限表</strong>中。两张<strong>映射表</strong>才真正记录着一个组有哪些人员，能够执行哪些权限。通过两张映射表的衔接，三张实体表之间的交互才得以实现，<strong>从而完成了需求中提到的“组”操作</strong>。</p>
+<p align="left"><span style="font-size: small"><strong>　　</strong></span>我们再来看一下<strong>权限分栏表</strong>与<strong>权限表</strong>之间的交互。这两张表之间的字段关联如下图：</p>
+<p align="center"><img src="./java用户角色权限设计 - 沫菲 - 博客园_files/19.gif" alt="" width="334" height="142"></p>
+<p align="left"><span style="font-size: small"><strong>　　</strong></span>两张表使用了actioncolumnid字段相关联，这种关联方式在数据库中的表现如下图：</p>
+<p align="center"><img src="./java用户角色权限设计 - 沫菲 - 博客园_files/18.gif" alt="" width="531" height="363"></p>
+<p align="left"><span style="font-size: small"><strong>　　</strong></span>如图所示，通过这种关联方式，我们可以非常清晰的看到<strong>权限表</strong>中的权限属于哪个分栏。</p>
+<p align="left"><span style="font-size: small"><strong>　　</strong></span>现在，数据库结构已经很清晰了，分配权限的功能以及“组”操作都已经实现。下面我们再来分析一下需求中提到的关于权限管理系统的重用性问题。</p>
+<p align="left"><span style="font-size: small"><strong>　　</strong></span>为什么使用这种数据库设计方式搭建起来的系统可以重用呢？</p>
+<ul>
+<li>
+<div align="left"><strong>三张实体表中记录着系统中的三个决定性元素。</strong>“权限”，“组”和“人”。而这三种元素可以任意添加，彼此之间不受影响。无论是那种类型的业务系统，这三个决定性元素是不会变的，也就意味着结构上不会变，而变的仅仅是数据。</div>
+</li>
+<li>
+<div align="left"><strong>两张映射表中记录着三个元素之间的关系。</strong>但这些关系完全是人为创建的，需要变化的时候，只是对数据库中的记录进行操作，无需改动结构。</div>
+</li>
+<li>
+<div align="left"><strong>权限分栏表中记录着系统使用时显示的分栏</strong>。无论是要添加分栏，修改分栏还是减少分栏，也只不过是操作记录而已。</div>
+</li>
+</ul>
+<p align="left"><span style="font-size: small"><strong>　　</strong></span>综上所述，这样设计数据库，系统是完全可以重用的，并且经受得住“变更”考验的。</p>
+<p align="left"><strong>总结：</strong></p>
+<p align="left"><span style="font-size: small"><strong>　　</strong></span>此套系统的重点在于，三张<strong>实体表</strong>牢牢地抓住了系统的核心成分，而两张映射表完美地映射出三张实体表之间的交互。其难点在于，理解映射表的工作，它记录着关系，并且实现了“组”操作的概念。而系统总体的设计是本着可以在不同的MIS系统中“重用”来满足不同系统的功能权限设置。</p>
+<p align="left"><strong>附录：</strong></p>
+<p align="center"><strong><a name="biao"></a>权限管理系统数据表的字段设计</strong></p>
+<p align="left"><span style="font-size: small"><strong>　　</strong></span>下面我们来看看权限管理系统的数据库表设计，共分为六张表，如下图：</p>
+<blockquote>
+<p align="left">action表：</p>
+</blockquote>
+<p align="center"><em><img src="./java用户角色权限设计 - 沫菲 - 博客园_files/datebase1.gif" alt="" width="502" height="119"></em></p>
+<p align="left"><span style="font-size: small"><strong>　　</strong></span>action表中记录着系统中所有的动作，以及动作相关描述。</p>
+<blockquote>
+<p align="left">actioncolumn表：</p>
+</blockquote>
+<p align="center"><img src="./java用户角色权限设计 - 沫菲 - 博客园_files/datebase2.gif" alt="" width="459" height="75"></p>
+<p align="left"><span style="font-size: small"><strong>　　</strong></span>actioncolumn表中记录着动作的分栏，系统运行时，左侧菜单栏提供了几块不同的功能，每一块就是一个分栏，每添加一个分栏，该表中的记录就会增加一条,相对应的，左侧菜单栏中也会新增机一个栏。</p>
+<blockquote>
+<p align="left">actiongroup表：</p>
+</blockquote>
+<p align="center"><img src="./java用户角色权限设计 - 沫菲 - 博客园_files/datebase3.gif" alt="" width="498" height="135"></p>
+<p align="left"><span style="font-size: small"><strong>　　</strong></span>actiongroup表记录着动作所在的组。</p>
+<blockquote>
+<p align="left">groupmanager表：</p>
+</blockquote>
+<p align="center"><img src="./java用户角色权限设计 - 沫菲 - 博客园_files/datebase4.gif" alt="" width="405" height="135"></p>
+<p align="left"><span style="font-size: small"><strong>　　</strong></span>groupmanager表记录着管理组的相关信息，每添加一个管理组，这里的记录就会增加一条。</p>
+<blockquote>
+<p align="left">mastergroup表：</p>
+</blockquote>
+<p align="center"><img src="./java用户角色权限设计 - 沫菲 - 博客园_files/datebase6.gif" alt="" width="444" height="150"></p>
+<p align="left"><span style="font-size: small"><strong>　　</strong></span>mastergroup表记录着管理员所在的管理组，由于一名管理员可能同同时属于多个组，所以该表中关于某一名管理员的记录可能有多条。</p>
+<blockquote>
+<p align="left">master表：</p>
+</blockquote>
+<p align="center"><img src="./java用户角色权限设计 - 沫菲 - 博客园_files/datebase5.gif" alt="" width="409" height="300"></p>
+<p align="left"><span style="font-size: small"><strong>　　</strong></span>master表记录着所有管理员的信息，每添加一个管理员，该表就会增加一条记录。</p>
+</div>
+</div></div><div id="MySignature"></div>
+<div class="clear"></div>
+<div id="blog_post_info_block">
+<div id="BlogPostCategory"></div>
+<div id="EntryTag"></div>
+<div id="blog_post_info"><div id="green_channel">
+        <a href="javascript:void(0);" id="green_channel_digg" onclick="DiggIt(8005327,cb_blogId,1);green_channel_success(this,&#39;谢谢推荐！&#39;);">好文要顶</a>
+            <a id="green_channel_follow" onclick="follow(&#39;e657f3f2-1226-4c81-4268-08d4a8d9e085&#39;);" href="javascript:void(0);">关注我</a>
+    <a id="green_channel_favorite" onclick="AddToWz(cb_entryId);return false;" href="javascript:void(0);">收藏该文</a>
+    <a id="green_channel_weibo" href="javascript:void(0);" title="分享至新浪微博" onclick="ShareToTsina()"><img src="./java用户角色权限设计 - 沫菲 - 博客园_files/icon_weibo_24.png" alt=""></a>
+    <a id="green_channel_wechat" href="javascript:void(0);" title="分享至微信" onclick="shareOnWechat()"><img src="./java用户角色权限设计 - 沫菲 - 博客园_files/wechat.png" alt=""></a>
+</div>
+<div id="author_profile">
+    <div id="author_profile_info" class="author_profile_info">
+            <a href="http://home.cnblogs.com/u/tianlifitting/" target="_blank"><img src="./java用户角色权限设计 - 沫菲 - 博客园_files/20171123105551.png" class="author_avatar" alt=""></a>
+        <div id="author_profile_detail" class="author_profile_info">
+            <a href="http://home.cnblogs.com/u/tianlifitting/">沫菲</a><br>
+            <a href="http://home.cnblogs.com/u/tianlifitting/followees">关注 - 15</a><br>
+            <a href="http://home.cnblogs.com/u/tianlifitting/followers">粉丝 - 2</a>
+        </div>
+    </div>
+    <div class="clear"></div>
+    <div id="author_profile_honor"></div>
+    <div id="author_profile_follow">
+                <a href="javascript:void(0);" onclick="follow(&#39;e657f3f2-1226-4c81-4268-08d4a8d9e085&#39;);return false;">+加关注</a>
+    </div>
+</div>
+<div id="div_digg">
+    <div class="diggit" onclick="votePost(8005327,&#39;Digg&#39;)">
+        <span class="diggnum" id="digg_count">0</span>
+    </div>
+    <div class="buryit" onclick="votePost(8005327,&#39;Bury&#39;)">
+        <span class="burynum" id="bury_count">0</span>
+    </div>
+    <div class="clear"></div>
+    <div class="diggword" id="digg_tips">
+    </div>
+</div>
+<script type="text/javascript">
+    currentDiggType = 0;
+</script></div>
+<div class="clear"></div>
+<div id="post_next_prev"><a href="https://www.cnblogs.com/tianlifitting/p/7994000.html" class="p_n_p_prefix">« </a> 上一篇：<a href="https://www.cnblogs.com/tianlifitting/p/7994000.html" title="发布于2017-12-06 17:47">spring cloud</a><br><a href="https://www.cnblogs.com/tianlifitting/p/8033151.html" class="p_n_p_prefix">» </a> 下一篇：<a href="https://www.cnblogs.com/tianlifitting/p/8033151.html" title="发布于2017-12-13 15:34">读写分离，还是分表分库，晕数据库</a><br></div>
+</div>
+
+</div>
+		<p class="postfoot">
+			posted on <span id="post-date">2017-12-08 14:49</span> <a href="https://www.cnblogs.com/tianlifitting/">沫菲</a> 阅读(<span id="post_view_count">5391</span>) 评论(<span id="post_comment_count">1</span>)  <a href="https://i.cnblogs.com/EditPosts.aspx?postid=8005327" rel="nofollow">编辑</a> <a href="https://www.cnblogs.com/tianlifitting/p/8005327.html#" onclick="AddToWz(8005327);return false;">收藏</a>
+		</p>
+	</div>
+	<script type="text/javascript">var allowComments=true,cb_blogId=397057,cb_entryId=8005327,cb_blogApp=currentBlogApp,cb_blogUserGuid='e657f3f2-1226-4c81-4268-08d4a8d9e085',cb_entryCreatedDate='2017/12/8 14:49:00';loadViewCount(cb_entryId);var cb_postType=1;</script>
+	
+	</div><a name="!comments"></a><div id="blog-comments-placeholder"><div id="comments_pager_top"></div>
+<a name="评论"></a>
+<div id="comments">
+<h3>评论</h3>
+	
+	
+			<h4>
+				<a href="https://www.cnblogs.com/tianlifitting/p/8005327.html#3973254" class="layer">#1楼</a><a name="3973254" id="comment_anchor_3973254"></a><span id="comment-maxId" style="display:none;">3973254</span><span id="comment-maxDate" style="display:none;">2018/5/13 16:13:10</span>
+					<span>
+						 <span class="comment_date">2018-05-13 16:13</span>
+					</span>
+				<a id="a_comment_author_3973254" href="http://home.cnblogs.com/u/371114/" target="_blank">食肉大灰兔</a> <a href="http://msg.cnblogs.com/send/%E9%A3%9F%E8%82%89%E5%A4%A7%E7%81%B0%E5%85%94" title="发送站内短消息" class="sendMsg2This">&nbsp;</a>
+			</h4>
+			<p>
+				</p><div id="comment_body_3973254" class="blog_comment_body">现在新推出了一个权限框架，叫jCasbin（<a href="https://github.com/casbin/jcasbin" target="_blank">https://github.com/casbin/jcasbin</a>）。jCasbin采用了元模型的设计思想，支持多种经典的访问控制方案，如ACL、RBAC、ABAC，还支持对RESTful API的控制。现在已经支持Spring Boot、JFinal等Web框架了。</div><div class="comment_vote"><a href="javascript:void(0);" class="comment_digg" onclick="return voteComment(3973254,&#39;Digg&#39;,this)">支持(0)</a><a href="javascript:void(0);" class="comment_bury" onclick="return voteComment(3973254,&#39;Bury&#39;,this)">反对(0)</a></div>
+				&nbsp;&nbsp;<span class="comment_actions"></span>
+			<p></p>
+		
+</div><div id="comments_pager_bottom"></div></div><script type="text/javascript">var commentManager = new blogCommentManager();commentManager.renderComments(0);</script>
+<div id="comment_form" class="commentform">
+<a name="commentform"></a>
+<div id="divCommentShow"></div>
+<div id="comment_nav"><span id="span_refresh_tips"></span><a href="javascript:void(0);" onclick="return RefreshCommentList();" id="lnk_RefreshComments" runat="server" clientidmode="Static">刷新评论</a><a href="https://www.cnblogs.com/tianlifitting/p/8005327.html#" onclick="return RefreshPage();">刷新页面</a><a href="https://www.cnblogs.com/tianlifitting/p/8005327.html#top">返回顶部</a></div>
+<div id="comment_form_container"><div class="login_tips">注册用户登录后才能发表评论，请 <a rel="nofollow" href="javascript:void(0);" class="underline" onclick="return login(&#39;commentform&#39;);">登录</a> 或 <a rel="nofollow" href="javascript:void(0);" class="underline" onclick="return register();">注册</a>，<a href="http://www.cnblogs.com/">访问</a>网站首页。</div></div>
+<div class="ad_text_commentbox" id="ad_text_under_commentbox"></div>
+<div id="ad_t2"><a href="http://www.ucancode.com/index.htm" target="_blank">【推荐】超50万VC++源码: 大型组态工控、电力仿真CAD与GIS源码库！</a><br><a href="https://www.linuxprobe.com/chapter-00.html" target="_blank" onclick="ga(&#39;send&#39;, &#39;event&#39;, &#39;Link&#39;, &#39;click&#39;, &#39;T2-linuxprobe&#39;)">【免费】要想入门学习Linux系统技术，你应该先选择一本适合自己的书籍</a><br><a href="https://www.grapecity.com.cn/developer/spreadjs?utm_source=cnblogs&utm_medium=blogpage&utm_term=bottom&utm_content=SpreadJS&utm_campaign=community" target="_blank" onclick="ga(&#39;send&#39;, &#39;event&#39;, &#39;Link&#39;, &#39;click&#39;, &#39;T2-SpreadJS&#39;)">【前端】SpreadJS表格控件，可嵌入应用开发的在线Excel</a><br><a href="https://cloud.tencent.com/developer/edu/major-100005?fromSource=gwzcw.1312543.1312543.1312543#course-1274" target="_blank" onclick="ga(&#39;send&#39;, &#39;event&#39;, &#39;Link&#39;, &#39;click&#39;, &#39;T2-微信支付&#39;)">【直播】如何快速接入微信支付功能</a><br></div>
+<div id="opt_under_post"></div>
+<div id="cnblogs_c1" class="c_ad_block"><a href="https://cloud.tencent.com/act/special/rav?fromSource=gwzcw.1312547.1312547.1312547" target="_blank"><img width="300" height="250" src="./java用户角色权限设计 - 沫菲 - 博客园_files/24442-20180914091419057-283402001.jpg" alt="腾讯云" onclick="ga(&#39;send&#39;, &#39;event&#39;, &#39;Link&#39;, &#39;click&#39;, &#39;C1&#39;);"></a></div>
+<div id="under_post_news"><div class="itnews c_ad_block"><b>最新IT新闻</b>:<br> ·  <a href="https://news.cnblogs.com/n/608472/" target="_blank">为更好诊断炎症性肠病，志愿者喝下自己的血液</a><br> ·  <a href="https://news.cnblogs.com/n/608471/" target="_blank">重新发现社区：巨头和资本市场的新宠</a><br> ·  <a href="https://news.cnblogs.com/n/608470/" target="_blank">美团外卖骑手上班途中遇车祸 配送商拒申报工伤</a><br> ·  <a href="https://news.cnblogs.com/n/608469/" target="_blank">中医被纳入WHO全球医学纲要，中医是否有效成为争议</a><br> ·  <a href="https://news.cnblogs.com/n/608468/" target="_blank">谷歌支付苹果至少90亿美元 成为Safari默认搜索引擎</a><br>» <a href="http://news.cnblogs.com/" title="IT新闻" target="_blank">更多新闻...</a></div></div>
+<div id="cnblogs_c2" class="c_ad_block"><a href="http://clickc.admaster.com.cn/c/a113319,b2799157,c1705,i0,m101,8a1,8b3,h" target="_blank"><img width="468" height="60" src="./java用户角色权限设计 - 沫菲 - 博客园_files/24442-20180928211056169-856184964.jpg" alt="华为云C2_0929" onclick="ga(&#39;send&#39;, &#39;event&#39;, &#39;Link&#39;, &#39;click&#39;, &#39;C2&#39;);"></a></div>
+<div id="under_post_kb"><div class="itnews c_ad_block" id="kb_block"><b>最新知识库文章</b>:<br><div id="kb_recent"> ·  <a href="https://kb.cnblogs.com/page/606682/" target="_blank">为什么说 Java 程序员必须掌握 Spring Boot ？</a><br> ·  <a href="https://kb.cnblogs.com/page/606645/" target="_blank">在学习中，有一个比掌握知识更重要的能力</a><br> ·  <a href="https://kb.cnblogs.com/page/603663/" target="_blank">如何招到一个靠谱的程序员</a><br> ·  <a href="https://kb.cnblogs.com/page/573614/" target="_blank">一个故事看懂“区块链”</a><br> ·  <a href="https://kb.cnblogs.com/page/603697/" target="_blank">被踢出去的用户</a><br></div>» <a href="https://kb.cnblogs.com/" target="_blank">更多知识库文章...</a></div></div>
+<div id="HistoryToday" class="c_ad_block"></div>
+<script type="text/javascript">
+    fixPostBody();
+    setTimeout(function () { incrementViewCount(cb_entryId); }, 50);
+    deliverAdT2();
+    deliverAdC1();
+    deliverAdC2();    
+    loadNewsAndKb();
+    loadBlogSignature();
+    LoadPostInfoBlock(cb_blogId, cb_entryId, cb_blogApp, cb_blogUserGuid);
+    GetPrevNextPost(cb_entryId, cb_blogId, cb_entryCreatedDate, cb_postType);
+    loadOptUnderPost();
+    GetHistoryToday(cb_blogId, cb_blogApp, cb_entryCreatedDate);   
+</script>
+</div>
+
+
+</div>
+<div id="rightmenu">
+	
+		
+<h3>导航</h3>
+<ul>
+<li><a id="blog_nav_sitehome" href="https://www.cnblogs.com/">博客园</a></li>
+<li><a id="blog_nav_myhome" href="https://www.cnblogs.com/tianlifitting/">首页</a></li>
+<li><a id="blog_nav_newpost" rel="nofollow" href="https://i.cnblogs.com/EditPosts.aspx?opt=1">新随笔</a></li>
+<li><a id="blog_nav_contact" accesskey="9" rel="nofollow" href="https://msg.cnblogs.com/send/%E6%B2%AB%E8%8F%B2">联系</a></li>
+<li><a id="blog_nav_rss" href="https://www.cnblogs.com/tianlifitting/rss">订阅</a><a id="blog_nav_rss_image" href="https://www.cnblogs.com/tianlifitting/rss"><img src="./java用户角色权限设计 - 沫菲 - 博客园_files/xml.gif" alt="订阅"></a></li>
+<li><a id="blog_nav_admin" rel="nofollow" href="https://i.cnblogs.com/">管理</a></li>
+</ul>
+		
+<h3>公告</h3>
+<div class="newsItem">
+	<div id="blog-news"><div id="profile_block">昵称：<a href="https://home.cnblogs.com/u/tianlifitting/">沫菲</a><br>园龄：<a href="https://home.cnblogs.com/u/tianlifitting/" title="入园时间：2017-06-20">1年3个月</a><br>粉丝：<a href="https://home.cnblogs.com/u/tianlifitting/followers/">2</a><br>关注：<a href="https://home.cnblogs.com/u/tianlifitting/followees/">15</a><div id="p_b_follow"><a href="javascript:void(0);" onclick="follow(&#39;e657f3f2-1226-4c81-4268-08d4a8d9e085&#39;)">+加关注</a></div><script>getFollowStatus('e657f3f2-1226-4c81-4268-08d4a8d9e085')</script></div></div><script type="text/javascript">loadBlogNews();</script>
+</div>					
+		<div id="blog-calendar" style=""><table id="blogCalendar" class="Cal" cellspacing="0" cellpadding="0" title="Calendar">
+	<tbody><tr><td colspan="7"><table class="CalTitle" cellspacing="0">
+		<tbody><tr><td class="CalNextPrev"><a href="javascript:void(0);" onclick="loadBlogCalendar(&#39;2018/08/01&#39;);return false;">&lt;</a></td><td align="center">2018年9月</td><td class="CalNextPrev" align="right"><a href="javascript:void(0);" onclick="loadBlogCalendar(&#39;2018/10/01&#39;);return false;">&gt;</a></td></tr>
+	</tbody></table></td></tr><tr><th class="CalDayHeader" align="center" abbr="日" scope="col">日</th><th class="CalDayHeader" align="center" abbr="一" scope="col">一</th><th class="CalDayHeader" align="center" abbr="二" scope="col">二</th><th class="CalDayHeader" align="center" abbr="三" scope="col">三</th><th class="CalDayHeader" align="center" abbr="四" scope="col">四</th><th class="CalDayHeader" align="center" abbr="五" scope="col">五</th><th class="CalDayHeader" align="center" abbr="六" scope="col">六</th></tr><tr><td class="CalOtherMonthDay" align="center">26</td><td class="CalOtherMonthDay" align="center">27</td><td class="CalOtherMonthDay" align="center">28</td><td class="CalOtherMonthDay" align="center">29</td><td class="CalOtherMonthDay" align="center">30</td><td class="CalOtherMonthDay" align="center">31</td><td class="CalWeekendDay" align="center">1</td></tr><tr><td class="CalWeekendDay" align="center">2</td><td align="center">3</td><td align="center">4</td><td align="center">5</td><td align="center">6</td><td align="center">7</td><td class="CalWeekendDay" align="center">8</td></tr><tr><td class="CalWeekendDay" align="center">9</td><td align="center">10</td><td align="center">11</td><td align="center">12</td><td align="center">13</td><td align="center">14</td><td class="CalWeekendDay" align="center">15</td></tr><tr><td class="CalWeekendDay" align="center">16</td><td align="center">17</td><td align="center">18</td><td align="center">19</td><td align="center">20</td><td align="center">21</td><td class="CalWeekendDay" align="center">22</td></tr><tr><td class="CalWeekendDay" align="center">23</td><td align="center">24</td><td align="center">25</td><td align="center">26</td><td align="center">27</td><td align="center">28</td><td class="CalTodayDay" align="center">29</td></tr><tr><td class="CalWeekendDay" align="center">30</td><td class="CalOtherMonthDay" align="center">1</td><td class="CalOtherMonthDay" align="center">2</td><td class="CalOtherMonthDay" align="center">3</td><td class="CalOtherMonthDay" align="center">4</td><td class="CalOtherMonthDay" align="center">5</td><td class="CalOtherMonthDay" align="center">6</td></tr>
+</tbody></table></div><script type="text/javascript">loadBlogDefaultCalendar();</script>
+		<div id="blog_stats">
+<h3>统计</h3>
+<ul>
+	<li>随笔 - 21</li>
+	<li>文章 - 0</li>
+	<li>评论 - 1</li>
+	<li>引用 - 0</li>
+ </ul></div>
+		<div id="blog-sidecolumn"><div id="sidebar_search" class="sidebar-block">
+<div id="sidebar_search" class="mySearch">
+<h3 class="catListTitle">搜索</h3>
+<div id="sidebar_search_box">
+<div id="widget_my_zzk" class="div_my_zzk"><input type="text" id="q" onkeydown="return zzk_go_enter(event);" class="input_my_zzk">&nbsp;<input onclick="zzk_go()" type="button" value="找找看" id="btnZzk" class="btn_my_zzk"></div>
+<div id="widget_my_google" class="div_my_zzk"><input type="text" name="google_q" id="google_q" onkeydown="return google_go_enter(event)" class="input_my_zzk">&nbsp;<input onclick="google_go()" type="button" value="谷歌搜索" class="btn_my_zzk"></div>
+</div>
+</div>
+
+</div><div id="sidebar_shortcut" class="sidebar-block">
+<h3 class="catListTitle">常用链接</h3>
+<ul>
+<li><a href="https://www.cnblogs.com/tianlifitting/p/" title="我的博客的随笔列表">我的随笔</a></li><li><a href="https://www.cnblogs.com/tianlifitting/MyComments.html" title="我发表过的评论列表">我的评论</a></li><li><a href="https://www.cnblogs.com/tianlifitting/OtherPosts.html" title="我评论过的随笔列表">我的参与</a></li><li><a href="https://www.cnblogs.com/tianlifitting/RecentComments.html" title="我的博客的评论列表">最新评论</a></li><li><a href="https://www.cnblogs.com/tianlifitting/tag/" title="我的博客的标签列表">我的标签</a></li>
+</ul>
+<div id="itemListLin_con" style="display:none;">
+
+</div></div><div id="sidebar_toptags" class="sidebar-block"></div><div id="sidebar_categories">
+		<h3>随笔分类</h3>
+		
+				<ul>
+			
+				<li><a id="CatList_LinkList_0_Link_0" href="https://www.cnblogs.com/tianlifitting/category/1168213.html">J2EE案例(1)</a> </li>
+			
+				<li><a id="CatList_LinkList_0_Link_1" href="https://www.cnblogs.com/tianlifitting/category/1179758.html">Mybatis(1)</a> </li>
+			
+				<li><a id="CatList_LinkList_0_Link_2" href="https://www.cnblogs.com/tianlifitting/category/1175098.html">spring cloud(2)</a> </li>
+			
+				<li><a id="CatList_LinkList_0_Link_3" href="https://www.cnblogs.com/tianlifitting/category/1120298.html">初学  备忘录(1)</a> </li>
+			
+				<li><a id="CatList_LinkList_0_Link_4" href="https://www.cnblogs.com/tianlifitting/category/1179610.html">前端(1)</a> </li>
+			
+				</ul>
+			
+	
+		<h3>随笔档案</h3>
+		
+				<ul>
+			
+				<li><a id="CatList_LinkList_1_Link_0" href="https://www.cnblogs.com/tianlifitting/archive/2018/03.html">2018年3月 (4)</a> </li>
+			
+				<li><a id="CatList_LinkList_1_Link_1" href="https://www.cnblogs.com/tianlifitting/archive/2018/02.html">2018年2月 (2)</a> </li>
+			
+				<li><a id="CatList_LinkList_1_Link_2" href="https://www.cnblogs.com/tianlifitting/archive/2018/01.html">2018年1月 (4)</a> </li>
+			
+				<li><a id="CatList_LinkList_1_Link_3" href="https://www.cnblogs.com/tianlifitting/archive/2017/12.html">2017年12月 (10)</a> </li>
+			
+				<li><a id="CatList_LinkList_1_Link_4" href="https://www.cnblogs.com/tianlifitting/archive/2017/11.html">2017年11月 (1)</a> </li>
+			
+				</ul>
+			
+	</div><div id="sidebar_recentcomments" class="sidebar-block"><div id="recent_comments_wrap">
+<h3 class="catListTitle">最新评论</h3>
+<div class="RecentComment" id="RecentComments">
+	<div id="RecentCommentsBlock"><ul>
+        <li class="recent_comment_title"><a href="https://www.cnblogs.com/tianlifitting/p/8005327.html#3973254">1. Re:java用户角色权限设计</a></li>
+        <li class="recent_comment_body">现在新推出了一个权限框架，叫jCasbin（）。jCasbin采用了元模型的设计思想，支持多种经典的访问控制方案，如ACL、RBAC、ABAC，还支持对RESTful API的控制。现在已经支持Spr......</li>
+        <li class="recent_comment_author">--食肉大灰兔</li>
+</ul>
+</div>
+</div>
+</div></div><div id="sidebar_topviewedposts" class="sidebar-block"><div id="topview_posts_wrap">
+<h3 class="catListTitle">阅读排行榜</h3>
+<div class="RecentComment" id="TopViewPosts"> 
+	<div id="TopViewPostsBlock"><ul><li><a href="./java用户角色权限设计 - 沫菲 - 博客园_files/java用户角色权限设计 - 沫菲 - 博客园.html">1. java用户角色权限设计(5390)</a></li><li><a href="https://www.cnblogs.com/tianlifitting/p/8038597.html">2. eclipse中git怎么提交代码到码云(2250)</a></li><li><a href="https://www.cnblogs.com/tianlifitting/p/8535243.html">3. spring cloud security oauth2单点登录(1240)</a></li><li><a href="https://www.cnblogs.com/tianlifitting/p/8038211.html">4. HashMap和HashSet的区别(199)</a></li><li><a href="https://www.cnblogs.com/tianlifitting/p/8047497.html">5. StringUtils中 isNotEmpty 和isNotBlank的区别(185)</a></li></ul></div>
+</div>
+</div></div><div id="sidebar_topcommentedposts" class="sidebar-block"><div id="topfeedback_posts_wrap">
+<h3 class="catListTitle">评论排行榜</h3>
+<div class="RecentComment" id="TopCommentsPosts">
+	<div id="TopFeedbackPostsBlock"><ul><li><a href="./java用户角色权限设计 - 沫菲 - 博客园_files/java用户角色权限设计 - 沫菲 - 博客园.html">1. java用户角色权限设计(1)</a></li></ul></div>
+</div></div></div><div id="sidebar_topdiggedposts" class="sidebar-block"><div id="topdigg_posts_wrap" style="display: none;">
+<h3 class="catListTitle">推荐排行榜</h3>
+<div class="RecentComment">
+	<div id="TopDiggPostsBlock"></div>
+</div></div></div></div><script type="text/javascript">loadBlogSideColumn();</script>
+		
+<div id="footer">
+	Powered by: 
+	<br>
+	<a id="Footer1_Hyperlink3" href="https://www.cnblogs.com/" style="font-family:Verdana;font-size:12px;">博客园</a>
+	<br>
+	Copyright © 沫菲
+</div>
+	
+</div>			
+			
+	
+
+
+
+</body></html>
