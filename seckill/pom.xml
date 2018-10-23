@@ -131,6 +131,12 @@
             <artifactId>protostuff-runtime</artifactId>
             <version>1.6.0</version>
         </dependency>
+        <dependency>
+            <groupId>io.protostuff</groupId>
+            <artifactId>protostuff-core</artifactId>
+            <version>1.6.0</version>
+            <scope>compile</scope>
+        </dependency>
     </dependencies>
 
 </project>
