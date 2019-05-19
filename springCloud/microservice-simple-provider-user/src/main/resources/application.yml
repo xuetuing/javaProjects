@@ -1,0 +1,27 @@
+server:
+  port: 7900
+spring:
+  jpa:
+    generate-ddl: false
+    show-sql: true
+    hibernate:
+      ddl-auto: none
+    database: mysql
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL5Dialect
+  datasource:
+    url: jdbc:mysql://localhost:3306/db_test?characterEncoding=UTF-8&serverTimezone=GMT
+    schema: classpath:schema.sql
+    data: classpath:data.sql
+    username: xuetu
+    password: 123
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    initialization-mode: always
+logging:
+  level:
+    root: INFO
+    org.hibernate: INFO
+    org.hibernate.type.descriptor.sql.BasicBinder: TRACE
+    org.hibernate.type.descriptor.sql.BasicExtractor: TRACE
+    com.itmuch: DEBUG
