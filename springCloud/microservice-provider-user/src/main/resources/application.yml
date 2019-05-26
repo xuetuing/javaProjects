@@ -18,6 +18,8 @@ spring:
     password: 123
     driver-class-name: com.mysql.cj.jdbc.Driver
     initialization-mode: always
+  main:
+    allow-bean-definition-overriding: true
 logging:
   level:
     root: INFO
