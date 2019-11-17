@@ -1,0 +1,26 @@
+
+spring:
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: Asia/Shanghai
+  profiles:
+    active: pro
+server:
+  port: 8080
+
+---
+server:
+  port: 8081
+spring:
+  profiles: dev
+---
+server:
+  port: 8082
+spring:
+  profiles: test
+
+---
+spring:
+  profiles: pro
+server:
+  port: 8083
