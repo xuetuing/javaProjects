@@ -1,4 +1,4 @@
-package designpatterns.singleton;
+package com.base.designpatterns.singleton;
 
 // 线程不安全
 public class Singleton2 {

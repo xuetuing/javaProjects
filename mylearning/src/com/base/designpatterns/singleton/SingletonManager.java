@@ -1,4 +1,4 @@
-package designpatterns.singleton;
+package com.base.designpatterns.singleton;
 
 import java.util.HashMap;
 import java.util.Map;

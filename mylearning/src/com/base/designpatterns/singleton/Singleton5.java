@@ -1,4 +1,4 @@
-package designpatterns.singleton;
+package com.base.designpatterns.singleton;
 //静态内部类 可取代DCL
 public class Singleton5 {
     private Singleton5() {

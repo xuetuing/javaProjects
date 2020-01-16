@@ -1,4 +1,4 @@
-package designpatterns.singleton;
+package com.base.designpatterns.singleton;
 //线程安全，但性能不好
 public class Singleton3 {
     private static Singleton3 instance;

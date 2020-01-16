@@ -1,4 +1,4 @@
-package algorithm;
+package com.base.algorithm;
 
 /**
  * 给定字符串及字符串列表

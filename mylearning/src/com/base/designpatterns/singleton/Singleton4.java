@@ -1,4 +1,4 @@
-package designpatterns.singleton;
+package com.base.designpatterns.singleton;
 
 //DCL双重检查加锁
 public class Singleton4 {
