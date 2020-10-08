@@ -1,0 +1,18 @@
+<!--pages/main/main.wxml-->
+<view class="content">
+  <image class='background' src="../assets/img/bg.png" mode="aspectFill"></image>
+  <view class="today">
+    <view class="info">
+      <view class="temp">{{today.wendu}}℃</view>
+      <view class="weather">{{today.todayInfo.type}} {{today.todayInfo.fengxiang}} {{today.todayInfo.fengli}}</view>
+      <view class="tips">友情提示： {{today.ganmao}}</view>
+      <view class="city">{{city}}</view>
+    </view>
+  </view>
+  <import src="../template/itemtpl"></import>
+  <view class="future">
+    <block wx:for="{{future}}">
+      <template is="future-item" data="{{item}}"></template>
+    </block>
+  </view>
+</view>
