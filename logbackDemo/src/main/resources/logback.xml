@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<configuration debug="true" scan="true" scanPeriod="1 seconds">
+
+    <conversionRule conversionWord="d" converterClass="com.wtj.LogDateConvert" />
+    <!-- 用于指定logger上下文名称，默认为default -->
+    <contextName>logback</contextName>
+
+    <!-- ************************常用的Appender************************************** -->
+    <!--
+        <appender>标签包含2个属性：name、class
+        name属性：指定appender名称;class属性：指定目的地类型 （比如ConsoleAppender、FileAppender等）
+        class属性的值决定了<appender>标签包含的子标签的种类。
+        -->
+    <!-- 该appender的功能是将记录信息以特定格式写到控制台 -->
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <!--encoder:将事件转换为字符串
+            默认配置为PatternLayoutEncoder类
+            encoder用于替代Layout，encoder扩展了Layout功能
+            Layout功能：只负责把事件转换为字符串，但是不能指定何时将记录写入到指定目的地
+            encoder功能：即负责把事件转换为字符串，也可以指定何时将记录写入到指定目的地
+         -->
+        <encoder>
+            <!-- 指定输出格式
+                %d{} :表示时间
+                %thread:请求记录所在的线程名
+                %-5level：用5位显示请求级别
+                %logger{36}：输出logger名，{36}表示logger名最大占用的字符位数，{0}表示最简短logger名（不包含包名）。
+             -->
+            <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{0} -%msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <appender name="level_console" class="ch.qos.logback.core.ConsoleAppender">
+        <filter class="ch.qos.logback.classic.filter.LevelFilter">
+            <level>debug</level>
+            <onMatch>ACCEPT</onMatch>
+            <onMismatch>DENY</onMismatch>
+        </filter>
+        <encoder>
+            <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{0} -%msg%n</pattern>
+        </encoder>
+    </appender>
+    <!--
+        ***********************常规临界值滤器的使用****************************************
+        本配置功能：请求级别高于或等于info的请求响应NEUTRAL（进入下一个环节），低于info的级别请求响应DENY(表示丢弃)。
+     -->
+    <appender name="threshold_console" class="ch.qos.logback.core.ConsoleAppender">
+        <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+            <level>info</level>
+        </filter>
+        <encoder>
+            <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{0} -%msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <!-- level属性：指定根logger的分配级别 -->
+    <root level="debug">
+        <!-- ref属性：指定根logger关联的appender -->
+        <appender-ref ref="STDOUT"></appender-ref>
+    </root>
+    <!-- name:指定logger名称；level：指定logger的分配级别；additivity(非必须，默认为true)：设置appender叠加性 -->
+    <logger name="demo4" level="debug" additivity="false">
+        <appender-ref ref="level_console"></appender-ref>
+    </logger>
+    <logger name="demo5" level="debug" additivity="false">
+        <appender-ref ref="threshold_console"></appender-ref>
+    </logger>
+</configuration>
