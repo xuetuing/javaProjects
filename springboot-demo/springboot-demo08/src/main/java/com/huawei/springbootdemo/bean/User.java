@@ -1,20 +1,15 @@
 package com.huawei.springbootdemo.bean;
 
+import java.io.Serializable;
 import java.util.Date;
 
-public class User {
+public class User implements Serializable {
 
     private Integer id;
     private String name;
-    private Date date;
+    private Date createTime;
 
     public User() {
-    }
-
-    public User(Integer id, String name, Date date) {
-        this.id = id;
-        this.name = name;
-        this.date = date;
     }
 
     public String getName() {
@@ -25,14 +20,6 @@ public class User {
         this.name = name;
     }
 
-    public Date getDate() {
-        return date;
-    }
-
-    public void setDate(Date date) {
-        this.date = date;
-    }
-
     public Integer getId() {
         return id;
     }
@@ -41,12 +28,20 @@ public class User {
         this.id = id;
     }
 
+    public Date getCreateTime() {
+        return createTime;
+    }
+
+    public void setCreateTime(Date createTime) {
+        this.createTime = createTime;
+    }
+
     @Override
     public String toString() {
         return "User{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
-                ", date=" + date +
+                ", createTime=" + createTime +
                 '}';
     }
 }
