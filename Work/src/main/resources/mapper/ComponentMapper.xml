@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.work.generator.mapper.ComponentMapper">
+
+    <resultMap id="BaseResultMap" type="com.example.work.generator.entity.Component">
+            <id property="id" column="id" jdbcType="INTEGER"/>
+            <result property="name" column="name" jdbcType="VARCHAR"/>
+            <result property="profession" column="profession" jdbcType="VARCHAR"/>
+            <result property="segmentId" column="segment_id" jdbcType="INTEGER"/>
+            <result property="workEfficiency" column="work_efficiency" jdbcType="INTEGER"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id,name,profession,
+        segment_id,work_efficiency
+    </sql>
+</mapper>
