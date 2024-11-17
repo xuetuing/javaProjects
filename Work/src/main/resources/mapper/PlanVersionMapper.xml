@@ -12,11 +12,12 @@
             <result property="status" column="status" jdbcType="TINYINT"/>
             <result property="areaId" column="area_id" jdbcType="INTEGER"/>
             <result property="pointId" column="point_id" jdbcType="INTEGER"/>
+            <result property="projectId" column="project_id" jdbcType="INTEGER"/>
     </resultMap>
 
     <sql id="Base_Column_List">
         id,version,deploy_date,
         deploy_user,status,area_id,
-        point_id
+        point_id,project_id
     </sql>
 </mapper>

@@ -12,9 +12,9 @@ import org.hibernate.validator.constraints.Length;
 
 /**
 * 
-* @TableName plan
+* @TableName plan_history
 */
-public class Plan implements Serializable {
+public class PlanHistory implements Serializable {
 
     /**
     * 

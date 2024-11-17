@@ -10,10 +10,19 @@
             <result property="profession" column="profession" jdbcType="VARCHAR"/>
             <result property="segmentId" column="segment_id" jdbcType="INTEGER"/>
             <result property="workEfficiency" column="work_efficiency" jdbcType="INTEGER"/>
+            <result property="planId" column="plan_id" jdbcType="INTEGER"/>
+            <result property="parentCode" column="parent_code" jdbcType="VARCHAR"/>
+            <result property="code" column="code" jdbcType="VARCHAR"/>
+            <result property="level" column="level" jdbcType="VARCHAR"/>
+            <result property="projectId" column="project_id" jdbcType="VARCHAR"/>
+            <result property="areaId" column="area_id" jdbcType="INTEGER"/>
+            <result property="pointId" column="point_id" jdbcType="INTEGER"/>
     </resultMap>
 
     <sql id="Base_Column_List">
         id,name,profession,
-        segment_id,work_efficiency
+        segment_id,work_efficiency,plan_id,
+        parent_code,code,level,
+        project_id,area_id,point_id
     </sql>
 </mapper>

@@ -10,7 +10,7 @@ import io.swagger.annotations.ApiModelProperty;
 import org.hibernate.validator.constraints.Length;
 
 /**
-* 工序
+* 施工工序表
 * @TableName processes
 */
 public class Processes implements Serializable {
@@ -22,22 +22,27 @@ public class Processes implements Serializable {
     @ApiModelProperty("")
     private Integer id;
     /**
-    * 
+    * 计划ID
     */
-    @Size(max= 255,message="编码长度不能超过255")
-    @ApiModelProperty("")
-    @Length(max= 255,message="编码长度不能超过255")
-    private String name;
+    @ApiModelProperty("计划ID")
+    private Integer planId;
     /**
-    * 工点id
+    * 工序名称
     */
-    @ApiModelProperty("工点id")
-    private Integer pointId;
+    @Size(max= 64,message="编码长度不能超过64")
+    @ApiModelProperty("工序名称")
+    @Length(max= 64,message="编码长度不能超过64")
+    private String name;
     /**
     * 构件id
     */
     @ApiModelProperty("构件id")
     private Integer compId;
+    /**
+    * 工点id
+    */
+    @ApiModelProperty("工点id")
+    private Integer pointId;
 
     /**
     * 
@@ -47,17 +52,17 @@ public class Processes implements Serializable {
     }
 
     /**
-    * 
+    * 计划ID
     */
-    private void setName(String name){
-    this.name = name;
+    private void setPlanId(Integer planId){
+    this.planId = planId;
     }
 
     /**
-    * 工点id
+    * 工序名称
     */
-    private void setPointId(Integer pointId){
-    this.pointId = pointId;
+    private void setName(String name){
+    this.name = name;
     }
 
     /**
@@ -65,6 +70,13 @@ public class Processes implements Serializable {
     */
     private void setCompId(Integer compId){
     this.compId = compId;
+    }
+
+    /**
+    * 工点id
+    */
+    private void setPointId(Integer pointId){
+    this.pointId = pointId;
     }
 
 
@@ -76,17 +88,17 @@ public class Processes implements Serializable {
     }
 
     /**
-    * 
+    * 计划ID
     */
-    private String getName(){
-    return this.name;
+    private Integer getPlanId(){
+    return this.planId;
     }
 
     /**
-    * 工点id
+    * 工序名称
     */
-    private Integer getPointId(){
-    return this.pointId;
+    private String getName(){
+    return this.name;
     }
 
     /**
@@ -94,6 +106,13 @@ public class Processes implements Serializable {
     */
     private Integer getCompId(){
     return this.compId;
+    }
+
+    /**
+    * 工点id
+    */
+    private Integer getPointId(){
+    return this.pointId;
     }
 
 }

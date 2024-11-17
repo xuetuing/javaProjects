@@ -30,8 +30,6 @@ class WorkApplicationTests {
 
         plan.setStartTime(LocalDateTime.now());
         plan.setEndTime(LocalDateTime.now().plusDays(30));
-
-        planService.insert(plan);
         System.out.println();
     }
 

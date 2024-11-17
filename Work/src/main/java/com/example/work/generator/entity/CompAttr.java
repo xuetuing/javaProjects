@@ -10,10 +10,10 @@ import io.swagger.annotations.ApiModelProperty;
 import org.hibernate.validator.constraints.Length;
 
 /**
-* 构件规格表
-* @TableName comp_type
+* 构件属性表
+* @TableName comp_attr
 */
-public class CompType implements Serializable {
+public class CompAttr implements Serializable {
 
     /**
     * 
@@ -21,6 +21,11 @@ public class CompType implements Serializable {
     @NotNull(message="[]不能为空")
     @ApiModelProperty("")
     private Integer id;
+    /**
+    * 类型：0-材料信息；1-工艺工序信息；2-结构信息；3-几何信息；4-机械信息；
+    */
+    @ApiModelProperty("类型：0-材料信息；1-工艺工序信息；2-结构信息；3-几何信息；4-机械信息；")
+    private Integer type;
     /**
     * 属性名
     */
@@ -53,6 +58,13 @@ public class CompType implements Serializable {
     */
     private void setId(Integer id){
     this.id = id;
+    }
+
+    /**
+    * 类型：0-材料信息；1-工艺工序信息；2-结构信息；3-几何信息；4-机械信息；
+    */
+    private void setType(Integer type){
+    this.type = type;
     }
 
     /**
@@ -89,6 +101,13 @@ public class CompType implements Serializable {
     */
     private Integer getId(){
     return this.id;
+    }
+
+    /**
+    * 类型：0-材料信息；1-工艺工序信息；2-结构信息；3-几何信息；4-机械信息；
+    */
+    private Integer getType(){
+    return this.type;
     }
 
     /**

@@ -45,6 +45,49 @@ public class Component implements Serializable {
     */
     @ApiModelProperty("工效")
     private Integer workEfficiency;
+    /**
+    * 计划ID
+    */
+    @ApiModelProperty("计划ID")
+    private Integer planId;
+    /**
+    * 上级编码
+    */
+    @Size(max= 255,message="编码长度不能超过255")
+    @ApiModelProperty("上级编码")
+    @Length(max= 255,message="编码长度不能超过255")
+    private String parentCode;
+    /**
+    * 构件编码
+    */
+    @Size(max= 255,message="编码长度不能超过255")
+    @ApiModelProperty("构件编码")
+    @Length(max= 255,message="编码长度不能超过255")
+    private String code;
+    /**
+    * 层级
+    */
+    @Size(max= 255,message="编码长度不能超过255")
+    @ApiModelProperty("层级")
+    @Length(max= 255,message="编码长度不能超过255")
+    private String level;
+    /**
+    * 项目ID
+    */
+    @Size(max= 255,message="编码长度不能超过255")
+    @ApiModelProperty("项目ID")
+    @Length(max= 255,message="编码长度不能超过255")
+    private String projectId;
+    /**
+    * 工区ID
+    */
+    @ApiModelProperty("工区ID")
+    private Integer areaId;
+    /**
+    * 工点ID
+    */
+    @ApiModelProperty("工点ID")
+    private Integer pointId;
 
     /**
     * 
@@ -81,6 +124,55 @@ public class Component implements Serializable {
     this.workEfficiency = workEfficiency;
     }
 
+    /**
+    * 计划ID
+    */
+    private void setPlanId(Integer planId){
+    this.planId = planId;
+    }
+
+    /**
+    * 上级编码
+    */
+    private void setParentCode(String parentCode){
+    this.parentCode = parentCode;
+    }
+
+    /**
+    * 构件编码
+    */
+    private void setCode(String code){
+    this.code = code;
+    }
+
+    /**
+    * 层级
+    */
+    private void setLevel(String level){
+    this.level = level;
+    }
+
+    /**
+    * 项目ID
+    */
+    private void setProjectId(String projectId){
+    this.projectId = projectId;
+    }
+
+    /**
+    * 工区ID
+    */
+    private void setAreaId(Integer areaId){
+    this.areaId = areaId;
+    }
+
+    /**
+    * 工点ID
+    */
+    private void setPointId(Integer pointId){
+    this.pointId = pointId;
+    }
+
 
     /**
     * 
@@ -115,6 +207,55 @@ public class Component implements Serializable {
     */
     private Integer getWorkEfficiency(){
     return this.workEfficiency;
+    }
+
+    /**
+    * 计划ID
+    */
+    private Integer getPlanId(){
+    return this.planId;
+    }
+
+    /**
+    * 上级编码
+    */
+    private String getParentCode(){
+    return this.parentCode;
+    }
+
+    /**
+    * 构件编码
+    */
+    private String getCode(){
+    return this.code;
+    }
+
+    /**
+    * 层级
+    */
+    private String getLevel(){
+    return this.level;
+    }
+
+    /**
+    * 项目ID
+    */
+    private String getProjectId(){
+    return this.projectId;
+    }
+
+    /**
+    * 工区ID
+    */
+    private Integer getAreaId(){
+    return this.areaId;
+    }
+
+    /**
+    * 工点ID
+    */
+    private Integer getPointId(){
+    return this.pointId;
     }
 
 }

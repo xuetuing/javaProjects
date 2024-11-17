@@ -6,12 +6,11 @@ import javax.validation.constraints.NotNull;
 
 import java.io.Serializable;
 
-import java.time.LocalDateTime;
 import io.swagger.annotations.ApiModelProperty;
 import org.hibernate.validator.constraints.Length;
 
 /**
-* 计划模板
+* 
 * @TableName plan_template
 */
 public class PlanTemplate implements Serializable {
@@ -21,12 +20,12 @@ public class PlanTemplate implements Serializable {
     */
     @NotNull(message="[模板id]不能为空")
     @ApiModelProperty("模板id")
-    private Integer templateId;
+    private Integer id;
     /**
-    * 模板名
+    * 模板名称
     */
     @Size(max= 255,message="编码长度不能超过255")
-    @ApiModelProperty("模板名")
+    @ApiModelProperty("模板名称")
     @Length(max= 255,message="编码长度不能超过255")
     private String templateName;
     /**
@@ -37,20 +36,20 @@ public class PlanTemplate implements Serializable {
     @Length(max= 255,message="编码长度不能超过255")
     private String implClass;
     /**
-    * 创建时间
+    * 工作面
     */
-    @ApiModelProperty("创建时间")
-    private LocalDateTime createTime;
+    @ApiModelProperty("工作面")
+    private Integer workFace;
 
     /**
     * 模板id
     */
-    private void setTemplateId(Integer templateId){
-    this.templateId = templateId;
+    private void setId(Integer id){
+    this.id = id;
     }
 
     /**
-    * 模板名
+    * 模板名称
     */
     private void setTemplateName(String templateName){
     this.templateName = templateName;
@@ -64,22 +63,22 @@ public class PlanTemplate implements Serializable {
     }
 
     /**
-    * 创建时间
+    * 工作面
     */
-    private void setCreateTime(LocalDateTime createTime){
-    this.createTime = createTime;
+    private void setWorkFace(Integer workFace){
+    this.workFace = workFace;
     }
 
 
     /**
     * 模板id
     */
-    private Integer getTemplateId(){
-    return this.templateId;
+    private Integer getId(){
+    return this.id;
     }
 
     /**
-    * 模板名
+    * 模板名称
     */
     private String getTemplateName(){
     return this.templateName;
@@ -93,10 +92,10 @@ public class PlanTemplate implements Serializable {
     }
 
     /**
-    * 创建时间
+    * 工作面
     */
-    private LocalDateTime getCreateTime(){
-    return this.createTime;
+    private Integer getWorkFace(){
+    return this.workFace;
     }
 
 }

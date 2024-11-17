@@ -6,13 +6,14 @@
 
     <resultMap id="BaseResultMap" type="com.example.work.generator.entity.Processes">
             <id property="id" column="id" jdbcType="INTEGER"/>
+            <result property="planId" column="plan_id" jdbcType="INTEGER"/>
             <result property="name" column="name" jdbcType="VARCHAR"/>
-            <result property="pointId" column="point_id" jdbcType="INTEGER"/>
             <result property="compId" column="comp_id" jdbcType="INTEGER"/>
+            <result property="pointId" column="point_id" jdbcType="INTEGER"/>
     </resultMap>
 
     <sql id="Base_Column_List">
-        id,name,point_id,
-        comp_id
+        id,plan_id,name,
+        comp_id,point_id
     </sql>
 </mapper>

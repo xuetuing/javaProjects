@@ -6,14 +6,19 @@
 
     <resultMap id="BaseResultMap" type="com.example.work.generator.entity.ProcComplete">
             <id property="id" column="id" jdbcType="INTEGER"/>
-            <result property="planId" column="plan_id" jdbcType="INTEGER"/>
-            <result property="processesId" column="processes_id" jdbcType="INTEGER"/>
+            <result property="proceId" column="proce_id" jdbcType="INTEGER"/>
+            <result property="type" column="type" jdbcType="VARCHAR"/>
+            <result property="name" column="name" jdbcType="VARCHAR"/>
+            <result property="unit" column="unit" jdbcType="VARCHAR"/>
+            <result property="value" column="value" jdbcType="INTEGER"/>
+            <result property="reportUserId" column="report_user_id" jdbcType="INTEGER"/>
+            <result property="reportUserName" column="report_user_name" jdbcType="VARCHAR"/>
             <result property="compeledTime" column="compeled_time" jdbcType="TIMESTAMP"/>
-            <result property="reportUser" column="report_user" jdbcType="VARCHAR"/>
     </resultMap>
 
     <sql id="Base_Column_List">
-        id,plan_id,processes_id,
-        compeled_time,report_user
+        id,proce_id,type,
+        name,unit,value,
+        report_user_id,report_user_name,compeled_time
     </sql>
 </mapper>

@@ -5,14 +5,14 @@
 <mapper namespace="com.example.work.generator.mapper.PlanTemplateMapper">
 
     <resultMap id="BaseResultMap" type="com.example.work.generator.entity.PlanTemplate">
-            <id property="templateId" column="template_id" jdbcType="INTEGER"/>
+            <id property="id" column="id" jdbcType="INTEGER"/>
             <result property="templateName" column="template_name" jdbcType="VARCHAR"/>
             <result property="implClass" column="impl_class" jdbcType="VARCHAR"/>
-            <result property="createTime" column="create_time" jdbcType="TIMESTAMP"/>
+            <result property="workFace" column="work_face" jdbcType="TINYINT"/>
     </resultMap>
 
     <sql id="Base_Column_List">
-        template_id,template_name,impl_class,
-        create_time
+        id,template_name,impl_class,
+        work_face
     </sql>
 </mapper>

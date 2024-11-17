@@ -8,8 +8,8 @@ import org.springframework.stereotype.Service;
 
 /**
 * @author DELL
-* @description 针对表【segment(区段表)】的数据库操作Service实现
-* @createDate 2024-11-17 12:01:10
+* @description 针对表【segment(区段)】的数据库操作Service实现
+* @createDate 2024-11-17 21:35:03
 */
 @Service
 public class SegmentServiceImpl extends ServiceImpl<SegmentMapper, Segment>

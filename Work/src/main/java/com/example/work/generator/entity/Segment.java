@@ -10,7 +10,7 @@ import io.swagger.annotations.ApiModelProperty;
 import org.hibernate.validator.constraints.Length;
 
 /**
-* 区段表
+* 区段
 * @TableName segment
 */
 public class Segment implements Serializable {
@@ -38,6 +38,11 @@ public class Segment implements Serializable {
     @ApiModelProperty("区段名")
     @Length(max= 255,message="编码长度不能超过255")
     private String name;
+    /**
+    * 项目ID
+    */
+    @ApiModelProperty("项目ID")
+    private Integer projectId;
 
     /**
     * 
@@ -67,6 +72,13 @@ public class Segment implements Serializable {
     this.name = name;
     }
 
+    /**
+    * 项目ID
+    */
+    private void setProjectId(Integer projectId){
+    this.projectId = projectId;
+    }
+
 
     /**
     * 
@@ -94,6 +106,13 @@ public class Segment implements Serializable {
     */
     private String getName(){
     return this.name;
+    }
+
+    /**
+    * 项目ID
+    */
+    private Integer getProjectId(){
+    return this.projectId;
     }
 
 }

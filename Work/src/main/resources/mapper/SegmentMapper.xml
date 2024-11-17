@@ -9,10 +9,11 @@
             <result property="areaId" column="area_id" jdbcType="INTEGER"/>
             <result property="pointId" column="point_id" jdbcType="INTEGER"/>
             <result property="name" column="name" jdbcType="VARCHAR"/>
+            <result property="projectId" column="project_id" jdbcType="INTEGER"/>
     </resultMap>
 
     <sql id="Base_Column_List">
         id,area_id,point_id,
-        name
+        name,project_id
     </sql>
 </mapper>

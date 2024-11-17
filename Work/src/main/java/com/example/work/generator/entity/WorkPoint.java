@@ -10,7 +10,7 @@ import io.swagger.annotations.ApiModelProperty;
 import org.hibernate.validator.constraints.Length;
 
 /**
-* 工点
+* 
 * @TableName work_point
 */
 public class WorkPoint implements Serializable {

@@ -25,9 +25,10 @@ public class PlanVersion implements Serializable {
     /**
     * 版本
     */
-    @Size(max= 255,message="编码长度不能超过255")
+    @NotBlank(message="[版本]不能为空")
+    @Size(max= 32,message="编码长度不能超过32")
     @ApiModelProperty("版本")
-    @Length(max= 255,message="编码长度不能超过255")
+    @Length(max= 32,message="编码长度不能超过32")
     private String version;
     /**
     * 发布日期
@@ -56,6 +57,11 @@ public class PlanVersion implements Serializable {
     */
     @ApiModelProperty("工点")
     private Integer pointId;
+    /**
+    * 项目ID
+    */
+    @ApiModelProperty("项目ID")
+    private Integer projectId;
 
     /**
     * 
@@ -106,6 +112,13 @@ public class PlanVersion implements Serializable {
     this.pointId = pointId;
     }
 
+    /**
+    * 项目ID
+    */
+    private void setProjectId(Integer projectId){
+    this.projectId = projectId;
+    }
+
 
     /**
     * 
@@ -154,6 +167,13 @@ public class PlanVersion implements Serializable {
     */
     private Integer getPointId(){
     return this.pointId;
+    }
+
+    /**
+    * 项目ID
+    */
+    private Integer getProjectId(){
+    return this.projectId;
     }
 
 }
