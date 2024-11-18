@@ -2,9 +2,9 @@
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.example.work.generator.mapper.PlanHistoryMapper">
+<mapper namespace="com.example.work.plan.mapper.PlanHistoryMapper">
 
-    <resultMap id="BaseResultMap" type="com.example.work.generator.entity.PlanHistory">
+    <resultMap id="BaseResultMap" type="com.example.work.plan.entity.PlanHistory">
             <id property="id" column="id" jdbcType="INTEGER"/>
             <result property="areaId" column="area_id" jdbcType="INTEGER"/>
             <result property="pointId" column="point_id" jdbcType="INTEGER"/>

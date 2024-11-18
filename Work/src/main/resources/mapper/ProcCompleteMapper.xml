@@ -2,9 +2,9 @@
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.example.work.generator.mapper.ProcCompleteMapper">
+<mapper namespace="com.example.work.plan.mapper.ProcCompleteMapper">
 
-    <resultMap id="BaseResultMap" type="com.example.work.generator.entity.ProcComplete">
+    <resultMap id="BaseResultMap" type="com.example.work.plan.entity.ProcComplete">
             <id property="id" column="id" jdbcType="INTEGER"/>
             <result property="proceId" column="proce_id" jdbcType="INTEGER"/>
             <result property="type" column="type" jdbcType="VARCHAR"/>

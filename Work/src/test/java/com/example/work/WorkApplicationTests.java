@@ -1,7 +1,7 @@
 package com.example.work;
 
-import com.example.work.generator.entity.Plan;
-import com.example.work.generator.service.PlanService;
+import com.example.work.plan.entity.Plan;
+import com.example.work.plan.service.PlanService;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
